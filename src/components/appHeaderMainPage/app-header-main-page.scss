@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
+.app-header__main-page{
+    display: flex;
+    margin: 0 auto;    
+    width: 1600px;
+    height: 84px;
+    background: #262C34;
+    .logo{
+        width: 150px;
+        height: 70px;
+        fill: #ffb701;
+    }
+    .email_ico{
+        width: 30px;
+        height: 30px;
+        
+    }
+    .address{
+        margin: 0 auto;
+        margin-top: 35px;
+        width: 200px;
+        display: flex;
+    }
+    a{
+        font-family: 'Ubuntu';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        color: #F3F3F3;
+        text-decoration: none;
+        margin-left: 13px;
+
+    }
+    p{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #898088;
+   
+    }
+}
