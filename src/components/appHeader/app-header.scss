@@ -1,0 +1,115 @@
+
+.app-header{
+    width: 1600px;
+    height: 104px;
+    margin: 0 auto;
+    background: #262C34;
+    .catalog__btn{
+        width: 161px;
+        height: 53px;
+        margin: 26px 0 25px 0;
+        background: #FFB701;
+        border-radius: 10px;
+        border: none;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    img{
+        margin-left: 10px;
+    }
+    input{
+        width: 337px;
+        height: 52px;
+        margin: 26px 0 0 19px;
+        padding: 0 0 0 14px;
+        background: #3F4A58;
+        border-radius: 10px;
+        border: none;
+    }
+    input::placeholder{
+         
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        align-items: center;
+        color: #9CA7B5;
+    }
+    .phone_ico{
+        width: 30px;
+        height: 30px;
+        margin-top: 5px;
+        
+    }
+    .phone{
+        margin: 0 auto;
+        margin: 25px 0 0 35.5px;
+        display: flex;
+    }
+    a{
+        font-family: 'Ubuntu';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        color: #F3F3F3;
+        text-decoration: none;
+        margin-left: 13px;
+    }
+    p{
+        width: 100%;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #898088;
+        margin: 0 0 0 13px;
+    }
+    .cart{
+        width: 92px;
+        height: 52px;
+        margin: 25px 0 0 46px;
+        cursor: pointer;
+        display: flex;
+        background: #FFB701;
+        border-radius: 14px;
+        border: none
+    }
+    img{
+        margin: 12px 0 0 5px;
+    }
+    .count__cart{
+        width: 33px;
+        height: 33px;
+        margin: 10px 0 0 7px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h6{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .like{
+        width: 45px;
+        height: 40px;
+        margin: 30px 0 0 230px;
+    }
+    .avatar{
+        width: 62px;
+        height: 62px;
+        margin: 21px 0 0 43px;
+    }
+
+}

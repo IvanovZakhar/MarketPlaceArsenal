@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.call-me__btn{
+  width: 193px;
+  height: 42px;
+  margin-top: 20px;
+  background: #FFB701;
+  border-radius: 5px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #262C34;
+  border: none;
 }

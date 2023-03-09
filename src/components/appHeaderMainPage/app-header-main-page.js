@@ -1,7 +1,7 @@
 import React from 'react';
 import './app-header-main-page.scss'
-import logo from '../../resources/img/logo.svg';
-import email from '../../resources/img/E-mail.svg'
+import logo from '../../resources/img/ico/logo.svg';
+import email from '../../resources/img/ico/E-mail.svg'
 
 
 const AppHeaderMainPage = () => {
@@ -18,6 +18,7 @@ const AppHeaderMainPage = () => {
                         <p>Мы на связи!</p>
                     </div>
                 </div>
+                <button className="call-me__btn">Перезвоните мне</button>
             </div>
         </div>
     )
