@@ -1,5 +1,4 @@
 
-
 import './app-header.scss';
 import check from '../../resources/img/ico/check.svg';
 import phone from '../../resources/img/ico/phone.svg';
@@ -12,8 +11,8 @@ const AppHeader = () => {
         <header className='app-header'>
             <div className='container'>
                 <button className='catalog__btn'>
-                    КАТАЛОГ
-                    <img src={check} alt="check"/>
+                    <p className='text__catalog'>КАТАЛОГ</p>
+                    <img src={check} className='check__catalog' alt="check"/>
                 </button>
                 <input type='text'  placeholder='Поиск по сайту'/>
                 <div className='phone'>
@@ -26,11 +25,13 @@ const AppHeader = () => {
                     </div>
                 </div>
                 <img src={like} className='like' alt='like'/>
-                <button className='cart'>
+                <a href='/' className='cart'>
                     <img src={cart} alt='cart'/>
-                    <div className='count__cart'><h6>3</h6></div>
-                </button>
-                <img src={avatar} className='avatar' alt='avatar'/>
+                    <div className='count__cart'><p>3</p></div>
+                </a>
+                <a href='/'>
+                    <img src={avatar} className='avatar' alt='avatar'/>
+                </a>
             </div>
         </header>
     )

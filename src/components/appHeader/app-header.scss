@@ -7,10 +7,14 @@
     .catalog__btn{
         width: 161px;
         height: 53px;
+        display: flex;
         margin: 26px 0 25px 0;
         background: #FFB701;
         border-radius: 10px;
         border: none;
+    }
+    .text__catalog{
+        margin-top: 17px;
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 700;
@@ -19,8 +23,10 @@
         text-align: center;
         color: #FFFFFF;
     }
-    img{
-        margin-left: 10px;
+    .check__catalog{
+        width: 30px;
+        height: 8px;
+        margin: 20px 19.5px 0 0;
     }
     input{
         width: 337px;
@@ -49,7 +55,7 @@
     }
     .phone{
         margin: 0 auto;
-        margin: 25px 0 0 35.5px;
+        margin: 25px 0 0 53.5px;
         display: flex;
     }
     a{
@@ -80,8 +86,11 @@
         background: #FFB701;
         border-radius: 14px;
         border: none
+
     }
     img{
+        width: 37px;
+        height: 29px;
         margin: 12px 0 0 5px;
     }
     .count__cart{
@@ -100,16 +109,17 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 18px;
+        color: #313131;
     }
     .like{
         width: 45px;
         height: 40px;
-        margin: 30px 0 0 230px;
+        margin: 30px 0 0 220px;
     }
     .avatar{
         width: 62px;
         height: 62px;
-        margin: 21px 0 0 43px;
+        margin: 21px 0 0 30px;
     }
 
 }

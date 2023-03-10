@@ -1,0 +1,26 @@
+.catalog-menu{
+    list-style-type: none;
+    margin: 39px 0 0 15px;
+    li{
+        margin-top: 15px;
+    }
+    a{
+        text-decoration: none;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #313131;
+    }
+    .subsection__catalog-menu{
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0 0 20px;
+     
+    }
+    .subsection-link__catalog-menu{
+        margin-top: 5px;
+        font-size: 14px;
+    }
+}

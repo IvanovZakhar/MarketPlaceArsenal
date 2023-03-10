@@ -7,7 +7,7 @@ import email from '../../resources/img/ico/E-mail.svg'
 const AppHeaderMainPage = () => {
     return (
         <div className="app-header__main-page">
-            <div className="container">
+            <div className='container'>
                 <img src={logo} className="logo" alt="logo"/>
                 <div className='address'>
                     <div className='col-left__address'> 

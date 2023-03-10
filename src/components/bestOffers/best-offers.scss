@@ -1,0 +1,99 @@
+.best-offers{
+    display: flex;
+    margin-top: 20px;
+
+
+    .strip___best-offers{
+        width: 690px;
+        height: 1px;
+        margin-left: 6px;
+ 
+    }
+    button{
+        border: none;
+        background: none;
+        margin: 0;
+        margin-top: 3px;
+    }
+
+    .product__best-offers{
+        list-style-type: none;
+    }
+
+    .product__best-offers{
+        width: 230px;
+        height: 312px;
+        margin-left: 21px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+        border-radius: 10px;
+        
+    }
+
+    .product-img__best-offers{
+        width: 200px;
+        height: 200px;
+        margin-left: 15px;
+    }
+
+    .product-name__best-offers{
+        width: 180px;
+        height: 32px;
+        margin: 0 0 0 13px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+    }
+    .product-salary__best-offers{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        color: #313131;
+    }
+    .bottom-col__best-offers{
+        display: flex;
+        margin: 25px 0 13px 13px;
+    }
+    .product-like__best-offers{
+        width: 34px;
+        height: 34px;
+        margin-left: 50px;
+    }
+    .product-cart__best-offers{
+        width: 34px;
+        height: 34px;
+        margin-left: 8px;
+    }
+
+}
+header{
+    display: flex;
+    margin-top: 20px;
+    
+    .text__best-offers{
+        margin-top: 3px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #000000;
+    }
+
+    button{
+        border: none;
+        background: none;
+        margin: 0;
+        margin-top: 3px;
+    }
+    .right-btn{
+        margin-left: 14px;
+    }
+}
