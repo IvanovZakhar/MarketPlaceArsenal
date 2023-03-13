@@ -19,6 +19,9 @@
     .product__best-offers{
         list-style-type: none;
     }
+    .product__best-offers:first-child{
+        margin: 0;
+    }
 
     .product__best-offers{
         width: 230px;
@@ -27,7 +30,6 @@
         background: #FFFFFF;
         box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
         border-radius: 10px;
-        
     }
 
     .product-img__best-offers{
@@ -73,7 +75,8 @@
     }
 
 }
-header{
+
+.head__best-offers{
     display: flex;
     margin-top: 20px;
     

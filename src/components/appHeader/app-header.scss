@@ -4,6 +4,9 @@
     height: 104px;
     margin: 0 auto;
     background: #262C34;
+    header{
+        display: flex;
+    }
     .catalog__btn{
         width: 161px;
         height: 53px;
@@ -38,7 +41,6 @@
         border: none;
     }
     input::placeholder{
-         
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 400;

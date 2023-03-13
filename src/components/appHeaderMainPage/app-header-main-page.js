@@ -8,17 +8,19 @@ const AppHeaderMainPage = () => {
     return (
         <div className="app-header__main-page">
             <div className='container'>
-                <img src={logo} className="logo" alt="logo"/>
-                <div className='address'>
-                    <div className='col-left__address'> 
-                       <img src={email} className="email_ico" alt="email"/>
+                <header>
+                    <img src={logo} className="logo" alt="logo"/>
+                    <div className='address'>
+                        <div className='col-left__address'> 
+                        <img src={email} className="email_ico" alt="email"/>
+                        </div>
+                        <div className='col-right__address'> 
+                            <a href="mailto:6220095@mail.ru">6220095@mail.ru</a>
+                            <p>Мы на связи!</p>
+                        </div>
                     </div>
-                    <div className='col-right__address'> 
-                        <a href="mailto:6220095@mail.ru">6220095@mail.ru</a>
-                        <p>Мы на связи!</p>
-                    </div>
-                </div>
-                <button className="call-me__btn">Перезвоните мне</button>
+                    <button className="call-me__btn">Перезвоните мне</button>
+                </header>
             </div>
         </div>
     )

@@ -11,7 +11,7 @@ import './best-offers.scss'
 const BestOffers = () => {
     return(
     <>
-        <header>
+        <header className='head__best-offers'>
             <h2 className='text__best-offers'>Лучшие предложения</h2>
             <img src={strip} alt='strip' className='strip___best-offers'/>
             <button className='left-btn'>

@@ -1,0 +1,107 @@
+.offer-day{
+    width: 200px;
+    height: 367px;
+    margin-top: 70px;
+    background: #FFB701;
+    box-shadow: 0px 7px 29px rgba(255, 183, 1, 0.15);
+    border-radius: 10px;
+    h2{
+        width: 180px;
+        height: 51px;
+        margin-left: 10px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    
+    .strip___offer-day{
+        width: 690px;
+        height: 1px;
+        margin-left: 6px;
+ 
+    }
+    button{
+        border: none;
+        background: none;
+        margin: 0;
+        margin-top: 3px;
+    }
+
+    .product__offer-day{
+        list-style-type: none;
+    }
+    .product__offer-day:first-child{
+        margin: 0;
+    }
+
+    .product__offer-day{
+        width: 200px;
+        height: 312px;
+ 
+
+        box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+        border-radius: 10px;
+    }
+
+    .product-img__offer-day{
+        width: 200px;
+        height: 200px;
+    }
+
+    .product-name__offer-day{
+        width: 180px;
+        height: 32px;
+        margin: 10px 0 0 13px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFF;
+    }
+    .salary{
+        display: flex;
+        flex-direction: column;
+    }
+    .product-salary__offer-day{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: right;
+        text-decoration-line: line-through;
+        color: rgba(255, 255, 255, 0.74);
+    }
+    .product-salary-action__offer-day{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        align-items: center;
+        color: #FFFFFF;
+
+    }
+    .bottom-col__offer-day{
+        display: flex;
+        margin: 25px 0 13px 13px;
+    }
+    .product-like__offer-day{
+        width: 34px;
+        height: 34px;
+        margin-left: 30px;
+        filter: invert(100%) sepia(0%) saturate(7478%) hue-rotate(173deg) brightness(100%) contrast(108%);
+    }
+    .product-cart__offer-day{
+        width: 34px;
+        height: 34px;
+        margin-left: 8px;
+        filter: invert(0%) sepia(4%) saturate(7491%) hue-rotate(204deg) brightness(112%) contrast(96%);
+    }
+}

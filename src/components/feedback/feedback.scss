@@ -1,0 +1,80 @@
+.feedback{
+    width: 1187px;
+    height: 185px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 29px 0 0 30px;
+    background: #262C34;
+    border-radius: 10px;
+    
+    h3{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 32px;
+        color: #FFFFFF;
+    }
+    .input__feedback{
+        display: flex;
+        margin-top: 32px;
+    }
+    .number__feedback, .name__feedback{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .number__feedback::placeholder, .name__feedback::placeholder{
+ 
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        color: #9CA7B5;
+    }
+    .name__feedback{
+        margin-left: 46px;
+    }
+    label{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        color: #F3F3F3;
+    }
+    input{
+        margin-top: 5px;
+        padding-left: 12px;
+        width: 245px;
+        height: 40px;
+        background: #3F4A58;
+        border-radius: 5px;
+        border: none;
+    }
+    .agree{
+        width: 217px;
+        height: 42px;
+        margin: 20px 0 0 31px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        color: #9CA7B5;
+    }
+    .input__agree{
+       padding: 0;
+       width: 40px;
+       height: 40px;
+       margin: 20px 0 0 31px;
+       border-radius: 50%;
+    }
+    button{
+        margin-left: 50px;
+        border:none;
+    }
+}

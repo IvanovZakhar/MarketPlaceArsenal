@@ -1,0 +1,127 @@
+footer{
+    width: 1600px;
+    min-height: 550px;
+    padding: 83px 0 0 0;
+    margin: 0 auto;
+    margin-top: 50px;
+    background: #262C34;
+    .row__footer{
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo{
+        width: 100px;
+
+    }
+    .logo_footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 150px;
+        
+    }
+    ul:first-child{
+        width: 200px;
+ 
+        
+    }
+    .text__logo{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 133.5%;
+        display: flex;
+        margin-left: 60px; 
+        align-items: center;
+        color: #FFFFFF;
+    }
+    h5{
+        margin-top: 45px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 143%;
+        color: #FFFFFF;
+    }
+
+    ul{
+        list-style-type: none;
+        
+    }
+    h4{
+        margin-bottom: 31px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #898088;
+    }
+    .others__footer{
+        display: flex;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #F3F3F3;
+        margin-top: 21px;
+    }
+    li{
+        display: flex;
+        margin-top: 20px;
+    }
+    img{
+        width: 24px;
+    }
+    a{
+        text-decoration: none;
+    }
+    .address{
+        display: flex;
+        flex-direction: column;
+        margin-left: 13px;
+    }
+    .up__address{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #F3F3F3;
+    }
+    .down__address{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #898088;
+    }
+
+    .line__footer{
+        width: 1202px;
+        margin-top: 70px;
+    }
+    .offer{
+        display: flex;
+        width: 1202px;
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+    h6{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 143%;
+        color: #F3F3F3;
+        opacity: 0.6;
+    }
+}
