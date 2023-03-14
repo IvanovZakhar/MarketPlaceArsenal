@@ -1,24 +1,21 @@
 
-// import MSSQL from  'react-native-mssql';
-// import { useEffect } from 'react';
+import {useHttp} from '../hooks/http.hooks';
 
-// const MarketServices = () => {
-//     const config = {
-//         server:  '77.239.232.35', //ip address of the mssql database
-//         username:  'SoftPub', //username to login to the database
-//         password:  'ljcneg9470', //password to login to the database
-//         database:  'ST_DB_TEST', //the name of the database to connect to
-//         port:  9955, //OPTIONAL, port of the database on the server
-//         timeout:  5, //OPTIONAL, login timeout for the server
-//            }
-//           const  connected  =  async () => {
-//              await MSSQL.connect(config).then(data => console.log(data))
+const useMarketService = () => {
+    const {loading, request, error, clearError} = useHttp();
 
-//            }  
-//         useEffect(() => {
-//             connected()
-//         }, [])
-            
-// }
+    // const _apiBase = 'https://gateway.marvel.com:443/v1/public/';
+    // const _apiKey = 'apikey=baaab7750b9c96f0a5da18949146680e';
+    // const _baseOffset = 210;
 
-// export default MarketServices;
+    const getAllProducts = async () => {
+        const res = await request(`http://77.239.232.35:5556/api/Sqlconn`);
+        console.log(res)
+    }
+
+    return {
+        getAllProducts
+    }
+}
+
+export default useMarketService;
