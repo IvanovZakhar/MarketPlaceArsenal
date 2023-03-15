@@ -1,0 +1,54 @@
+.filter{
+    width: 233px;
+    height: 42px;
+    margin-top: 19px;
+    
+    li{
+        display: flex;
+        flex-direction: column;
+        width: 233px;
+        height: 42px;
+
+        margin-top: 10px;
+        background: #FFFFFF;
+        box-shadow: 0px 7px 29px rgba(100, 100, 111, 0.1);
+        border-radius: 10px;
+        list-style-type: none;
+        .head-filter{
+            display: flex;
+            justify-content: space-around;
+            width: 192px;
+            height: 42px;
+            margin: 0 20px 0 20px;
+            h3{
+                font-family: 'Ubuntu';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 23px;
+                display: flex;
+                align-items: center;
+                color: #000000;
+            }
+            img{
+                width: 15px;
+            }
+        }
+
+    }
+    li:nth-child(3){
+        width: 233px;
+        height: 126px;
+        h3{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            color: #FFB701;
+        }
+        img{
+            transform: rotate(180deg) scaleX(-1);
+        }
+    }
+}

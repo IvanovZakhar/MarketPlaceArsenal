@@ -1,14 +1,8 @@
 import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu';
-import BestOffers from '../bestOffers/best-offers';
-import About from '../about/about';
-import Advantage from '../advantage/advantage';
-import QuestionAnswer from '../questionAnswer/question-answer'
-import Feedback from '../feedback/feedback';
-import OfferDay from '../offerDay/offer-day';
+import ProductsList from '../productsList/products-list';
+import Filter from '../filter/filter';
 import Footer from '../footer/footer';
-
-
 
 const CatalogPages = () => {
     return(
@@ -19,10 +13,11 @@ const CatalogPages = () => {
                 <div className='row'>
                     <div className='col-left__main'>
                         <CatalogMenu/>
+                        <Filter/>
                     </div>
                     <div className='col-right__main'>
-                        
-                    </div>
+                        <ProductsList/>
+                    </div>  
                 </div>
             </div>
             </main>
