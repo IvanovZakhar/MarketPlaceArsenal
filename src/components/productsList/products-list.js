@@ -12,7 +12,7 @@ import './products-list.scss'
 const ProductsList = () => {
     return(
         <div className='products-list'>
-            <ul className='catalog-categories'>
+            <ul className='categories'>
                 <li>
                     <a href='/'>Главная</a>
                 </li>

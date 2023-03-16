@@ -24,9 +24,6 @@ const Filter = () => {
                     <h3>Длинна</h3>
                     <img src={arrow} alt='arrow'/>
                 </div>
-                <div className='line-slide'>
-                    <img src={line} className='line' />
-                </div>
             </li>
             <li>
                 <div className='head-filter'>
