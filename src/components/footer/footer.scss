@@ -5,6 +5,11 @@ footer{
     margin: 0 auto;
     margin-top: 50px;
     background: #262C34;
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
     .row__footer{
         display: flex;
         justify-content: space-between;

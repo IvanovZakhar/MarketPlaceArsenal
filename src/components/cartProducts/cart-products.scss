@@ -1,15 +1,19 @@
 .cart-products{
         width: 922px;
         padding-top: 42px;
-    
+        .container{
+            width: 1280px;
+            margin: 0 auto;
+            position: relative;
+          }
     li{
         width: 922px;
         height: 140px;
         margin-top: 3px;
-        background: #FFFFFF;
         list-style-type: none;
         display: flex;
-       
+        background: #FFFFFF;
+        box-shadow: 0px 7px 29px rgba(138, 138, 138, 0.1);
     }
     li:last-child{
         display: flex;
@@ -51,7 +55,7 @@
         width: 154px;
         display: flex;
         justify-content: space-around;
-        margin-top: 51px;
+        margin-top: 17px;
         margin-left: 37px;
         button{
             background-color: #fff;
@@ -75,7 +79,7 @@
 
     }
     .price-product{
-        margin: 50px 0 0 49px;
+        margin: 40px 0 0 49px;
         .after-price{
             font-family: 'Ubuntu';
             font-style: normal;

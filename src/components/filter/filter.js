@@ -1,5 +1,4 @@
 import arrow from '../../resources/img/ico/arrow-yellow.svg';
-import line from '../../resources/img/ico/line-filter.svg';
 import './filter.scss'
 
 

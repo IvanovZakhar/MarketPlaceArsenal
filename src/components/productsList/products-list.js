@@ -9,7 +9,56 @@ import minus from '../../resources/img/ico/minus.svg';
 import './products-list.scss'
 
 
-const ProductsList = () => {
+const ProductsList = ({product}) => {
+    
+    const elem = product ? product.map(item => {
+        const {            
+            anotation,
+            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
+            color, constr, contry, fabricbox, garanty, height, join_type, 
+            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
+            price, price_before, property, sk_num, st_num, type_, units_in_box,
+            weight_dry, width} = item
+        return (
+            
+                <li key={artic} className='product'>
+                    <img src={photo_main} alt='product'/>
+                    <div className='about-product'>
+                        <h2>{name_base}</h2>
+                        <div className='text__about-product'>{anotation}<div>
+
+                        </div>
+                    </div>
+                    </div>
+                    <div className='panel-product'>
+                        <div className='price-product'>
+                            <h3>Цена</h3>
+                            <span className='before-price'>{price_before} ₽</span>
+                            <span className='after-price'>{price} ₽</span>
+                        </div>
+                        <div className='added-panel'>
+                            <button>
+                                <img src={likeCard} alt='like-product' className='like-product'/>
+                            </button>
+                            <button>
+                                <img src={CartCard} alt='cart-product' className='cart-product'/>
+                            </button>
+                        </div>
+                        <div className='count-product'>
+                            <button>
+                                    <img src={minus} alt='minus-product' className='minus-product'/>
+                            </button>
+                            <span className='count'>0</span>
+                            <button>
+                                    <img src={plus} alt='plus-product' className='plus-product'/>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+           
+        )
+    }) : null;
+
     return(
         <div className='products-list'>
             <ul className='categories'>
@@ -33,7 +82,8 @@ const ProductsList = () => {
                 </div>
             </div>
             <ul className='products'>
-                <li className='product'>
+                {elem}
+                {/* <li className='product'>
                     <img src={grid} alt='product'/>
                     <div className='about-product'>
                         <h2>Решетка раздвижная 520х770</h2>
@@ -200,7 +250,7 @@ const ProductsList = () => {
                             </button>
                         </div>
                     </div>
-                </li>
+                </li> */}
             </ul>
         </div>
     )

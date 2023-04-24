@@ -1,7 +1,11 @@
 .best-offers{
     display: flex;
     margin-top: 20px;
-
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
 
     .strip___best-offers{
         width: 690px;

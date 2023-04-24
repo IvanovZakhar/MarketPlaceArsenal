@@ -2,7 +2,11 @@
     width: 233px;
     height: 42px;
     margin-top: 19px;
-    
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
     li{
         display: flex;
         flex-direction: column;

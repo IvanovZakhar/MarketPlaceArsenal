@@ -12,30 +12,30 @@ import Footer from '../footer/footer';
 const MainPage = () => {
     return(
         <>
-                    <AppHeaderMainPage/>
-        <AppHeader/>
-        <main>
-          <div className='container'>
-              <div className='row'>
-                  <div className='col-left__main'>
-                  <CatalogMenu/>
-                  <OfferDay/>
+          <AppHeaderMainPage/>
+          <AppHeader/>
+          <main>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-left__main'>
+                    <CatalogMenu/>
+                    <OfferDay/>
+                  </div>
+                  <div className='col-right__main'>
+                    <BestOffers/>
+                    <About/>
+                
+                  </div>
                 </div>
-                <div className='col-right__main'>
-                  <BestOffers/>
-                  <About/>
-              
-                </div>
-              </div>
-  
-          </div>
-          <div className='container'>
-            <Advantage/>
-            <QuestionAnswer/>
-            <Feedback/>
-          </div>
-        </main>
-        <Footer/>
+    
+            </div>
+            <div className='container'>
+              <Advantage/>
+              <QuestionAnswer/>
+              <Feedback/>
+            </div>
+          </main>
+          <Footer/>
         </>
     )
 }

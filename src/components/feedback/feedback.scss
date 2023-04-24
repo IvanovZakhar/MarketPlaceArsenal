@@ -6,7 +6,11 @@
     padding: 29px 0 0 30px;
     background: #262C34;
     border-radius: 10px;
-    
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
     h3{
         font-family: 'Ubuntu';
         font-style: normal;

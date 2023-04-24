@@ -1,10 +1,80 @@
 .catalog-menu{
+    width: 253px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     list-style-type: none;
+    background: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0px 7px 29px rgba(100, 100, 111, 0.1);
+    border-radius: 10px;
     margin: 39px 0 0 15px;
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
+    .section__catalog-menu{
+        display: none;
+        position: absolute;
+        left: 255px;
+        height: 70px;
+        background: #FFFFFF;
+        box-shadow: 0px 7px 29px rgba(100, 100, 111, 0.1);
+        border-radius: 10px;
+    }
+    .check__catalog-menu{
+        width: 30px;
+        height: 8px;
+        transform: rotate(270deg);
+    }
+    .grids{
+        top: 10px;
+        width: 150px;
+    }
+    .conditioning{
+        top: 40px;
+        width: 100px;
+    }
+    li:hover{
+        ul{
+            display: block;
+        }
+    }
+    a:hover{
+        color: #FFB701;
+    }
+
+    .protection__catalog-menu{
+        display: none;
+    }
+
     li{
         margin-top: 15px;
+        width: 250px;
+        display: flex;
+        height: 18px;
+        ul{
+
+            li{
+                display: flex;
+                height: 18px;
+                margin-left: 15px;
+                margin-top: 15px;
+            }
+            li:first-child{
+                margin-top: 10px;
+            }
+
+        }
+    }
+
+    li:first-child{
+        margin-top: 0;
+ 
     }
     a{
+        margin-bottom: 15px;
         text-decoration: none;
         font-family: 'Ubuntu';
         font-style: normal;

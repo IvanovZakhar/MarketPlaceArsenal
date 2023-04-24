@@ -3,11 +3,20 @@ import CatalogMenu from '../catalogMenu/catalog-menu';
 import ProductsList from '../productsList/products-list';
 import Filter from '../filter/filter';
 import Footer from '../footer/footer';
+import useMarketService from '../../services/market-services';
+import { useEffect, useState } from 'react';
 
-const CatalogPages = () => {
+const CatalogPages = ({props}) => {
+      const {getGrids} = useMarketService();
+      const [product, setProduct] = useState();
+        useEffect(() => {
+            getGrids(props).then(setProduct)
+        }, [props])
+
     return(
         <>
             <AppHeader/>
+ 
             <main>
             <div className='container'>
                 <div className='row'>
@@ -16,7 +25,7 @@ const CatalogPages = () => {
                         <Filter/>
                     </div>
                     <div className='col-right__main'>
-                        <ProductsList/>
+                        <ProductsList product={product}/>
                     </div>  
                 </div>
             </div>

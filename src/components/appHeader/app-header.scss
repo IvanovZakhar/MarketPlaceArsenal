@@ -4,6 +4,11 @@
     height: 104px;
     margin: 0 auto;
     background: #262C34;
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
     header{
         display: flex;
     }
