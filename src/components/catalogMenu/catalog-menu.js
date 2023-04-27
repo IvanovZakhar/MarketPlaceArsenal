@@ -22,22 +22,22 @@ const CatalogMenu = () => {
 
             </li>
             <li>
-                <a  href='/'>
+                <Link  to='/air-conditioning-accessories'>
                     Защита кондиционера
                     <img src={arrow} className='check__catalog-menu' alt="check"/>
                     <ul className='section__catalog-menu conditioning'>  
                          <li className='subsection__catalog-menu'>
-                            <a className='subsection-link__catalog-menu' href='/'>Козырьки</a>
+                            <Link to='/catalog/visors'>Козырьки</Link>
                         </li>
                         <li className='subsection__catalog-menu'>
-                            <a className='subsection-link__catalog-menu' href='/'>Корзины</a>
+                            <Link to='/catalog/baskets'>Корзины</Link>
                         </li>
                     </ul>
-                </a>
+                </Link>
             </li>
 
             <li>
-                <Link to='catalog/anti-theft'>Противоугонные устройства</Link>
+                <Link to='/catalog/anti-theft'>Противоугонные устройства</Link>
             </li>
             <li>
                  <a href='/'>Дровницы</a>

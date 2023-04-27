@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "catalog/grids-one",
-    element: <CatalogPages props={2}/>,
+    element: <CatalogPages props={0}/>,
   },
   {
     path: "catalog/grids-two",
@@ -49,6 +49,14 @@ export const router = createBrowserRouter([
   },
   {
     path: "catalog/anti-theft",
+    element: <CatalogPages props={3}/>,
+  },
+  {
+    path: "catalog/visors",
+    element: <CatalogPages props={1}/>,
+  },
+  {
+    path: "catalog/baskets",
     element: <CatalogPages props={2}/>,
   },
 ]);

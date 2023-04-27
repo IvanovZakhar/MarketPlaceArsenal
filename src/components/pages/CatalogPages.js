@@ -7,12 +7,12 @@ import useMarketService from '../../services/market-services';
 import { useEffect, useState } from 'react';
 
 const CatalogPages = ({props}) => {
-      const {getGrids} = useMarketService();
+      const {getProducts} = useMarketService();
       const [product, setProduct] = useState();
         useEffect(() => {
-            getGrids(props).then(setProduct)
+            getProducts(props).then(setProduct)
         }, [props])
-
+     
     return(
         <>
             <AppHeader/>

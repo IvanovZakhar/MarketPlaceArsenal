@@ -34,7 +34,10 @@
     }
     .conditioning{
         top: 40px;
-        width: 100px;
+        width: 105px;
+        .li{
+            margin-top: 10px;
+        }
     }
     li:hover{
         ul{
@@ -79,7 +82,7 @@
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 18px;
         color: #313131;
     }
