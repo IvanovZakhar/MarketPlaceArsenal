@@ -2,6 +2,7 @@
     display: flex;
     list-style-type: none;
     margin-top: 39px;  
+
     .container{
         width: 1280px;
         margin: 0 auto;
@@ -33,6 +34,7 @@
 
 .sort_catalog-pages-head{
     display: flex;
+    margin-left: 4px;
     div{
         display: flex;
         margin-top: 18px;
@@ -50,6 +52,23 @@
         width: 13.86px;
         height: 6.21px;
         margin: 7px 0 0 7px;
+    }
+}
+
+.categories-name{
+    display: flex;
+    margin-top: 22px;
+    h2:first-child{
+        margin-left: 3px;
+    }
+    h2{
+        margin-left: 5px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 16px;
+        color: #000000;
     }
 }
 

@@ -12,25 +12,25 @@ const CatalogMenu = () => {
                     <img src={arrow} className='check__catalog-menu' alt="check"/>
                     <ul className='section__catalog-menu grids'>
                         <li className='subsection__catalog-menu'>
-                            <Link className='subsection-link__catalog-menu' to='/catalog/grids-one'>Одностворчатые</Link>
+                            <Link className='subsection-link__catalog-menu' to='/catalog/grids/grids-one'>Одностворчатые</Link>
                         </li>
                         <li className='subsection__catalog-menu'>
-                            <Link className='subsection-link__catalog-menu' to='/catalog/grids-two'>Двухстворчатые</Link>
+                            <Link className='subsection-link__catalog-menu' to='/catalog/grids/grids-two'>Двухстворчатые</Link>
                         </li>
                     </ul>
                 </Link>
 
             </li>
             <li>
-                <Link  to='/air-conditioning-accessories'>
+                <Link  to='/catalog/conditioner-protection'>
                     Защита кондиционера
                     <img src={arrow} className='check__catalog-menu' alt="check"/>
                     <ul className='section__catalog-menu conditioning'>  
                          <li className='subsection__catalog-menu'>
-                            <Link to='/catalog/visors'>Козырьки</Link>
+                            <Link to='/catalog/conditioner-protection/visors'>Козырьки</Link>
                         </li>
                         <li className='subsection__catalog-menu'>
-                            <Link to='/catalog/baskets'>Корзины</Link>
+                            <Link to='/catalog/conditioner-protection/baskets'>Корзины</Link>
                         </li>
                     </ul>
                 </Link>

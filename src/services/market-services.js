@@ -2,11 +2,9 @@
 import {useHttp} from '../hooks/http.hooks';
 
 const useMarketService = () => {
-    const {loading, request, requestTwo, error, clearError} = useHttp();
+    const {loading, request,  error, clearError} = useHttp();
 
-    // const _apiBase = 'https://gateway.marvel.com:443/v1/public/';
-    // const _apiKey = 'apikey=baaab7750b9c96f0a5da18949146680e';
-    // const _baseOffset = 210;
+
 
     const getProducts = async (num) => {
         const res = await request(`http://localhost:5000/Sqlconn?t=${num}`)
@@ -22,8 +20,12 @@ const useMarketService = () => {
                 return res.map(transformAntiTheft);
             case 4: 
                 return res.map(transformGridsTwo);
+            case 5: 
+                return res.map(transformGrids);
+            case 6: 
+                return res.map(transformConditionerProtection);
             default: 
-            break
+                break
         }
         
     }
@@ -46,10 +48,16 @@ const useMarketService = () => {
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
             weight_dry, width,
-            categories: {
-                name: 'Решетки одностворчатые',
-                link: '/grids-one'
-            }
+            categories: [
+                {
+                name: 'Решетки',
+                link: '/grids'
+                },
+                {
+                    name: 'Одностворчатые',
+                    link: '/grids/grids-one'
+                },
+            ]
         }
     }
 
@@ -69,10 +77,39 @@ const useMarketService = () => {
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
             weight_dry, width,
-            categories: {
-                name: 'Решетки двухстворчатые',
-                link: '/grids-two'
-            }
+            categories: [
+                {
+                name: 'Решетки',
+                link:'/grids',
+                },
+                {
+                    name: 'Двухстворчатые',
+                    link:'/grids/grids-two',
+                }
+            ]
+        }
+    }
+
+    const transformGrids = (grid) => {
+        const {
+            anotation,
+            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
+            color, constr, contry, fabricbox, garanty, height, join_type, 
+            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
+            price, price_before, property, sk_num, st_num, type_, units_in_box,
+            weight_dry, width
+        } = grid;
+        return {
+            anotation,
+            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
+            color, constr, contry, fabricbox, garanty, height, join_type, 
+            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
+            price, price_before, property, sk_num, st_num, type_, units_in_box,
+            weight_dry, width,
+            categories: [{
+                name: 'Решетки',
+                link: '/grids'
+            }]
         }
     }
 
@@ -88,10 +125,32 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight,box_width, color, 
             contry, join_type, name_base, nds, photo_aditional, photo_main, price, price_before,
             suported_brends, type_, units_in_box, weight_dry,
-            categories: {
+            categories: [{
                 name: 'Противоугонные устройства',
                 link: '/anti-theft'
-            }
+            }]
+        }
+    }
+
+    const transformConditionerProtection = (item) => {
+        const {
+            anotation, artic, bis_type, box_height, box_lenght, box_weight, 
+            box_width, color, contry, fabricbox, garanty, height, join_type, 
+            lenght, material, name_base, nds, photo_aditional, photo_main, price,
+             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width
+        } = item;
+
+
+        return {
+            anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
+            color, contry, fabricbox, garanty, height, join_type, lenght, material, 
+            name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
+            suported_brends, suported_dev, type_, units_in_box, weight_dry, width,
+            categories: [
+            {
+                name: 'Защита кондицонера',
+                link: '/conditioner-protection'
+            }]
         }
     }
 
@@ -109,10 +168,16 @@ const useMarketService = () => {
             color, contry, fabricbox, garanty, height, join_type, lenght, material, 
             name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
             suported_brends, suported_dev, type_, units_in_box, weight_dry, width,
-            categories: {
+            categories: [
+                {
+                name: 'Защита кондицонера',
+                link: '/conditioner-protection'
+            },
+            {
                 name: 'Козырьки',
                 link: '/visors'
-            }
+            },
+        ]
         }
     }
 
@@ -130,15 +195,17 @@ const useMarketService = () => {
             color, contry, fabricbox, garanty, height, join_type, lenght, material, 
             name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
             suported_brends, suported_dev, type_, units_in_box, weight_dry, width,
-            categories: {
+            categories: [
+            {
+                name: 'Защита кондицонера',
+                link: '/conditioner-protection'
+            },
+            {
                 name: 'Корзины',
                 link: '/baskets'
-            }
+            }]
         }
     }
-
-
-
 
     return {
         getProducts

@@ -1,20 +1,14 @@
+import Product from "../product/product";
 import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu';
-import ProductsList from '../productsList/products-list';
+import ProductGrid from "../product/product";
 import Filter from '../filter/filter';
 import Footer from '../footer/footer';
-import useMarketService from '../../services/market-services';
-import { useEffect, useState } from 'react';
 
-const CatalogPages = ({props}) => {
-      const {getProducts} = useMarketService();
-      const [product, setProduct] = useState();
-        useEffect(() => {
-            getProducts(props).then(setProduct)
-        }, [props])
-     
+
+const ProductPage = () => {
     return(
-        <>
+        <div className="product-page">
             <AppHeader/>
  
             <main>
@@ -25,14 +19,14 @@ const CatalogPages = ({props}) => {
                             <Filter/>
                         </div>
                         <div className='col-right__main'>
-                            <ProductsList product={product}/>
+                            <ProductGrid/>
                         </div>  
                     </div>
                 </div>
             </main>
             <Footer/>
-        </>
+        </div>
     )
 }
 
-export default CatalogPages;
+export default ProductPage;
