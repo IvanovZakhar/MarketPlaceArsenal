@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom";
+import {Link } from "react-router-dom";
+import { useLinks } from "./Link/Links";
 import arrowCategories from '../../resources/img/ico/arrow__catalog-menu.svg';
 import arrowSort from '../../resources/img/ico/arrow-sort.svg';
 import likeCard from '../../resources/img/ico/like-card.svg';
@@ -8,19 +9,21 @@ import minus from '../../resources/img/ico/minus.svg';
 import './products-list.scss'
 
 
-const ProductsList = ({product}) => {
-  
+const ProductsList = ({product, props}) => {
+    console.log(props)
+    const {getLink} = useLinks();
     const elem = product ? product.map(item => {
-        const {anotation, artic, name_base, photo_main, price, price_before } = item
+        const {anotation, artic, name_base, photo_main, price, price_before } = item;
+        
         return (
-            
-                <li key={artic} className='product'>
-                    <img src={photo_main} alt='product'/>
+                <li key={artic} className='product' >
+                    <img src={photo_main} alt={name_base} onClick={() => getLink(props, artic)}/>
                     <div className='about-product'>
-                        <h2>{name_base}</h2>
-                        <div className='text__about-product'>{anotation}<div>
-
+                        <h2 onClick={() => {console.log(artic)}}>{name_base}</h2>
+                        <div className='text__about-product' onClick={() => {console.log(artic)}}>{anotation}<div>
+              
                         </div>
+
                     </div>
                     </div>
                     <div className='panel-product'>
@@ -77,20 +80,19 @@ const Categories = ({categories}) =>{
 
     const link = categories.map(item => {
         return(
-         <> 
+         <li key={item.name}> 
             <img src={arrowCategories} alt='arrow__catalog-menu'/>
-            <li>
-                <Link to={`/catalog${item.link}`}>{item.name}</Link>
-            </li>
-        </>
+            <Link to={`/catalog${item.link}`}>{item.name}</Link>
+            
+        </li>
         )
     })
 
     const name = categories.map(item => {
         return(
-         <> 
-              <h2>{item.name}</h2>
-        </>
+        
+              <h2 key={item.name}>{item.name}</h2>
+      
         )
     })
     return(

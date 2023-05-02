@@ -25,7 +25,7 @@ const CatalogPages = ({props}) => {
                             <Filter/>
                         </div>
                         <div className='col-right__main'>
-                            <ProductsList product={product}/>
+                            <ProductsList props={props} product={product}/>
                         </div>  
                     </div>
                 </div>

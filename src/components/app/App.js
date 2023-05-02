@@ -48,7 +48,11 @@ export const router = createBrowserRouter([
     element: <CatalogPages props={6}/>,
   },
   {
-    path: "/product-page",
+    path: "/catalog/grids/grids-one/:productArt",
+    element: <ProductPage/>,
+  },
+  {
+    path: "/catalog/grids/grids-two/:productArt",
     element: <ProductPage/>,
   },
  

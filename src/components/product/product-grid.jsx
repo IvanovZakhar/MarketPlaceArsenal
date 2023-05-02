@@ -1,10 +1,13 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {useParams } from "react-router-dom";
 import Description from './aboutProduct/description';
+import Specifications from './aboutProduct/specifications/specifications';
 import 'react-tabs/style/react-tabs.css';
 import './product.scss'
 
 const ProductGrid = () => {
-    const selectedTabClassName = "active"
+    const { productArt }  = useParams();
+    console.log(productArt)
     return(
         <div className="product">
             <h1>Решетка на окно раздвижная "Универсал" / Решетка на окно 520x1310</h1>
@@ -19,7 +22,7 @@ const ProductGrid = () => {
                     <Description/>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    <Specifications/>
                 </TabPanel>
                 <TabPanel>
                     <h2>Any content 3</h2>

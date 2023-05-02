@@ -1,12 +1,14 @@
-import Product from "../product/product";
+
+import ProductGrid from "../product/product-grid";
 import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu';
-import ProductGrid from "../product/product";
 import Filter from '../filter/filter';
 import Footer from '../footer/footer';
 
 
 const ProductPage = () => {
+ 
+
     return(
         <div className="product-page">
             <AppHeader/>

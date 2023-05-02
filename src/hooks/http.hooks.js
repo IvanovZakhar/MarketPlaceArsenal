@@ -10,7 +10,7 @@ export const useHttp = () => {
         try{
             const response = await fetch(url, { method, body, headers}); 
            
-            console.log(response)
+        
             if(response.ok){
                 console.log('ok response')
             }
@@ -31,20 +31,10 @@ export const useHttp = () => {
     }, [])
  
 
-    const requestTwo = useCallback( async () => {
-        Promise.all([fetch('http://localhost:5000/Sqlconn?t=0', { method : 'POST', body : 'pass=Ghjcnjqgfhjkm', headers : { 'Content-Type': 'application/x-www-form-urlencoded'}}), 
-                    fetch('http://localhost:5000/Sqlconn?t=4', { method : 'POST', body : 'pass=Ghjcnjqgfhjkm', headers : { 'Content-Type': 'application/x-www-form-urlencoded'}})])
-        .then(responses => Promise.all(responses.map(res => res.json())))
-        .then(data => {
-          const combinedData = [...data[0], ...data[1]];
-          console.log(combinedData);
-        })
-        .catch(error => console.log(error));
-
-    }, [])
+ 
 
     const clearError = useCallback(() => setError(null), [])
 
-    return {loading, requestTwo, request, error, clearError}
+    return {loading, request, error, clearError}
 
 }

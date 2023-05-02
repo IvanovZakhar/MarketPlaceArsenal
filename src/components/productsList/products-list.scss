@@ -16,10 +16,13 @@
         font-size: 16px;
         line-height: 18px;
         color: #9CA7B5;
+        margin-left: 4px;
     }
     li, img{
         margin-left: 4px;
+
     }
+ 
     h2{
         margin-top: 12px;
         font-family: 'Ubuntu';
@@ -88,6 +91,7 @@
         img{
             width: 250px;
             margin-left: 10px;
+            cursor: pointer;
         }
         .about-product{
             margin: 23px 0 0 20px;
@@ -101,6 +105,10 @@
                 font-size: 20px;
                 line-height: 23px;
                 color: #000000;
+                cursor: pointer;
+            }
+            h2:hover{
+               color: #FFB701;
             }
             .text__about-product{
                 width: 387px;
@@ -119,6 +127,7 @@
                 font-size: 16px;
                 line-height: 18px;
                 color: #313131;
+                cursor: pointer;
                 div{
                     position: absolute;
                     width: 293px;
