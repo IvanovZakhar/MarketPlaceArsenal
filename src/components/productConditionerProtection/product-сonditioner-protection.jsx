@@ -1,16 +1,16 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import {useParams } from "react-router-dom";
-import Description from './aboutProduct/description';
-import Specifications from './aboutProduct/specifications/specifications';
+import Description from './aboutProduct/description/description';
+import SpecificationsGrid from './aboutProduct/specifications/specifications-grid';
+import Configuration from './aboutProduct/configuration/configuration';
 import 'react-tabs/style/react-tabs.css';
 import './product.scss'
 
-const ProductGrid = () => {
-    const { productArt }  = useParams();
-    console.log(productArt)
+
+const ProductGrid = ({product}) => {
+   
     return(
         <div className="product">
-            <h1>Решетка на окно раздвижная "Универсал" / Решетка на окно 520x1310</h1>
+            <h1>{product ? product[0].name_base : null}</h1>
             <Tabs>
                 <TabList className="tab-list" >
                     <Tab className="tab" selectedClassName="active">Описание</Tab>
@@ -19,13 +19,13 @@ const ProductGrid = () => {
                 </TabList>
 
                 <TabPanel>
-                    <Description/>
+                    <Description product={product}/>
                 </TabPanel>
                 <TabPanel>
-                    <Specifications/>
+                    <SpecificationsGrid product={product}/>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 3</h2>
+                    <Configuration product={product}/>
                 </TabPanel>
             </Tabs>
         </div>

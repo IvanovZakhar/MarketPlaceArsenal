@@ -8,22 +8,25 @@ const useMarketService = () => {
 
     const getProducts = async (num) => {
         const res = await request(`http://localhost:5000/Sqlconn?t=${num}`)
-                    
+             console.log(res)
         switch(num){
-            case 0:
-                return res.map(transformGridsOne);
+            case 0: 
+                return res.map(transformAllProduct);
             case 1:
-                return res.map(transformVisors); 
+                return res.map(transformGridsOne);
             case 2:
+                return res.map(transformVisors); 
+            case 3:
                 return res.map(transformBaskets); 
-            case 3: 
-                return res.map(transformAntiTheft);
             case 4: 
-                return res.map(transformGridsTwo);
+                return res.map(transformAntiTheft);
             case 5: 
-                return res.map(transformGrids);
+                return res.map(transformGridsTwo);
             case 6: 
+                return res.map(transformGrids);
+            case 7: 
                 return res.map(transformConditionerProtection);
+
             default: 
                 break
         }
@@ -31,6 +34,30 @@ const useMarketService = () => {
     }
 
     
+    const transformAllProduct = (grid) => {
+        const {
+            anotation,
+            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
+            color, constr, contry, fabricbox, garanty, height, join_type, 
+            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
+            price, price_before, property, sk_num, st_num, type_, units_in_box,
+            weight_dry, width, comps
+        } = grid;
+        return {
+            anotation,
+            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
+            color, constr, contry, fabricbox, garanty, height, join_type, 
+            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
+            price, price_before, property, sk_num, st_num, type_, units_in_box,
+            weight_dry, width, comps,
+            categories: [
+                {
+                name: 'Каталог',
+                link: '/catalog'
+                } 
+            ]
+        }
+    }
 
     const transformGridsOne = (grid) => {
         const {
@@ -39,7 +66,7 @@ const useMarketService = () => {
             color, constr, contry, fabricbox, garanty, height, join_type, 
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width
+            weight_dry, width, comps
         } = grid;
         return {
             anotation,
@@ -47,7 +74,7 @@ const useMarketService = () => {
             color, constr, contry, fabricbox, garanty, height, join_type, 
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width,
+            weight_dry, width, comps,
             categories: [
                 {
                 name: 'Решетки',
@@ -68,7 +95,7 @@ const useMarketService = () => {
             color, constr, contry, fabricbox, garanty, height, join_type, 
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width
+            weight_dry, width, comps
         } = grid;
         return {
             anotation,
@@ -76,7 +103,7 @@ const useMarketService = () => {
             color, constr, contry, fabricbox, garanty, height, join_type, 
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width,
+            weight_dry, width, comps, 
             categories: [
                 {
                 name: 'Решетки',
@@ -97,7 +124,7 @@ const useMarketService = () => {
             color, constr, contry, fabricbox, garanty, height, join_type, 
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width
+            weight_dry, width, comps
         } = grid;
         return {
             anotation,
@@ -105,7 +132,7 @@ const useMarketService = () => {
             color, constr, contry, fabricbox, garanty, height, join_type, 
             name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
             price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width,
+            weight_dry, width, comps,
             categories: [{
                 name: 'Решетки',
                 link: '/grids'
@@ -117,14 +144,14 @@ const useMarketService = () => {
         const {
             anotation, artic, bis_type, box_height, box_lenght, box_weight,box_width, color, 
             contry, join_type, name_base, nds, photo_aditional, photo_main, price, price_before,
-            suported_brends, type_, units_in_box, weight_dry
+            suported_brends, type_, units_in_box, weight_dry, comps
         } = antiTheft;
 
 
         return {
             anotation, artic, bis_type, box_height, box_lenght, box_weight,box_width, color, 
             contry, join_type, name_base, nds, photo_aditional, photo_main, price, price_before,
-            suported_brends, type_, units_in_box, weight_dry,
+            suported_brends, type_, units_in_box, weight_dry, comps, 
             categories: [{
                 name: 'Противоугонные устройства',
                 link: '/anti-theft'
@@ -137,7 +164,7 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight, 
             box_width, color, contry, fabricbox, garanty, height, join_type, 
             lenght, material, name_base, nds, photo_aditional, photo_main, price,
-             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width
+             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps
         } = item;
 
 
@@ -145,7 +172,7 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
             color, contry, fabricbox, garanty, height, join_type, lenght, material, 
             name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
-            suported_brends, suported_dev, type_, units_in_box, weight_dry, width,
+            suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
             categories: [
             {
                 name: 'Защита кондицонера',
@@ -159,7 +186,7 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight, 
             box_width, color, contry, fabricbox, garanty, height, join_type, 
             lenght, material, name_base, nds, photo_aditional, photo_main, price,
-             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width
+             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps
         } = visor;
 
 
@@ -167,7 +194,7 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
             color, contry, fabricbox, garanty, height, join_type, lenght, material, 
             name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
-            suported_brends, suported_dev, type_, units_in_box, weight_dry, width,
+            suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
             categories: [
                 {
                 name: 'Защита кондицонера',
@@ -186,7 +213,7 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight, 
             box_width, color, contry, fabricbox, garanty, height, join_type, 
             lenght, material, name_base, nds, photo_aditional, photo_main, price,
-             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width
+             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
         } = baskets;
 
 
@@ -194,7 +221,7 @@ const useMarketService = () => {
             anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
             color, contry, fabricbox, garanty, height, join_type, lenght, material, 
             name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
-            suported_brends, suported_dev, type_, units_in_box, weight_dry, width,
+            suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
             categories: [
             {
                 name: 'Защита кондицонера',

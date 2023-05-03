@@ -1,0 +1,157 @@
+.description{
+    width: 922px;
+    min-height: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+    border-radius: 10px;
+    margin-top: 18px;
+    display: flex;
+    .control-next.control-arrow:before{
+        border-left: 8px solid #000000;
+    }
+    .control-prev.control-arrow:before{
+        border-right: 8px solid #000000;
+    }
+    .carousel{
+        width: 461px;
+        height: 500px;
+        margin-top: 20px;
+        .slide{
+            img{
+                width: 461px;
+                height: 600px;
+                object-fit: contain;
+            }
+        }
+        .carousel:last-child{
+            height: 150px;
+        }
+        .added-panel{
+            display: flex;
+            width: 170px;
+         
+            margin: 0 auto;
+            margin-top: 40px;
+
+            .added-btn{
+                background-color: #FFFFFF;
+                border: none;
+                position: relative;
+                width: 150px;
+            }
+            span{
+                width: 96px;
+                top: 10px;
+                left: 55px;
+                position: absolute;
+                font-family: 'Ubuntu';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 18px;
+                color: #000000;
+   
+            }
+            img{
+                width: 38px;
+                position: absolute;
+                left: 10px;
+           
+            }
+        }
+    }
+    .definition{
+        padding: 27px 40px 40px 34px;
+        .definition__description{
+            width: 387px;
+            min-height: 240px;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            color: #313131;
+        }
+        .panel-product{
+            margin: 30px 0 0 0px;
+             
+            .price-product{
+                width: 200px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h3{
+                    font-family: 'Ubuntu';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 23px;
+                    color: #C7C7C7;
+                }
+                .before-price{
+                    margin-top: 10px;
+                    font-family: 'Ubuntu';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 14px;
+                    text-align: left;
+                    text-decoration-line: line-through;
+                    color: rgba(56, 50, 50, 0.74);
+                }
+                .after-price{
+                    margin-top: 10px;
+                    font-family: 'Ubuntu';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 32px;
+                    line-height: 37px;
+                    display: flex;
+                    align-items: center;
+                    color: #313131;
+                }
+            }
+            
+            .added-panel, .count-product{
+                display: flex;
+                width: 170px;
+                justify-content: space-around;
+                margin-top: 40px;
+
+                button{
+                    background-color: #FFFFFF;
+                    border: none;
+                }
+                img{
+                    width: 44px;
+                }
+            }
+            .count-product{
+                position: relative;
+                margin: 0 auto;
+          
+                height: 100px;
+ 
+                img{
+                    width: 38px;
+                }
+                .count{
+                    font-family: 'Ubuntu';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 28px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    color: #313131;
+                }
+            }
+            
+        
+        }
+
+        
+    }
+}

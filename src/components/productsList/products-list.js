@@ -10,7 +10,7 @@ import './products-list.scss'
 
 
 const ProductsList = ({product, props}) => {
-    console.log(props)
+     
     const {getLink} = useLinks();
     const elem = product ? product.map(item => {
         const {anotation, artic, name_base, photo_main, price, price_before } = item;

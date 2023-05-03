@@ -14,6 +14,18 @@
     }
     .carousel{
         width: 461px;
+        height: 500px;
+        margin-top: 20px;
+        .slide{
+            img{
+                width: 461px;
+                height: 600px;
+                object-fit: contain;
+            }
+        }
+        .carousel:last-child{
+            height: 150px;
+        }
         .added-panel{
             display: flex;
             width: 170px;
@@ -44,6 +56,7 @@
                 width: 38px;
                 position: absolute;
                 left: 10px;
+           
             }
         }
     }
