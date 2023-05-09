@@ -35,6 +35,12 @@ const useMarketService = () => {
         
     }
 
+    const newOrder = async (order) => {
+        console.log(order)
+        const res = await request(`http://localhost:3001/new-order`, 'POST', JSON.stringify(order))
+        return res
+    }
+
     
     const transformAllProduct = (grid) => {
         const {
@@ -224,7 +230,8 @@ const useMarketService = () => {
     }
 
     return {
-        getProducts
+        getProducts,
+        newOrder
     }
 }
 

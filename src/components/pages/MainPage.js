@@ -8,6 +8,7 @@ import QuestionAnswer from '../questionAnswer/question-answer'
 import Feedback from '../feedback/feedback';
 import OfferDay from '../offerDay/offer-day';
 import Footer from '../footer/footer';
+ 
 
 const MainPage = () => {
     return(
@@ -18,6 +19,7 @@ const MainPage = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-left__main'>
+          
                     <CatalogMenu/>
                     <OfferDay/>
                   </div>

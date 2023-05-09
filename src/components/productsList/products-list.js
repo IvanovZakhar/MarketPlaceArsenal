@@ -1,5 +1,6 @@
 import {Link } from "react-router-dom";
 import { useLinks } from "./Link/Links";
+import ModalOrder from "../modal/modalOrder";
 import arrowCategories from '../../resources/img/ico/arrow__catalog-menu.svg';
 import arrowSort from '../../resources/img/ico/arrow-sort.svg';
 import likeCard from '../../resources/img/ico/like-card.svg';
@@ -33,7 +34,7 @@ const ProductsList = ({product}) => {
                             <span className='before-price'>{price_before_discount} ₽</span>
                             <span className='after-price'>{price_rubles} ₽</span>
                         </div>
-                        <div className='added-panel'>
+                        {/* <div className='added-panel'>
                             <button>
                                 <img src={likeCard} alt='like-product' className='like-product'/>
                             </button>
@@ -49,7 +50,8 @@ const ProductsList = ({product}) => {
                             <button>
                                     <img src={plus} alt='plus-product' className='plus-product'/>
                             </button>
-                        </div>
+                        </div> */}
+                        <ModalOrder ariaHideApp={false}  product={item}/>
                     </div>
                 </li>
            
