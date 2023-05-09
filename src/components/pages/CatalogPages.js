@@ -12,7 +12,7 @@ const CatalogPages = ({props}) => {
         useEffect(() => {
             getProducts(props).then(setProduct)
         }, [props])
-     
+     console.log(product)
     return(
         <>
             <AppHeader/>

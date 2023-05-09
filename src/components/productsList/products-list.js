@@ -9,18 +9,19 @@ import minus from '../../resources/img/ico/minus.svg';
 import './products-list.scss'
 
 
-const ProductsList = ({product, props}) => {
-     
+const ProductsList = ({product}) => {
+   
     const {getLink} = useLinks();
     const elem = product ? product.map(item => {
-        const {anotation, artic, name_base, photo_main, price, price_before } = item;
-        
+        const {annotation, article, name_of_product, main_photo_link, price_rubles, price_before_discount, url} = item;
+        // const linkProduct =  item.categories.map(item => item.link).join('') 
+   
         return (
-                <li key={artic} className='product' >
-                    <img src={photo_main} alt={name_base} onClick={() => getLink(props, artic)}/>
+                <li key={article} className='product' >
+                    <img src={main_photo_link} alt={name_of_product} onClick={() => getLink(item.type_, article)}/>
                     <div className='about-product'>
-                        <h2 onClick={() => {console.log(artic)}}>{name_base}</h2>
-                        <div className='text__about-product' onClick={() => {console.log(artic)}}>{anotation}<div>
+                        <h2 onClick={() => { window.open(`/${url}/${article}`)}}>{name_of_product}</h2>
+                        <div className='text__about-product' onClick={() => {console.log(article)}}>{annotation}<div>
               
                         </div>
 
@@ -29,8 +30,8 @@ const ProductsList = ({product, props}) => {
                     <div className='panel-product'>
                         <div className='price-product'>
                             <h3>Цена</h3>
-                            <span className='before-price'>{price_before} ₽</span>
-                            <span className='after-price'>{price} ₽</span>
+                            <span className='before-price'>{price_before_discount} ₽</span>
+                            <span className='after-price'>{price_rubles} ₽</span>
                         </div>
                         <div className='added-panel'>
                             <button>
@@ -78,35 +79,35 @@ const ProductsList = ({product, props}) => {
 const Categories = ({categories}) =>{
  
 
-    const link = categories.map(item => {
-        return(
-         <li key={item.name}> 
-            <img src={arrowCategories} alt='arrow__catalog-menu'/>
-            <Link to={`/catalog${item.link}`}>{item.name}</Link>
+    // const link = categories.map(item => {
+    //     return(
+    //      <li key={item.name}> 
+    //         <img src={arrowCategories} alt='arrow__catalog-menu'/>
+    //         <Link to={`/catalog${item.link}`}>{item.name}</Link>
             
-        </li>
-        )
-    })
+    //     </li>
+    //     )
+    // })
 
-    const name = categories.map(item => {
-        return(
+    // const name = categories.map(item => {
+    //     return(
         
-              <h2 key={item.name}>{item.name}</h2>
+    //           <h2 key={item.name}>{item.name}</h2>
       
-        )
-    })
+    //     )
+    // })
     return(
         <>
             <ul className='categories'>
                 <li>
                     <Link to='/'>Главная</Link>
                 </li>
-  
-                {link}
+{/*   
+                {link} */}
             </ul>
-            <div className="categories-name"> 
+            {/* <div className="categories-name"> 
                 {name}
-            </div>
+            </div> */}
         </>
     )
 }

@@ -21,35 +21,51 @@ export const router = createBrowserRouter([
   },
   {
     path: "catalog",
-    element: <CatalogPages props={0}/>,
+    element: <CatalogPages props={'allproducts'}/>,
   },
   {
     path: "catalog/grids/grids-one",
-    element: <CatalogPages props={1}/>,
+    element: <CatalogPages props={'grids-one'}/>,
   },
   {
     path: "catalog/conditioner-protection/visors",
-    element: <CatalogPages props={2}/>,
+    element: <CatalogPages props={'visors'}/>,
   },
   {
     path: "catalog/conditioner-protection/baskets",
-    element: <CatalogPages props={3}/>,
+    element: <CatalogPages props={'baskets'}/>,
   },
   {
     path: "catalog/anti-theft",
-    element: <CatalogPages props={4}/>,
+    element: <CatalogPages props={'anti-theft'}/>,
   },
   {
     path: "catalog/grids/grids-two",
-    element: <CatalogPages props={5}/>,
+    element: <CatalogPages props={'grids-two'}/>,
   },
   {
     path: "catalog/grids",
-    element: <CatalogPages props={6}/>,
+    element: <CatalogPages props={'grids'}/>,
   },
   {
     path: "/catalog/conditioner-protection",
-    element: <CatalogPages props={7}/>,
+    element: <CatalogPages props={'conditioner-protection'}/>,
+  },
+  {
+    path: "/catalog/woodcutters",
+    element: <CatalogPages props={'woodcutters'}/>,
+  },
+  {
+    path: "/catalog/pergolias",
+    element: <CatalogPages props={'pergolias'}/>,
+  },
+  {
+    path: "/catalog/birdhouses",
+    element: <CatalogPages props={'birdhouses'}/>,
+  },
+  {
+    path: "/catalog/swings",
+    element: <CatalogPages props={'swings'}/>,
   },
   {
     path: "/catalog/grids/:artGrid",

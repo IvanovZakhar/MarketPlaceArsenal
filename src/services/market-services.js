@@ -6,30 +6,32 @@ const useMarketService = () => {
 
 
 
-    const getProducts = async (num) => {
-        const res = await request(`http://localhost:5000/Sqlconn?t=${num}`)
-             console.log(res)
-        switch(num){
-            case 0: 
-                return res.map(transformAllProduct);
-            case 1:
-                return res.map(transformGridsOne);
-            case 2:
-                return res.map(transformVisors); 
-            case 3:
-                return res.map(transformBaskets); 
-            case 4: 
-                return res.map(transformAntiTheft);
-            case 5: 
-                return res.map(transformGridsTwo);
-            case 6: 
-                return res.map(transformGrids);
-            case 7: 
-                return res.map(transformConditionerProtection);
+    const getProducts = async (catalog) => {
+        
+        const res = await request(`http://localhost:3001/${catalog}`)
+     
+             return res
+        // switch(num){
+        //     case 0: 
+        //         return res.map(transformAllProduct);
+        //     case 1:
+        //         return res.map(transformGridsOne);
+        //     case 2:
+        //         return res.map(transformVisors); 
+        //     case 3:
+        //         return res.map(transformBaskets); 
+        //     case 4: 
+        //         return res 
+        //     case 5: 
+        //         return res.map(transformGridsTwo);
+        //     case 6: 
+        //         return res.map(transformGrids);
+        //     case 7: 
+        //         return res.map(transformConditionerProtection);
 
-            default: 
-                break
-        }
+        //     default: 
+        //         break
+        // }
         
     }
 
@@ -52,8 +54,7 @@ const useMarketService = () => {
             weight_dry, width, comps,
             categories: [
                 {
-                name: 'Каталог',
-                link: '/catalog'
+                    name: 'Каталог'
                 } 
             ]
         }
@@ -82,7 +83,7 @@ const useMarketService = () => {
                 },
                 {
                     name: 'Одностворчатые',
-                    link: '/grids/grids-one'
+                    link: '/grids-one'
                 },
             ]
         }
@@ -107,11 +108,11 @@ const useMarketService = () => {
             categories: [
                 {
                 name: 'Решетки',
-                link:'/grids',
+                link:'/grids'
                 },
                 {
                     name: 'Двухстворчатые',
-                    link:'/grids/grids-two',
+                    link:'/grids-two'
                 }
             ]
         }
@@ -140,24 +141,12 @@ const useMarketService = () => {
         }
     }
 
-    const transformAntiTheft = (antiTheft) => {
-        const {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight,box_width, color, 
-            contry, join_type, name_base, nds, photo_aditional, photo_main, price, price_before,
-            suported_brends, type_, units_in_box, weight_dry, comps
-        } = antiTheft;
-
-
-        return {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight,box_width, color, 
-            contry, join_type, name_base, nds, photo_aditional, photo_main, price, price_before,
-            suported_brends, type_, units_in_box, weight_dry, comps, 
-            categories: [{
-                name: 'Противоугонные устройства',
-                link: '/anti-theft'
-            }]
-        }
-    }
+    // const transformAntiTheft = (antiTheft) => {
+    
+    //     return {
+    //         antiTheft
+    //     }
+    // }
 
     const transformConditionerProtection = (item) => {
         const {

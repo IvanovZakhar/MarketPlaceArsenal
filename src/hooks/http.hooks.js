@@ -4,7 +4,7 @@ export const useHttp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const request = useCallback( async (url, method = 'POST', body = 'pass=Ghjcnjqgfhjkm', headers = { 'Content-Type': 'application/x-www-form-urlencoded'}) => {
+    const request = useCallback( async (url, method = 'GET', body = null, headers = { 'Content-Type': 'application/x-www-form-urlencoded'}) => {
         setLoading(true);
 
         try{

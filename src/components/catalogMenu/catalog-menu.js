@@ -40,13 +40,17 @@ const CatalogMenu = () => {
                 <Link to='/catalog/anti-theft'>Противоугонные устройства</Link>
             </li>
             <li>
-                 <a href='/'>Дровницы</a>
+                 <a href='/catalog/woodcutters'>Дровницы</a>
             </li>
             <li>
-                <a href='/'>Кормушки для птиц</a>
+                <a href='/catalog/birdhouses'>Кормушки для птиц</a>
             </li>
-            
-         
+            <li>
+                <a href='/catalog/pergolias'>Перголы</a>
+            </li>
+            <li>
+                <a href='/catalog/swings'>Качели</a>
+            </li>
         </ul>
     )
 }

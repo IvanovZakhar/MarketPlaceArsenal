@@ -3,13 +3,13 @@
 
 export const useLinks = () => {
      
-    const getLink = (props, artic) => {
-        console.log(props)
-        switch(props){
-            case 0:
-                window.open(`/catalog/grids/grids-one/${artic}`);
-            // case 1:
-            //     return res.map(transformVisors); 
+    const getLink = (item, artic) => {
+        console.log(item)
+        switch(item){
+            case 'Решетка на окно/дверь':
+                window.open(`/catalog/grids/${artic}`);
+            case 'Панель для кондиционера':
+                window.open(`/catalog/conditioner-protection/${artic}`);
             // case 2:
             //     return res.map(transformBaskets); 
             // case 3: 
