@@ -2,9 +2,16 @@
 import MainPage from '../pages/MainPage';
 import CatalogPages from '../pages/CatalogPages';
 import Cart from '../pages/cart/Cart';
-import ProductPageGrid from '../pages/ProductPageGrid'
+import ProductPageGrid from '../pages/ProductPageGrid';
+import ProductPageConditionerProtection from '../pages/ProductPageConditionerProtection';
+import ProductPageAntiTheft from '../pages/ProductPageAntiTheft';
+import ProductPageWoodcutter from '../pages/ProductPageWoodcutter';
+import ProductPageBirdHouse from '../pages/ProductPageBirdhouse';
+import ProductPagePergola from '../pages/ProductPagePergola';
+import ProductPageSwing from '../pages/ProductPageSwing'; 
 import './App.scss';
 import {createBrowserRouter} from "react-router-dom";
+
 
 export const router = createBrowserRouter([
   {
@@ -73,12 +80,41 @@ export const router = createBrowserRouter([
   },
   {
     path: "/catalog/grids/grids-one/:artGrid",
-    element: <ProductPageGrid props={1}/>,
+    element: <ProductPageGrid  />,
   },
   {
     path: "/catalog/grids/grids-two/:artGrid",
-    element: <ProductPageGrid props={5}/>,
+    element: <ProductPageGrid />,
   },
+  {
+    path: "/catalog/conditioner-protection/visors/:artConditionerProtection",
+    element: <ProductPageConditionerProtection />,
+  },
+  {
+    path: "/catalog/conditioner-protection/baskets/:artConditionerProtection",
+    element: <ProductPageConditionerProtection />,
+  },
+  {
+    path: "/catalog/anti-theft/:artAntiTheft",
+    element: <ProductPageAntiTheft />,
+  },
+  {
+    path: "/catalog/woodcutters/:artWoodcutter",
+    element: <ProductPageWoodcutter />,
+  },
+  {
+    path: "/catalog/burdhouses/:artBirdhouse",
+    element: <ProductPageBirdHouse />,
+  },
+  {
+    path: "/catalog/pergolias/:artPergola",
+    element: < ProductPagePergola />,
+  },
+  ,
+  {
+    path: "/catalog/swings/:artSwing",
+    element: < ProductPageSwing />,
+  }
  
 
  

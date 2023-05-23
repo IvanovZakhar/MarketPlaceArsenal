@@ -49,8 +49,30 @@ function ModalOrder({product}) {
               number: +number,
               product: [ product.article, product.name_of_product, product.price_rubles],
             };
+
+            // const data = {
+            //   name: 'John Doe',
+            //   number: 123,
+            //   product: ['product1', 'product2', 'product3'],
+            // };
        
-            newOrder(data).then(res => console.log(res))
+            // newOrder(data).then(res => console.log(res))
+            fetch('http://localhost:3001/new-order', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            })
+              .then(response => response.json())
+              .then(savedDoc => {
+                // Обработка успешного ответа от сервера
+                console.log(savedDoc);
+              })
+              .catch(error => {
+                // Обработка ошибок
+                console.error(error);
+              });
         })}>
           <h2>Оформление заказа</h2>
           <span>Персональный менеджер свяжется с вами и подготовит для вас предложение.</span>

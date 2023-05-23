@@ -1,12 +1,12 @@
 import './specifications.scss'
 
-const SpecificationsGrid = ({product}) => {
+const SpecificationsGrid = ({productGrid}) => {
     const {
-            width, height, weight_dry, color, 
-            property, open_type, garanty, 
-            type_, open_dir, sk_num, st_num, 
-            constr, contry
-          } = product[0]
+        width_mm, height_mm, product_weight_g, 
+        product_color, variant, opening_type, 
+        warranty, type, opening_direction, number_of_leafs, number_of_chambers, 
+        grille_design, country_of_manufacture
+          } = productGrid[0]
  
     return(
         <div className="specifications">
@@ -14,55 +14,55 @@ const SpecificationsGrid = ({product}) => {
             <ul>
                 <li>
                     <span>Высота</span>
-                    <span>{height} мм</span>
+                    <span>{height_mm} мм</span>
                 </li>
                 <li>
                     <span>Ширина</span>
-                    <span>{width} мм</span>
+                    <span>{width_mm} мм</span>
                 </li>
                 <li>
                     <span>Вес</span>
-                    <span>{weight_dry} г</span>
+                    <span>{product_weight_g} г</span>
                 </li>
                 <li>
                     <span>Цвет</span>
-                    <span>{color}</span>
+                    <span>{product_color}</span>
                 </li>
                 <li>
-                    <span>Ролик</span>
-                    <span>{property}</span>
+                    <span>Вариант</span>
+                    <span>{variant}</span>
                 </li>
                 <li>
                     <span>Тип</span>
-                    <span>{type_}</span>
+                    <span>{type}</span>
                 </li>
                 <li>
                     <span>Тип открывания</span>
-                    <span>{open_type}</span>
+                    <span>{opening_type}</span>
                 </li>
                 <li>
                     <span>Конструкция</span>
-                    <span>{constr}</span>
+                    <span>{grille_design}</span>
                 </li>
                 <li>
                     <span>Направление открытия</span>
-                    <span>{open_dir}</span>
+                    <span>{opening_direction}</span>
                 </li>
                 <li>
                     <span>Количество створок</span>
-                    <span>{sk_num}</span>
+                    <span>{number_of_leafs}</span>
                 </li>
                 <li>
                     <span>Количество камер</span>
-                    <span>{st_num}</span>
+                    <span>{number_of_chambers}</span>
                 </li>
                 <li>
                     <span>Гарантия</span>
-                    <span>{garanty}</span>
+                    <span>{warranty}</span>
                 </li>
                 <li>
                     <span>Страна производитель</span>
-                    <span>{contry}</span>
+                    <span>{country_of_manufacture}</span>
                 </li>
             </ul>
         </div>

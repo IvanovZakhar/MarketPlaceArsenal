@@ -7,9 +7,45 @@ const useMarketService = () => {
 
 
     const getProducts = async (catalog) => {
+        console.log(catalog)
+        const res = await request(`http://localhost:3004/${catalog}`)
+        console.log(res)
+            
+        switch(catalog){
+            case 'allproducts': 
+                return res.map(transformAllProduct);
+            case 'grids-one':
+                return res.map(transformGridsOne);
+            case 'grids-two': 
+                return res.map(transformGridsTwo);
+            case 'grids': 
+                return res.map(transformGrids);
+            case 'conditioner-protection': 
+                return res.map(transformConditionerProtection);
+            case 'visors':
+                return res.map(transformVisors); 
+            case 'baskets':
+                return res.map(transformBaskets); 
+            case 'anti-theft': 
+                return res.map(transformAntiTheft);  
+            case 'woodcutters': 
+                return res.map(transformWoodcutters); 
+            case 'birdhouses': 
+                return res.map(transformBirdhouses);
+            case 'pergolias': 
+                return res.map(transformPergolias);
+            case 'swings': 
+                return res.map(transformSwings);    
+            default: 
+                return res
+        }
         
-        const res = await request(`http://localhost:3001/${catalog}`)
-     
+    }
+
+    const getProductsForArticle = async (catalog, article) => {
+        console.log(catalog)
+        const res = await request(`http://localhost:3004/${catalog}${article}`)
+        console.log(res)
              return res
         // switch(num){
         //     case 0: 
@@ -34,164 +70,95 @@ const useMarketService = () => {
         // }
         
     }
-
     const newOrder = async (order) => {
-        console.log(order)
-        const res = await request(`http://localhost:3001/new-order`, 'POST', JSON.stringify(order))
+        console.log(JSON.stringify(order))
+        const res = await request(`http://localhost:3004/new-order`, 'POST', JSON.stringify(order))
         return res
     }
 
     
-    const transformAllProduct = (grid) => {
-        const {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps
-        } = grid;
-        return {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps,
-            categories: [
+    const transformAllProduct = (product) => {
+        product.categories = [
                 {
-                    name: 'Каталог'
+                    name: 'Каталог',
+                    link:'/'
                 } 
             ]
-        }
+        return product;
     }
 
     const transformGridsOne = (grid) => {
-        const {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps
-        } = grid;
-        return {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps,
-            categories: [
-                {
+        grid.categories = [
+            {
+                name: 'Каталог',
+                link:'/'
+            },
+            {
                 name: 'Решетки',
                 link: '/grids'
-                },
-                {
-                    name: 'Одностворчатые',
-                    link: '/grids-one'
-                },
-            ]
-        }
+            },
+            {
+                name: 'Одностворчатые',
+                link: '/grids/grids-one'
+            },
+        ]
+        return grid;
     }
 
     const transformGridsTwo = (grid) => {
-        const {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps
-        } = grid;
-        return {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps, 
-            categories: [
+        grid.categories = [
                 {
-                name: 'Решетки',
-                link:'/grids'
+                    name: 'Каталог',
+                    link:'/'
+                },
+                {
+                    name: 'Решетки',
+                    link:'/grids'
                 },
                 {
                     name: 'Двухстворчатые',
-                    link:'/grids-two'
+                    link:'/grids/grids-two'
                 }
             ]
-        }
+        return grid;
     }
 
     const transformGrids = (grid) => {
-        const {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps
-        } = grid;
-        return {
-            anotation,
-            artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, constr, contry, fabricbox, garanty, height, join_type, 
-            name_base, nds, open_dir, open_type, photo_aditional, photo_main, 
-            price, price_before, property, sk_num, st_num, type_, units_in_box,
-            weight_dry, width, comps,
-            categories: [{
+        grid.categories = [
+            {
+                name: 'Каталог',
+                link:'/'
+            },
+            {
                 name: 'Решетки',
                 link: '/grids'
-            }]
-        }
+            }
+    ]
+        return  grid
     }
 
-    // const transformAntiTheft = (antiTheft) => {
-    
-    //     return {
-    //         antiTheft
-    //     }
-    // }
-
     const transformConditionerProtection = (item) => {
-        const {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight, 
-            box_width, color, contry, fabricbox, garanty, height, join_type, 
-            lenght, material, name_base, nds, photo_aditional, photo_main, price,
-             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps
-        } = item;
+        item.categories = [
+                {
+                    name: 'Каталог',
+                    link: '/'
+                },
+                {
+                    name: 'Защита кондицонера',
+                    link: '/conditioner-protection'
+                }]
 
 
-        return {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, contry, fabricbox, garanty, height, join_type, lenght, material, 
-            name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
-            suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
-            categories: [
-            {
-                name: 'Защита кондицонера',
-                link: '/conditioner-protection'
-            }]
-        }
+        return item
     }
 
     const transformVisors = (visor) => {
-        const {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight, 
-            box_width, color, contry, fabricbox, garanty, height, join_type, 
-            lenght, material, name_base, nds, photo_aditional, photo_main, price,
-             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps
-        } = visor;
-
-
-        return {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, contry, fabricbox, garanty, height, join_type, lenght, material, 
-            name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
-            suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
-            categories: [
-                {
+        visor.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
+            {
                 name: 'Защита кондицонера',
                 link: '/conditioner-protection'
             },
@@ -200,24 +167,17 @@ const useMarketService = () => {
                 link: '/visors'
             },
         ]
-        }
+
+
+        return visor
     }
 
     const transformBaskets = (baskets) => {
-        const {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight, 
-            box_width, color, contry, fabricbox, garanty, height, join_type, 
-            lenght, material, name_base, nds, photo_aditional, photo_main, price,
-             price_before, purpose, suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
-        } = baskets;
-
-
-        return {
-            anotation, artic, bis_type, box_height, box_lenght, box_weight, box_width, 
-            color, contry, fabricbox, garanty, height, join_type, lenght, material, 
-            name_base, nds, photo_aditional, photo_main, price, price_before, purpose, 
-            suported_brends, suported_dev, type_, units_in_box, weight_dry, width, comps,
-            categories: [
+        baskets.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
             {
                 name: 'Защита кондицонера',
                 link: '/conditioner-protection'
@@ -225,13 +185,87 @@ const useMarketService = () => {
             {
                 name: 'Корзины',
                 link: '/baskets'
-            }]
-        }
+            }] 
+
+
+        return baskets
     }
+    
+    const transformAntiTheft = (antiTheft) => {
+        antiTheft.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
+            {
+                name: 'Противоугонные устройства',
+                link: '/anti-theft'
+            }]
+        return antiTheft
+        
+    }
+
+    const transformWoodcutters = (woodcutters) => {
+        woodcutters.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
+            {
+                name: 'Дровницы',
+                link: '/woodcutters'
+            }]
+        return woodcutters
+        
+    }
+
+    const transformBirdhouses = (birdhouses) => {
+        birdhouses.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
+            {
+                name: 'Кормушки для птиц',
+                link: '/birdhouses'
+            }]
+        return birdhouses
+        
+    }
+
+    const transformPergolias = (pergolias) => {
+        pergolias.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
+            {
+                name: 'Перголы',
+                link: '/pergolias'
+            }]
+        return pergolias
+        
+    }
+
+    const transformSwings = (swings) => {
+        swings.categories = [
+            {
+                name: 'Каталог',
+                link: '/'
+            },
+            {
+                name: 'Перголы',
+                link: '/swings'
+            }]
+        return swings
+        
+    }
+
 
     return {
         getProducts,
-        newOrder
+        newOrder,
+        getProductsForArticle
     }
 }
 

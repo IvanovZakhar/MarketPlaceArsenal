@@ -9,18 +9,18 @@ import minus from '../../../../resources/img/ico/minus.svg';
 import './description.scss'
 
 
-const Description = ({product}) => {
+const Description = ({productGrid}) => {
     
-    
-    const elem = (product) => {
-        const {name_base, anotation, price, price_before, photo_main, photo_aditional} = product
+   
+    const elem = (productGrid) => {
+        const {name_of_product, annotation, price_rubles, price_before_discount, main_photo_link, additional_photo_links} = productGrid;
         const regex = /(https:\/\/.*?\.jpg)/g;
-        const matches = [...photo_aditional.matchAll(regex)].map((match) => ({ url: match[1] }));
+        const matches = [...additional_photo_links.matchAll(regex)].map((match) => ({ url: match[1] }));
  
         const imgs = matches.map(item => {
             return(
                 <div>
-                    <img src={item.url} alt={name_base}/>
+                    <img src={item.url} alt={name_of_product}/>
                 </div>
         
             )
@@ -30,7 +30,7 @@ const Description = ({product}) => {
             <div className="carousel">
                 <Carousel showStatus={false}>
                     <div>
-                        <img src={photo_main} alt={name_base}/>
+                        <img src={main_photo_link} alt={name_of_product}/>
                     </div>
                     {imgs}
                 </Carousel>
@@ -46,8 +46,8 @@ const Description = ({product}) => {
                 <div className='panel-product'>
                             <div className='price-product'>
                                 <h3>Цена</h3>
-                                <span className='before-price'>{price_before} ₽</span>
-                                <span className='after-price'>{price} ₽</span>
+                                <span className='before-price'>{price_before_discount} ₽</span>
+                                <span className='after-price'>{price_rubles} ₽</span>
                             </div>
     
                             <div className='count-product'>
@@ -62,7 +62,7 @@ const Description = ({product}) => {
                             </div>
                     </div>
                     <div className="definition__description">
-                        {anotation.replace(/\<br\/\>/gi, " ")}
+                        {annotation.replace(/&lt;br\/&gt;&lt;br\/&gt;/g, '')}
                     </div>
 
             </div>
@@ -70,7 +70,7 @@ const Description = ({product}) => {
         )
     }
    
-    const item = product ? elem(product[0]) : null
+    const item = productGrid ? elem(productGrid[0]) : null
     return (
        <>
          {item}

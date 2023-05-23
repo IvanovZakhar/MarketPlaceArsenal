@@ -1,16 +1,32 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import useMarketService from '../../services/market-services';
 import Description from './aboutProduct/description/description';
-import SpecificationsGrid from './aboutProduct/specifications/specifications-grid';
+import Specifications from './aboutProduct/specifications/specifications';
 import Configuration from './aboutProduct/configuration/configuration';
 import 'react-tabs/style/react-tabs.css';
 import './product.scss'
 
 
-const ProductGrid = ({product}) => {
-   
+const ProductConditionerProtection = () => {
+   const {artConditionerProtection} = useParams();
+   const {getProductsForArticle} = useMarketService();
+   const [productConditionerProtection, setProductConditionerProtection] = useState();
+
+    useEffect(() => {
+       if(artConditionerProtection.length === 12){
+        getProductsForArticle('baskets', `?article=${artConditionerProtection}`).then(setProductConditionerProtection)
+       }else{
+        getProductsForArticle('visors', `?article=${artConditionerProtection}`).then(setProductConditionerProtection)
+       }
+ 
+    }, [artConditionerProtection])
+    
+
     return(
         <div className="product">
-            <h1>{product ? product[0].name_base : null}</h1>
+            <h1>{productConditionerProtection ? productConditionerProtection[0].name_of_product : null}</h1>
             <Tabs>
                 <TabList className="tab-list" >
                     <Tab className="tab" selectedClassName="active">Описание</Tab>
@@ -19,17 +35,17 @@ const ProductGrid = ({product}) => {
                 </TabList>
 
                 <TabPanel>
-                    <Description product={product}/>
+                    <Description productConditionerProtection={productConditionerProtection}/>
                 </TabPanel>
                 <TabPanel>
-                    <SpecificationsGrid product={product}/>
+                    <Specifications productConditionerProtection={productConditionerProtection}/>
                 </TabPanel>
                 <TabPanel>
-                    <Configuration product={product}/>
+                    <Configuration productConditionerProtection={productConditionerProtection}/>
                 </TabPanel>
             </Tabs>
         </div>
     )
 }
 
-export default ProductGrid;
+export default ProductConditionerProtection;

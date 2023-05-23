@@ -1,72 +1,53 @@
 import './specifications.scss'
 
-const SpecificationsGrid = ({product}) => {
+const Specifications = ({productConditionerProtection}) => {
     const {
-            width, height, weight_dry, color, 
-            property, open_type, garanty, 
-            type_, open_dir, sk_num, st_num, 
-            constr, contry
-          } = product[0]
+        dimensions_mm, product_weight_g, color_name, 
+        quantity_in_packaging, warranty_period, 
+            type, purpose,st_num, 
+            material, country_of_manufacture
+          } = productConditionerProtection[0]
  
     return(
         <div className="specifications">
             <h2>Характеристики</h2>
             <ul>
                 <li>
-                    <span>Высота</span>
-                    <span>{height} мм</span>
+                    <span>Размеры</span>
+                    <span>{dimensions_mm} мм</span>
                 </li>
-                <li>
-                    <span>Ширина</span>
-                    <span>{width} мм</span>
-                </li>
+
                 <li>
                     <span>Вес</span>
-                    <span>{weight_dry} г</span>
+                    <span>{product_weight_g} г</span>
                 </li>
                 <li>
                     <span>Цвет</span>
-                    <span>{color}</span>
-                </li>
-                <li>
-                    <span>Ролик</span>
-                    <span>{property}</span>
+                    <span>{color_name}</span>
                 </li>
                 <li>
                     <span>Тип</span>
-                    <span>{type_}</span>
+                    <span>{type}</span>
                 </li>
                 <li>
-                    <span>Тип открывания</span>
-                    <span>{open_type}</span>
+                    <span>Материал</span>
+                    <span>{material}</span>
                 </li>
                 <li>
-                    <span>Конструкция</span>
-                    <span>{constr}</span>
-                </li>
-                <li>
-                    <span>Направление открытия</span>
-                    <span>{open_dir}</span>
-                </li>
-                <li>
-                    <span>Количество створок</span>
-                    <span>{sk_num}</span>
-                </li>
-                <li>
-                    <span>Количество камер</span>
-                    <span>{st_num}</span>
+                    <span>Количество в упаковке</span>
+                    <span>{quantity_in_packaging}</span>
                 </li>
                 <li>
                     <span>Гарантия</span>
-                    <span>{garanty}</span>
+                    <span>{warranty_period}</span>
                 </li>
                 <li>
                     <span>Страна производитель</span>
-                    <span>{contry}</span>
+                    <span>{country_of_manufacture}</span>
                 </li>
             </ul>
         </div>
     )
 }
 
-export default SpecificationsGrid;
+export default Specifications;

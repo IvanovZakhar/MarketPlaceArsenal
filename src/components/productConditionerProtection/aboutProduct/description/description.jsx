@@ -9,68 +9,73 @@ import minus from '../../../../resources/img/ico/minus.svg';
 import './description.scss'
 
 
-const Description = ({product}) => {
+const Description = ({productConditionerProtection}) => {
     
     
-    const elem = (product) => {
-        const {name_base, anotation, price, price_before, photo_main, photo_aditional} = product
+    const elem = (productConditionerProtection) => {
+        const {name_of_product, annotation, price_rubles, price_before_discount, 
+            main_photo_link, additional_photo_links, supported_brands, list_of_compatible_devices, purpose} = productConditionerProtection;
+        console.log(productConditionerProtection)
         const regex = /(https:\/\/.*?\.jpg)/g;
-        const matches = [...photo_aditional.matchAll(regex)].map((match) => ({ url: match[1] }));
+        const matches = [...additional_photo_links.matchAll(regex)].map((match) => ({ url: match[1] }));
  
-        const imgs = matches.map(item => {
+        const imgs = matches.map((item,i) => {
             return(
-                <div>
-                    <img src={item.url} alt={name_base}/>
+                <div key={i}>
+                    <img src={item.url} alt={name_of_product}/>
                 </div>
         
             )
         })
         return(
             <div className="description">
-            <div className="carousel">
-                <Carousel showStatus={false}>
-                    <div>
-                        <img src={photo_main} alt={name_base}/>
+                <div className="carousel-slide">
+                    <Carousel showStatus={false}>
+                        <div>
+                            <img src={main_photo_link} alt={name_of_product}/>
+                        </div>
+                        {imgs}
+                    </Carousel>
+                    <div className='added-panel'>
+                        <button className="added-btn">
+                            <img src={likeCard} alt='like-product' className='like-product'/>
+                            <span>В избранное</span>
+                        </button>
+            
                     </div>
-                    {imgs}
-                </Carousel>
-                <div className='added-panel'>
-                    <button className="added-btn">
-                        <img src={likeCard} alt='like-product' className='like-product'/>
-                        <span>В избранное</span>
-                    </button>
-          
+                </div>
+                <div className="definition">
+                    <div className='panel-product'>
+                                <div className='price-product'>
+                                    <h3>Цена</h3>
+                                    <span className='before-price'>{price_before_discount ? `${price_before_discount} ₽` : null} </span>
+                                    <span className='after-price'>{price_rubles} ₽</span>
+                                </div>
+        
+                                <div className='count-product'>
+                    
+                                    <button>
+                                            <img src={minus} alt='minus-product' className='minus-product'/>
+                                    </button>
+                                    <span className='count'>4</span>
+                                    <button>
+                                            <img src={plus} alt='plus-product' className='plus-product'/>
+                                    </button>
+                                </div>
+                        </div>
+                        <div className="definition__description">
+                            <div>{annotation}</div>
+                            <div className="supports-brend"><span>Предназначение:</span>{purpose}</div>
+                            <div className="supports-brend"><span>Список совместимых устройств:</span>{list_of_compatible_devices}</div>
+                            <div className="supports-brend"><span>Поддерживаемые бренды:</span>{supported_brands}</div>
+                        </div>
+
                 </div>
             </div>
-            <div className="definition">
-                <div className='panel-product'>
-                            <div className='price-product'>
-                                <h3>Цена</h3>
-                                <span className='before-price'>{price_before} ₽</span>
-                                <span className='after-price'>{price} ₽</span>
-                            </div>
-    
-                            <div className='count-product'>
-                
-                                <button>
-                                        <img src={minus} alt='minus-product' className='minus-product'/>
-                                </button>
-                                <span className='count'>4</span>
-                                <button>
-                                        <img src={plus} alt='plus-product' className='plus-product'/>
-                                </button>
-                            </div>
-                    </div>
-                    <div className="definition__description">
-                        {anotation.replace(/\<br\/\>/gi, " ")}
-                    </div>
-
-            </div>
-        </div>
         )
     }
    
-    const item = product ? elem(product[0]) : null
+    const item = productConditionerProtection ? elem(productConditionerProtection[0]) : null
     return (
        <>
          {item}

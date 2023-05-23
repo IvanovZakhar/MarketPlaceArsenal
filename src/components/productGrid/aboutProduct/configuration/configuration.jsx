@@ -1,9 +1,8 @@
 import './configuration.scss'
 
-const Configuration = ({product}) => {
-    console.log(product[0].comps)
+const Configuration = ({productGrid}) => {
     const regex = /•(.*?);/g;
-    const matches = product ? [...product[0].comps.matchAll(regex)].map((match) => ({ elem: match[1] })) : null;
+    const matches = productGrid ? [...productGrid[0].package_contents.matchAll(regex)].map((match) => ({ elem: match[1] })) : null;
     
     return(
         <ul className='configuration'>
