@@ -4,9 +4,12 @@ import Footer from '../../footer/footer';
 import CartProducts from '../../cartProducts/cart-products';
 import arrowCategories from '../../../resources/img/ico/arrow__catalog-menu.svg';
 import Feedback from '../../feedback/feedback';
+ 
 import './cart.scss'
 
-const Cart = () => {
+const Cart = ({cartItems}) => {
+  console.log(cartItems)
+ 
     return(
         <>
         <AppHeader/>
@@ -27,7 +30,7 @@ const Cart = () => {
                             <a href='/'>Корзина</a>
                         </li>
                     </ul>
-                    <CartProducts/>
+                    <CartProducts cartItems={cartItems}/>
                 </div> 
                
             </div>

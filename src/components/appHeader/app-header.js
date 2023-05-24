@@ -1,20 +1,24 @@
-
-import './app-header.scss';
+import useCounter from '../../hooks/useCounter';
+import { Link } from 'react-router-dom';
 import check from '../../resources/img/ico/check.svg';
 import phone from '../../resources/img/ico/phone.svg';
 import cart from '../../resources/img/ico/cart.svg';
 import like from '../../resources/img/ico/like.svg';
 import avatar from '../../resources/img/ico/avatar.svg';
+import './app-header.scss';
 
 const AppHeader = () => {
+   
     return(
         <div className='app-header'>
             <div className='container'>
                 <header>
-                    <button className='catalog__btn'>
-                        <p className='text__catalog'>КАТАЛОГ</p>
-                        <img src={check} className='check__catalog' alt="check"/>
-                    </button>
+
+                
+                    <Link to='/catalog' className='catalog__btn'>
+                        <p className='text__catalog' >КАТАЛОГ</p>
+                    </Link>
+                   
                     <input type='text'  placeholder='Поиск по сайту'/>
                     <div className='phone'>
                         <div className='col-left__phone'> 
@@ -26,10 +30,10 @@ const AppHeader = () => {
                         </div>
                     </div>
                     <img src={like} className='like' alt='like'/>
-                    <a href='/' className='cart'>
+                    <Link to='/cart' className='cart'>
                         <img src={cart} alt='cart'/>
-                        <div className='count__cart'><p>3</p></div>
-                    </a>
+                        {/* <div className='count__cart'><p>{cartItems.length}</p></div> */}
+                    </Link>
                     <a href='/'>
                         <img src={avatar} className='avatar' alt='avatar'/>
                     </a>

@@ -81,7 +81,9 @@ const useMarketService = () => {
         product.categories = [
                 {
                     name: 'Каталог',
-                    link:'/'
+                    link:'/',
+                    nameList: 'Каталог'
+                    
                 } 
             ]
         return product;
@@ -91,7 +93,8 @@ const useMarketService = () => {
         grid.categories = [
             {
                 name: 'Каталог',
-                link:'/'
+                link:'/',
+                nameList: 'Решетки одностворчатые'
             },
             {
                 name: 'Решетки',
@@ -109,7 +112,8 @@ const useMarketService = () => {
         grid.categories = [
                 {
                     name: 'Каталог',
-                    link:'/'
+                    link:'/',
+                    nameList: 'Решетки двухстворчатые'
                 },
                 {
                     name: 'Решетки',
@@ -127,7 +131,8 @@ const useMarketService = () => {
         grid.categories = [
             {
                 name: 'Каталог',
-                link:'/'
+                link:'/',
+                nameList: 'Решетки'
             },
             {
                 name: 'Решетки',
@@ -141,7 +146,8 @@ const useMarketService = () => {
         item.categories = [
                 {
                     name: 'Каталог',
-                    link: '/'
+                    link: '/',
+                    nameList: 'Защита кондиционера'
                 },
                 {
                     name: 'Защита кондицонера',
@@ -156,7 +162,8 @@ const useMarketService = () => {
         visor.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Защитные козырьки'
             },
             {
                 name: 'Защита кондицонера',
@@ -176,7 +183,8 @@ const useMarketService = () => {
         baskets.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Корзины'
             },
             {
                 name: 'Защита кондицонера',
@@ -195,7 +203,8 @@ const useMarketService = () => {
         antiTheft.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Противоугонные устройства'
             },
             {
                 name: 'Противоугонные устройства',
@@ -209,7 +218,8 @@ const useMarketService = () => {
         woodcutters.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Дровницы'
             },
             {
                 name: 'Дровницы',
@@ -223,7 +233,8 @@ const useMarketService = () => {
         birdhouses.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Кормушки для птиц'
             },
             {
                 name: 'Кормушки для птиц',
@@ -237,7 +248,8 @@ const useMarketService = () => {
         pergolias.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Перголы'
             },
             {
                 name: 'Перголы',
@@ -251,7 +263,8 @@ const useMarketService = () => {
         swings.categories = [
             {
                 name: 'Каталог',
-                link: '/'
+                link: '/',
+                nameList: 'Качели'
             },
             {
                 name: 'Перголы',

@@ -11,6 +11,7 @@ import Footer from '../footer/footer';
  
 
 const MainPage = () => {
+
     return(
         <>
           <AppHeaderMainPage/>
