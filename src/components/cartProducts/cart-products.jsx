@@ -1,85 +1,30 @@
-// import ProductCounter from '../productsList/productCounter';
-// import useCounter from '../../hooks/useCounter';
- 
-// import './cart-products.scss'
-
-
-// const CartProducts = () => {
-//     const {cartItems, handleAddToCart, handleRemoveFromCart} = useCounter();  
- 
- 
-//     const productsCarts = cartItems.map((item, i) => {
-//         const {main_photo_link, name_of_product, price_before_discount, price_rubles, weight_in_packaging_g} = item
-//         return(
-//             <li className='product' key={i}>
-//             <img src={main_photo_link} className='product-photo' alt={name_of_product}/>
-//             <div className='about-product'>
-//                 <h2>{name_of_product}</h2>
-//                 <span>{weight_in_packaging_g} г.</span>
-//             </div>
-            
-//             <ProductCounter
-//                 item={item}
-//                 cartItems={cartItems}
-//                 handleAddToCart={handleAddToCart}
-//                 handleRemoveFromCart={handleRemoveFromCart}
-//               />
-//             <div className='price-product'>
-//                 <span className='before-price'>{price_before_discount} ₽</span>
-//                 <span className='after-price'>{price_rubles} ₽</span>
-//             </div>
-            
-//         </li>
-//         )
-//     })
-    
-//     return(
-//         <>
-//             <ul className="cart-products">
-//                 {productsCarts[0] ? productsCarts : <h2>Корзина пуста</h2>}
-   
-//                 <li className="total">
-//                     <div className="total-price">
-//                         <h3>Итого:</h3>
-//                         <span>14 572 ₽</span>
-//                     </div>
-//                     <span className="weight-order">Вес заказа........................................................................................................................................................................................125кг</span>
-//                     <span className="weight-order">Объём заказа.....................................................................................................................................................................................3м</span>
-//                 </li>
-//                 <li>
-//                     <button className='get-order'>Оформить заказ</button>
-//                 </li>
-//             </ul>
-            
-//         </>
-//     )
-// }
-
-// export default CartProducts;
 
 import React from 'react';
+import openLink from '../productsList/openLink';
 import ProductCounter from '../productsList/productCounter';
 import useCounter from '../../hooks/useCounter';
-import { useContext } from 'react';
-import { CartContext } from '../app/CartContext';
+import ModalOrder from '../modal/modalOrder';
 import './cart-products.scss';
 
 const CartProducts = () => {
  
-    const {  cartItems, handleAddToCart, handleRemoveFromCart } = useContext(CartContext);
-     
-  const productsCarts = cartItems.map((item, i) => {
-    const { main_photo_link, name_of_product, price_before_discount, price_rubles, weight_in_packaging_g } = item;
+    const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
+    const totalSum = getTotalSum(cartItems)
+    const totalWeght = getTotalWeght(cartItems)
+    const totalVolume =  getTotalVolume(cartItems).slice(0, 4)
+ 
+  const productsCarts = cartItems.map((cart, i) => {
+    const { main_photo_link, name_of_product, price_before_discount, price_rubles, weight_in_packaging_g } = cart;
     return (
       <li className='product' key={i}>
-        <img src={main_photo_link} className='product-photo' alt={name_of_product} />
-        <div className='about-product'>
-          <h2>{name_of_product}</h2>
+        <img src={main_photo_link} className='product-photo' alt={name_of_product} onClick={() => openLink(cart)}/>
+        <div className='about-product' onClick={() => openLink(cart)}>
+          <h2 >{name_of_product}</h2>
           <span>{weight_in_packaging_g} г.</span>
         </div>
 
         <ProductCounter
-          item={item}
+          item={cart}
           cartItems={cartItems}
           handleAddToCart={handleAddToCart}
           handleRemoveFromCart={handleRemoveFromCart}
@@ -100,18 +45,24 @@ const CartProducts = () => {
         ) : (
           <h2>Корзина пуста</h2>
         )}
+         
 
+         
         <li className='total'>
           <div className='total-price'>
             <h3>Итого:</h3>
-            <span>14 572 ₽</span>
+            <span>{totalSum} ₽</span>
           </div>
           <span className='weight-order'>
-            Вес заказа........................................................................................................................................................................................125кг
+            Вес заказа........................................................................................................................................................................................{totalWeght}кг
           </span>
           <span className='weight-order'>
-            Объём заказа.....................................................................................................................................................................................3м
+            Объём заказа.................................................................................................................................................................................{totalVolume}м
           </span>
+        </li>
+        <li className='address-delivery'>
+                <h4>Адрес и номер телефона</h4>
+                <ModalOrder/>
         </li>
         <li>
           <button className='get-order'>Оформить заказ</button>
@@ -122,3 +73,20 @@ const CartProducts = () => {
 };
 
 export default CartProducts;
+
+
+const getTotalWeght = (items) => {
+    let resTotal = items.reduce((sum, item) => sum + item.weight_in_packaging_g * item.quantity, 0);
+    resTotal =  Math.round(resTotal /= 1000)
+    return resTotal
+}
+
+const getTotalSum = (items) => {
+    return items.reduce((sum, item) => sum + item.price_rubles * item.quantity, 0);
+}
+
+const getTotalVolume = (items) => {
+    const res = items.reduce((sum, item) =>  sum + ((item.width_in_packaging_mm / 1000) * (item.height_in_packaging_mm / 1000) * (item.length_in_packaging_mm / 1000)) * item.quantity, 0);
+    
+    return String(res) 
+}

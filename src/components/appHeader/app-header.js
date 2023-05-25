@@ -1,6 +1,6 @@
 import useCounter from '../../hooks/useCounter';
 import { Link } from 'react-router-dom';
-import check from '../../resources/img/ico/check.svg';
+import { useEffect, useState } from 'react';
 import phone from '../../resources/img/ico/phone.svg';
 import cart from '../../resources/img/ico/cart.svg';
 import like from '../../resources/img/ico/like.svg';
@@ -8,13 +8,19 @@ import avatar from '../../resources/img/ico/avatar.svg';
 import './app-header.scss';
 
 const AppHeader = () => {
-   
+    const { cartItems } = useCounter();
+    const [cartItemCount, setCartItemCount] = useState(cartItems.length);
+  
+    useEffect(() => {
+      setCartItemCount(cartItems.length);
+    }, [cartItems]);
+
+    
     return(
         <div className='app-header'>
             <div className='container'>
                 <header>
 
-                
                     <Link to='/catalog' className='catalog__btn'>
                         <p className='text__catalog' >КАТАЛОГ</p>
                     </Link>
@@ -32,7 +38,7 @@ const AppHeader = () => {
                     <img src={like} className='like' alt='like'/>
                     <Link to='/cart' className='cart'>
                         <img src={cart} alt='cart'/>
-                        {/* <div className='count__cart'><p>{cartItems.length}</p></div> */}
+                        <div className='count__cart'><p>{cartItemCount}</p></div>
                     </Link>
                     <a href='/'>
                         <img src={avatar} className='avatar' alt='avatar'/>

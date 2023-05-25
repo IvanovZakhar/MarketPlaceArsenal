@@ -20,9 +20,12 @@
         background: #FFB701;
         border-radius: 10px;
         border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .text__catalog{
-        margin-top: 17px;
+        margin: 0;
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 700;
@@ -109,6 +112,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        p{
+            margin: 0;
+            text-align: center;
+        }
     }
     h6{
         font-family: 'Ubuntu';

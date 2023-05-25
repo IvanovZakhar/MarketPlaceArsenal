@@ -1,7 +1,7 @@
- 
 import React, { useState } from 'react';
 import useCounter from '../../hooks/useCounter';
-import urlencode from 'urlencode';
+import openLink from './openLink';
+
 import arrowSort from '../../resources/img/ico/arrow-sort.svg';
 import likeCard from '../../resources/img/ico/like-card.svg';
 import CartCard from '../../resources/img/ico/cart-card.svg';
@@ -11,16 +11,13 @@ import './products-list.scss';
 
 const ProductsList = ({ product }) => {
   const [visibleProducts, setVisibleProducts] = useState(9);
-  const {cartItems, handleAddToCart, handleRemoveFromCart} = useCounter();  
-
+  const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
     
   const showMoreProducts = () => {
     setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 9);
   };
-  
- 
-  const elemProducts = product
-    ? product.slice(0, visibleProducts).map(item => {
+
+  const elemProducts =   product.slice(0, visibleProducts).map(item => {
         const {
           annotation,
           article,
@@ -30,16 +27,15 @@ const ProductsList = ({ product }) => {
           price_before_discount,
           url,
         } = item;
-        const openLink = () => {
-          window.open(`/${url}/${urlencode(article)}`);
-        };
+     
+
 
         return (
           <li key={article} className="product">
-            <img src={main_photo_link} alt={name_of_product} onClick={openLink} />
+            <img src={main_photo_link} alt={name_of_product} onClick={() => openLink(item)} />
             <div className="about-product">
-              <h2 onClick={openLink}>{name_of_product}</h2>
-              <div className="text__about-product" onClick={openLink}>
+              <h2 onClick={() => openLink(item)}>{name_of_product}</h2>
+              <div className="text__about-product" onClick={() => openLink(item)}>
                 {annotation}
                 <div></div>
               </div>
@@ -51,10 +47,10 @@ const ProductsList = ({ product }) => {
                 <span className='after-price'>{price_rubles} ₽</span>
               </div>
               <div className='added-panel'>
-                <button onClick={() => handleAddToCart(item)}>
+                <button >
                   <img src={likeCard} alt='like-product' className='like-product' />
                 </button>
-                <button onClick={() => handleAddToCart(item)}>
+                <button >
                   <img src={CartCard} alt='cart-product' className='cart-product' />
                 </button>
               </div>
@@ -68,7 +64,7 @@ const ProductsList = ({ product }) => {
           </li>
         );
       })
-    : null;
+ 
 
   const showMoreButton =
     product && visibleProducts < product.length ? (
@@ -97,4 +93,3 @@ const ProductsList = ({ product }) => {
 };
 
 export default ProductsList;
- 

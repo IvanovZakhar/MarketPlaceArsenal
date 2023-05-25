@@ -6,6 +6,26 @@
             margin: 0 auto;
             position: relative;
           }
+    .address-delivery{
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        border-radius: 10px;
+ 
+        margin-top: 13px;
+        h4{
+            margin: 0 auto;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 37px;
+            display: flex;
+            align-items: center;
+            color: #313131;
+            
+        }
+    }
     li{
         width: 922px;
         height: 140px;
@@ -25,9 +45,11 @@
     .product-photo{
         width: 133px;
         height: 140px;
+        cursor: pointer;
     }
     .about-product{
         margin: 37px 0 0 20px;
+        cursor: pointer;
         h2{
             width: 385px;
             height: 36px;
@@ -37,6 +59,7 @@
             font-size: 16px;
             line-height: 18px;
             color:#000000;
+            cursor: pointer;
         }
         span{
             margin-top: 12px;
@@ -164,3 +187,4 @@
     color: #FFFFFF;
     padding-left: 45px;
 }
+

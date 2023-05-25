@@ -9,30 +9,34 @@ import { useEffect, useState } from 'react';
 const CatalogPages = ({props}) => {
       const {getProducts} = useMarketService();
       const [product, setProduct] = useState();
+ 
         useEffect(() => {
             getProducts(props).then(setProduct)
+ 
         }, [props])
     
-    return(
-        <>
-            <AppHeader/>
- 
-            <main>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-left__main'>
-                            <CatalogMenu/>
-                            <Filter/>
+        if(product){
+            return(
+                <>
+                    <AppHeader/>
+         
+                    <main>
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col-left__main'>
+                                    <CatalogMenu/>
+                                    <Filter/>
+                                </div>
+                                <div className='col-right__main'>
+                                    <ProductsList props={props} product={product}/>
+                                </div>  
+                            </div>
                         </div>
-                        <div className='col-right__main'>
-                            <ProductsList props={props} product={product}/>
-                        </div>  
-                    </div>
-                </div>
-            </main>
-            <Footer/>
-        </>
-    )
+                    </main>
+                    <Footer/>
+                </>
+            )
+        }
 }
 
 export default CatalogPages;

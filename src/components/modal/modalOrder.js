@@ -15,8 +15,8 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     backgroundColor: "white",
-    width: 750,
-    height: 279,
+    width: 900,
+    height: 450,
     borderRadius: 10
   },
 };
@@ -35,19 +35,22 @@ function ModalOrder({product}) {
       <button className="button__modal-order" onClick={(e) => {
         setModalOpen(true)
    
-        }}>Заказать</button>
+        }}>   </button>
       <Modal
         isOpen={modalOpen}
         onRequestClose={() => setModalOpen(false)}
         style={customStyles}
         ariaHideApp={false}
-        
+     
       >
-        <form onSubmit={handleSubmit(({name, number}) => {
+        <form onSubmit={handleSubmit(({fname, lname, number, city, street, houseNumber}) => {
             const data = {
-              name: name,
+              fname: fname,
+              lname: lname,
               number: +number,
-              product: [ product.article, product.name_of_product, product.price_rubles],
+              city: city,
+              street: street, 
+              houseNumber: +houseNumber 
             };
 
             // const data = {
@@ -57,7 +60,7 @@ function ModalOrder({product}) {
             // };
        
             // newOrder(data).then(res => console.log(res))
-            fetch('http://localhost:3001/new-order', {
+            fetch('http://localhost:3004/new-order', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -74,22 +77,44 @@ function ModalOrder({product}) {
                 console.error(error);
               });
         })}>
-          <h2>Оформление заказа</h2>
-          <span>Персональный менеджер свяжется с вами и подготовит для вас предложение.</span>
-            <div>
-              <label htmlFor="number">
-                    Имя
-              </label>
-              <input id="name" type="text" placeholder="Иван Иванов" className="first-name" {...register("name", {required: true, maxLength: 80})} />
-          
-              <label htmlFor="number">
-                Телефон 
-              </label>
-              <input id="number" type="tel" placeholder="+7 (999) 999 99 99" className="number" {...register("number", {required: true, maxLength: 12,  minLength: 10})} />
-            </div>
-        
+          <h2>Ваши данные</h2>
+       
+          <div className="inputs">
+            <div className="name-inputs">
+                <label htmlFor="number">
+                      Имя
+                </label>
+                <input id="name" type="text" placeholder="Иван" className="first-name" {...register("fname", {required: true, maxLength: 20})} />
+                <label htmlFor="number">
+                      Фамилия
+                </label>
+                <input id="name" type="text" placeholder="Иванов" className="first-name" {...register("lname", {required: true, maxLength: 80})} />
+                <label htmlFor="number">
+                  Телефон 
+                </label>
+                <input id="number" type="tel" placeholder="+7 (999) 999 99 99" className="number" {...register("number", {required: true, maxLength: 12,  minLength: 10})} />
+              </div>
+              <div className="address-inputs">
+                <label htmlFor="number">
+                      Город
+                </label>
+                <input id="name" type="text" placeholder="Москва" className="number" {...register("city", {required: true, maxLength: 20})} />
+                <label htmlFor="number">
+                      Улица
+                </label>
+                <input id="name" type="text" placeholder="Первомайская" className="number" {...register("street", {required: true, maxLength: 80})} />
+                <label htmlFor="number">
+                  Дом
+                </label>
+                <input id="number" type="number" placeholder="1"  className="number" {...register("houseNumber", {required: true, maxLength: 12,  minLength: 1})} />
+                <label htmlFor="number">
+                  Квартира
+                </label>
+                <input id="number" type="number" placeholder="2"  className="number" {...register("apartmentNumber", {required: true, maxLength: 3})} />
+              </div>
+          </div>
             <button сlassName="submit-btn" type="submit" >
-               Перезвоните мне
+               Сохранить
             </button>
         
  

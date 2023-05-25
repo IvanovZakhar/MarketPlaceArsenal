@@ -1,3 +1,4 @@
+import useCounter from '../../../hooks/useCounter';
 import AppHeader from '../../appHeader/app-header';
 import CartMenu from '../../cart-menu/cart-menu';
 import Footer from '../../footer/footer';
@@ -7,8 +8,8 @@ import Feedback from '../../feedback/feedback';
  
 import './cart.scss'
 
-const Cart = ({cartItems}) => {
-  console.log(cartItems)
+const Cart = () => {
+    const { cartItems } = useCounter();
  
     return(
         <>
@@ -17,7 +18,7 @@ const Cart = ({cartItems}) => {
         <div className='container'>
             <div className='row'>
                 <div className='col-left__main'>
-                    <h1>Корзина(3)</h1>
+                    <h1>Корзина({cartItems.length})</h1>
                     <CartMenu/>
                 </div>
                 <div className='col-right__main'>
@@ -30,7 +31,7 @@ const Cart = ({cartItems}) => {
                             <a href='/'>Корзина</a>
                         </li>
                     </ul>
-                    <CartProducts cartItems={cartItems}/>
+                    <CartProducts />
                 </div> 
                
             </div>

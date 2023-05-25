@@ -1,3 +1,8 @@
+.address-modal{
+    width: 800px;
+}
+
+
 .modal-order{
     display: flex;
     justify-content: center;
@@ -5,7 +10,7 @@
     .button__modal-order{
         width: 150px;
         height: 40px;
-        margin-top: 50px;
+        margin-top: 10px;
         background-color: #FFB701;
         border-radius: 10px;
         border: none;
@@ -48,6 +53,12 @@ span{
 }
 
 form{
+    .inputs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+ 
     .first-name, .number{
         background: #FFFFFF;
         border: 1px solid #E2E1F2;
