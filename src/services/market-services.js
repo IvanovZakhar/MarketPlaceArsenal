@@ -2,10 +2,9 @@
 import {useHttp} from '../hooks/http.hooks';
 
 const useMarketService = () => {
-    const {loading, request,  error, clearError} = useHttp();
+    const {loading, request,  error, clearError, successfull} = useHttp();
 
-
-
+     
     const getProducts = async (catalog) => {
         console.log(catalog)
         const res = await request(`http://localhost:3004/${catalog}`)
@@ -71,8 +70,14 @@ const useMarketService = () => {
         
     }
     const newOrder = async (order) => {
-        console.log(JSON.stringify(order))
-        const res = await request(`http://localhost:3004/new-order`, 'POST', JSON.stringify(order))
+        
+        const res = await request(
+                                    `http://localhost:3004/new-order`, 
+                                    'POST', 
+                                    JSON.stringify(order), 
+                                    {'Content-Type': 'application/json'}
+                                    )
+      
         return res
     }
 
@@ -278,7 +283,8 @@ const useMarketService = () => {
     return {
         getProducts,
         newOrder,
-        getProductsForArticle
+        getProductsForArticle,
+        loading, error, clearError, successfull
     }
 }
 

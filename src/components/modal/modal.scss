@@ -1,0 +1,260 @@
+.address-modal{
+    width: 800px;
+}
+
+
+.modal-order{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .button__modal-order{
+        width: 120px;
+        height: 20px;
+        margin-top: 10px;
+        background-color: #FFB701;
+        border-radius: 10px;
+        border: none;
+        font-family: Ubuntu;
+        font-weight: Bold;
+        font-size: 14px;
+        color: #FFFFFF;
+         
+        cursor: pointer;
+    }
+
+}
+
+h2{
+    left: 30px;
+    top: 26px;
+    color: #262C34;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+}
+span{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 143%;
+    color: #898088;
+}
+
+.close-modal{
+    border: none;
+    background: none;
+    position: absolute;
+    top: 31px;
+    right: 35px;
+    cursor: pointer
+}
+
+.address-form{
+    
+.btn_sub{
+    width: 200px;
+    height: 40px;
+    margin-left:  310px;
+    margin-top: 10px;
+    background: #FFB701;
+    border: none;
+    border-radius: 5px;
+    
+  }
+    .container{
+        width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
+    h3{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 32px;
+        color: #FFFFFF;
+    }
+    .input__feedback{
+        display: flex;
+        margin-top: 32px;
+    }
+    .number__feedback, .name__feedback{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .number__feedback::placeholder, .name__feedback::placeholder{
+ 
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        color: #9CA7B5;
+    }
+    .name__feedback{
+        margin-left: 46px;
+    }
+    label{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        color: #F3F3F3;
+    }
+    input{
+        margin-top: 5px;
+        padding-left: 12px;
+        width: 245px;
+        height: 40px;
+        background: #3F4A58;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .checkbox-agree{
+        flex-direction: row;
+    }
+
+    .agree{
+        width: 217px;
+        height: 42px;
+        margin: 20px 0 0 31px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        color: #9CA7B5;
+    }
+    .checkbox-label {
+        display: inline-block;
+        position: relative;
+        padding-left: 25px; /* Размер изображения */
+        cursor: pointer;
+      }
+      
+      .input__agree {
+ 
+        opacity: 0;
+        cursor: pointer;
+      }
+      
+      .checkbox-image {
+       
+        top: 0;
+        left: 0;
+        width: 40px; /* Размер изображения */
+        height: 40px; /* Размер изображения */
+        opacity: 0.5;
+       
+      }
+
+      .errors{
+        border-radius: 50%;
+        border: 5px solid red;
+      }
+      
+      .input__agree:checked + .checkbox-image {
+        /* Стили для выбранного состояния */
+        /* Например, можно изменить внешний вид изображения */
+        opacity: 1; /* Прозрачность для выбранного состояния */
+      }
+      
+
+     
+ 
+    .inputs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+ 
+    .first-name, .number{
+        background: #FFFFFF;
+        border: 1px solid #E2E1F2;
+        border-radius: 4px;
+        width: 330px;
+        height: 40px;
+    }
+
+
+    .numbers-for-address{
+        display: flex;
+        flex-direction: row;
+        
+        div{
+            flex-direction: column;
+           
+            .number{
+                width: 60px;
+                
+            }
+            
+         
+        }
+        div:last-child{
+            margin-left: 40px;
+        }
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        label{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            color: #283C63;
+            margin-top: 20px;
+        }
+        input{
+            padding: 12px;
+            margin-top: 5px;
+        }
+        input::placeholder{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            color: #828282;
+        }
+       
+    }
+}
+
+.default_address{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ 
+ .get-order{
+    width: 244px;
+    height: 38px;
+    display: flex;
+    margin-top: 13px;
+    background: #FFB701;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding-left: 45px;
+}

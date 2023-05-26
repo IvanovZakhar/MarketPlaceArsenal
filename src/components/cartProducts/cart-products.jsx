@@ -3,6 +3,7 @@ import React from 'react';
 import openLink from '../productsList/openLink';
 import ProductCounter from '../productsList/productCounter';
 import useCounter from '../../hooks/useCounter';
+import ModalAddress from '../modal/modalAddress';
 import ModalOrder from '../modal/modalOrder';
 import './cart-products.scss';
 
@@ -62,11 +63,9 @@ const CartProducts = () => {
         </li>
         <li className='address-delivery'>
                 <h4>Адрес и номер телефона</h4>
-                <ModalOrder/>
+                <ModalAddress/>
         </li>
-        <li>
-          <button className='get-order'>Оформить заказ</button>
-        </li>
+            <ModalOrder product={cartItems}/>
       </ul>
     </>
   );
