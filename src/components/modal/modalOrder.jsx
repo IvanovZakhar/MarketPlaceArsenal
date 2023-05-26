@@ -26,7 +26,7 @@ function ModalOrder({product}) {
   const {newOrder, error} = useMarketService();
  
   const [modalOpen, setModalOpen] = useState(false);
-  const address = JSON.parse(localStorage.address)
+  const address = localStorage.address ? JSON.parse(localStorage.address) : []
  
     const res = {
         successfull: {

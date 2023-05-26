@@ -32,14 +32,16 @@ function ModalAddress({product}) {
     }
   });
     
+  
  
-  const address = JSON.parse(localStorage.address)
+  const address = localStorage.address ? JSON.parse(localStorage.address) : []
+ 
  
   return (
     <div className="modal-order">
       <div className="default_address">
-        <span>{`${address.city},  ул.${address.street} д.${address.houseNumber}, кв.${address.apartmentNumber}, 
-            тел: +${address.number} Получатель: ${address.lname} ${address.fname}`}</span>
+        {localStorage.address ?  <span>{`${address.city},  ул.${address.street} д.${address.houseNumber}, кв.${address.apartmentNumber}, 
+            тел: +${address.number} Получатель: ${address.lname} ${address.fname}`}</span> : null}
         <button className="button__modal-order" onClick={(e) => {
           setModalOpen(true)
     

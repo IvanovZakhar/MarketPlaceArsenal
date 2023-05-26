@@ -7,7 +7,7 @@ const useMarketService = () => {
      
     const getProducts = async (catalog) => {
         console.log(catalog)
-        const res = await request(`http://localhost:3004/${catalog}`)
+        const res = await request(`https://server-market-arsenal.vercel.app/${catalog}`)
         console.log(res)
             
         switch(catalog){
