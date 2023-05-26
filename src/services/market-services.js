@@ -43,7 +43,7 @@ const useMarketService = () => {
 
     const getProductsForArticle = async (catalog, article) => {
         console.log(catalog)
-        const res = await request(`http://localhost:3004/${catalog}${article}`)
+        const res = await request(`https://server-market-arsenal.vercel.app/${catalog}${article}`)
         console.log(res)
              return res
         // switch(num){
@@ -72,7 +72,7 @@ const useMarketService = () => {
     const newOrder = async (order) => {
         
         const res = await request(
-                                    `http://localhost:3004/new-order`, 
+                                    `https://server-market-arsenal.vercel.app/new-order`, 
                                     'POST', 
                                     JSON.stringify(order), 
                                     {'Content-Type': 'application/json'}
