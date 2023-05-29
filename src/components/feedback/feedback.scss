@@ -6,6 +6,11 @@
     padding: 29px 0 0 30px;
     background: #262C34;
     border-radius: 10px;
+    h2{
+      margin-top: 20px;
+      color: white;
+      text-align: center;
+    }
     .container{
         width: 1280px;
         margin: 0 auto;
@@ -60,7 +65,7 @@
     .agree{
         width: 217px;
         height: 42px;
-        margin: 20px 0 0 31px;
+        margin: 20px 0 0 0px;
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 400;
@@ -82,3 +87,59 @@
         border:none;
     }
 }
+
+.checkbox-agree{
+    display: flex;
+    flex-direction: row;
+}
+
+.agree{
+    width: 217px;
+    height: 42px;  
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #9CA7B5;
+}
+.checkbox-label {
+    display: inline-block;
+    position: relative;  /* Размер изображения */
+    cursor: pointer;
+    left: -30px;
+    top: 0px;
+  }
+  
+  .input__agree {
+
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkbox-image {
+   
+    top: 0;
+    left: 0;
+    width: 40px; /* Размер изображения */
+    height: 40px; /* Размер изображения */
+    opacity: 0.5;
+   
+  }
+
+  .errors{
+    border-radius: 50%;
+    border: 5px solid red;
+  }
+  
+  .input__agree:checked + .checkbox-image {
+    /* Стили для выбранного состояния */
+    /* Например, можно изменить внешний вид изображения */
+    opacity: 1; /* Прозрачность для выбранного состояния */
+  }
+
+  .item_feedback{
+    margin-left: 0;
+  }

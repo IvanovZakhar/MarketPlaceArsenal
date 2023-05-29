@@ -21,7 +21,7 @@ const customStyles = {
   },
 };
 
-function ModalAddress({product}) {
+function ModalAddress({address, handleAddToAddress}) {
 
  
  
@@ -32,19 +32,18 @@ function ModalAddress({product}) {
     }
   });
     
-  
+
  
-  const address = localStorage.address ? JSON.parse(localStorage.address) : []
  
  
   return (
     <div className="modal-order">
       <div className="default_address">
-        {localStorage.address ?  <span>{`${address.city},  ул.${address.street} д.${address.houseNumber}, кв.${address.apartmentNumber}, 
-            тел: +${address.number} Получатель: ${address.lname} ${address.fname}`}</span> : null}
+        {Object.keys(address).length === 0 ?  null : <span>{`${address.city},  ул.${address.street} д.${address.houseNumber}, кв.${address.apartmentNumber}, 
+            тел: +${address.number} Получатель: ${address.lname} ${address.fname}`} </span> }
         <button className="button__modal-order" onClick={(e) => {
           setModalOpen(true)
-    
+         
           }}>Редактировать</button>
       </div>
       <Modal
@@ -67,7 +66,7 @@ function ModalAddress({product}) {
             };
             
             if(Object.entries(errors).length === 0){
-              localStorage.address = JSON.stringify(data)
+              handleAddToAddress(data)
               setModalOpen(false)
             }
         })}>
@@ -86,7 +85,7 @@ function ModalAddress({product}) {
                 <label htmlFor="number">
                   Телефон 
                 </label>
-                <input id="number" type="tel" placeholder="+7 (999) 999 99 99" className="number" defaultValue={address.number}{...register("number", {required: true, maxLength: 12,  minLength: 10})} />
+                <input id="number" type="tel" placeholder="+7 (999) 999 99 99" className="number" defaultValue={address.number}{...register("number", {required: true,   minLength: 11,maxLength: 12})} />
               </div>
               <div className="address-inputs">
                 <label htmlFor="number">

@@ -7,7 +7,7 @@ const useMarketService = () => {
      
     const getProducts = async (catalog) => {
         console.log(catalog)
-        const res = await request(`https://server-market-arsenal.vercel.app/${catalog}`)
+        const res = await request(`http://10.0.0.4:3004/${catalog}`)
         console.log(res)
             
         switch(catalog){
@@ -43,7 +43,7 @@ const useMarketService = () => {
 
     const getProductsForArticle = async (catalog, article) => {
         console.log(catalog)
-        const res = await request(`https://server-market-arsenal.vercel.app/${catalog}${article}`)
+        const res = await request(`http://10.0.0.4:3004/${catalog}${article}`)
         console.log(res)
              return res
         // switch(num){
@@ -72,9 +72,21 @@ const useMarketService = () => {
     const newOrder = async (order) => {
         
         const res = await request(
-                                    `https://server-market-arsenal.vercel.app/new-order`, 
+                                    `http://10.0.0.4:3004/new-order`, 
                                     'POST', 
                                     JSON.stringify(order), 
+                                    {'Content-Type': 'application/json'}
+                                    )
+      
+        return res
+    }
+
+    const newFeedback = async (feedback) => {
+        
+        const res = await request(
+                                    `http://10.0.0.4:3004/new-feedback`, 
+                                    'POST', 
+                                    JSON.stringify(feedback), 
                                     {'Content-Type': 'application/json'}
                                     )
       
@@ -284,7 +296,7 @@ const useMarketService = () => {
         getProducts,
         newOrder,
         getProductsForArticle,
-        loading, error, clearError, successfull
+        loading, error, clearError, successfull, newFeedback
     }
 }
 

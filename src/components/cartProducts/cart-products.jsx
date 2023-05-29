@@ -5,10 +5,11 @@ import ProductCounter from '../productsList/productCounter';
 import useCounter from '../../hooks/useCounter';
 import ModalAddress from '../modal/modalAddress';
 import ModalOrder from '../modal/modalOrder';
+import useAddress from '../../hooks/useAddress';
 import './cart-products.scss';
 
 const CartProducts = () => {
- 
+    const { address, handleAddToAddress} = useAddress();
     const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
     const totalSum = getTotalSum(cartItems)
     const totalWeght = getTotalWeght(cartItems)
@@ -39,35 +40,40 @@ const CartProducts = () => {
   });
 
   return (
-    <>
-      <ul className='cart-products'>
-        {productsCarts.length ? (
-          productsCarts
-        ) : (
-          <h2>Корзина пуста</h2>
-        )}
-         
+   
+        <>
+        <ul className='cart-products'>
+            {productsCarts.length ? (
+            productsCarts
+            ) : (
+            <h2>Корзина пуста</h2>
+            )}
+            
 
-         
-        <li className='total'>
-          <div className='total-price'>
-            <h3>Итого:</h3>
-            <span>{totalSum} ₽</span>
-          </div>
-          <span className='weight-order'>
-            Вес заказа........................................................................................................................................................................................{totalWeght}кг
-          </span>
-          <span className='weight-order'>
-            Объём заказа.................................................................................................................................................................................{totalVolume}м
-          </span>
-        </li>
-        <li className='address-delivery'>
-                <h4>Адрес и номер телефона</h4>
-                <ModalAddress/>
-        </li>
-            <ModalOrder product={cartItems}/>
-      </ul>
-    </>
+            
+            <li className='total'>
+            <div className='total-price'>
+                <h3>Итого:</h3>
+                <span>{totalSum} ₽</span>
+            </div>
+            <span className='weight-order'>
+                Вес заказа........................................................................................................................................................................................{totalWeght}кг
+            </span>
+            <span className='weight-order'>
+                Объём заказа.................................................................................................................................................................................{totalVolume}м
+            </span>
+            </li>
+        
+                <li className='address-delivery'>
+                        <h4>Адрес и номер телефона</h4>
+                        <ModalAddress  address={address} handleAddToAddress={handleAddToAddress}/>
+                </li>
+        
+                    <ModalOrder product={cartItems} address={address} handleAddToAddress={handleAddToAddress}/>
+            
+        </ul>
+        </>
+   
   );
 };
 

@@ -3,6 +3,7 @@ import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu';
 import Filter from '../filter/filter';
 import Footer from '../footer/footer';
+import Feedback from "../feedback/feedback";
 
 
 const ProductPage = () => {
@@ -25,6 +26,7 @@ const ProductPage = () => {
                     </div>
                 </div>
             </main>
+            <Feedback/>
             <Footer/>
         </div>
     )

@@ -1,20 +1,17 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import grid from '../../../../resources/img/products/grid520.png';
-import d1 from '../../../../resources/img/products/d1.png';
+import useCounter from "../../../../hooks/useCounter";
+import ProductCounter from "../../../productsList/productCounter";
 import likeCard from '../../../../resources/img/ico/like-card.svg';
-import CartCard from '../../../../resources/img/ico/cart-card.svg';
-import plus from '../../../../resources/img/ico/plus.svg';
-import minus from '../../../../resources/img/ico/minus.svg';
 import './description.scss'
 
 
 const Description = ({productSwing}) => {
-    
+    const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
     
     const elem = (productSwing) => {
         const {name_of_product, annotation, price_rubles, price_before_discount, 
-            main_photo_link, additional_photo_links, supported_brands, list_of_compatible_devices, purpose} = productSwing;
+            main_photo_link, additional_photo_links} = productSwing;
         
         const regex = /(https:\/\/.*?\.jpg)/g;
         const matches = [...additional_photo_links[0].matchAll(regex)].map((match) => ({ url: match[1] }));
@@ -52,16 +49,12 @@ const Description = ({productSwing}) => {
                                     <span className='after-price'>{price_rubles} ₽</span>
                                 </div>
         
-                                <div className='count-product'>
-                    
-                                    <button>
-                                            <img src={minus} alt='minus-product' className='minus-product'/>
-                                    </button>
-                                    <span className='count'>4</span>
-                                    <button>
-                                            <img src={plus} alt='plus-product' className='plus-product'/>
-                                    </button>
-                                </div>
+                                <ProductCounter
+                                    item={productSwing}
+                                    cartItems={cartItems}
+                                    handleAddToCart={handleAddToCart}
+                                    handleRemoveFromCart={handleRemoveFromCart}
+                                />
                         </div>
                         <div className="definition__description">
                             <div>{annotation}</div>

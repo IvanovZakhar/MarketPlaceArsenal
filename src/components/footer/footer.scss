@@ -81,6 +81,17 @@ footer{
     li{
         display: flex;
         margin-top: 20px;
+        a{
+            display: flex;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #F3F3F3; 
+        }
     }
     img{
         width: 24px;
@@ -130,3 +141,4 @@ footer{
         opacity: 0.6;
     }
 }
+

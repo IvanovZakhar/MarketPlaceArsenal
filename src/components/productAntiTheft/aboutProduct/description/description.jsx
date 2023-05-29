@@ -1,16 +1,13 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import grid from '../../../../resources/img/products/grid520.png';
-import d1 from '../../../../resources/img/products/d1.png';
+import useCounter from "../../../../hooks/useCounter";
+import ProductCounter from "../../../productsList/productCounter";
 import likeCard from '../../../../resources/img/ico/like-card.svg';
-import CartCard from '../../../../resources/img/ico/cart-card.svg';
-import plus from '../../../../resources/img/ico/plus.svg';
-import minus from '../../../../resources/img/ico/minus.svg';
 import './description.scss'
 
 
 const Description = ({productAntiTheft}) => {
-    
+    const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
     
     const elem = (productAntiTheft) => {
         const {name_of_product, annotation, price_rubles, price_before_discount, 
@@ -52,16 +49,12 @@ const Description = ({productAntiTheft}) => {
                                     <span className='after-price'>{price_rubles} ₽</span>
                                 </div>
         
-                                <div className='count-product'>
-                    
-                                    <button>
-                                            <img src={minus} alt='minus-product' className='minus-product'/>
-                                    </button>
-                                    <span className='count'>4</span>
-                                    <button>
-                                            <img src={plus} alt='plus-product' className='plus-product'/>
-                                    </button>
-                                </div>
+                                <ProductCounter
+                                    item={productAntiTheft}
+                                    cartItems={cartItems}
+                                    handleAddToCart={handleAddToCart}
+                                    handleRemoveFromCart={handleRemoveFromCart}
+                                />
                         </div>
                         <div className="definition__description">
                             <div>{annotation}</div>

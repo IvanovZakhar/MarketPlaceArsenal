@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import useMarketService from "../../services/market-services";
- 
 import close from './../../resources/img/ico/close.svg';
 import './modal.scss'
 
@@ -16,18 +15,19 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     backgroundColor: "white",
     width: 500,
-    height: 90,
+    height: 120,
     borderRadius: 10
   },
 };
 
-function ModalOrder({product}) {
+function ModalOrder({product, address}) {
   const [resOrders, setResOrders] = useState('')   
-  const {newOrder, error} = useMarketService();
- 
+  const {newOrder} = useMarketService();
   const [modalOpen, setModalOpen] = useState(false);
-  const address = localStorage.address ? JSON.parse(localStorage.address) : []
  
+ 
+ 
+  
     const res = {
         successfull: {
             h4: "Ваш заказ создан",
@@ -36,30 +36,48 @@ function ModalOrder({product}) {
         error: {
             h4: "Что-то пошло не так..",
             span: "Свяжитесь с нами по номеру +7921-933-72-14"
+        },
+        noAddress: {
+            h4: "Вы не указали ваш адрес!",
+            span: "Что бы оформить заказ, вам нужно указать ваш адрес и номер телефона."
+        },
+        noBaskets: {
+            h4: "Корзина пуста!",
+            span: "Что бы оформить заказ, положите товары в корзину."
         }
-      }
+    }
       
  
-
+    
   const onSubmit = () =>{
-    address.product = product.map(item => {
-        return {
-                article: item.article,
-                name_of_product: item.name_of_product,
-                price_rubles: item.price_rubles,
-                quantity: item.quantity
-            }
-    })
-   
  
-    newOrder(address).then(data => setResOrders(res.successfull))
-    .catch(e =>  setResOrders(res.error))
+    if (product.length > 0 && Object.keys(address).length > 0){
+        address.product = product.map(item => {
+            return {
+                    article: item.article,
+                    name_of_product: item.name_of_product,
+                    price_rubles: item.price_rubles,
+                    quantity: item.quantity
+                }
+        })
+        newOrder(address).then(data => setResOrders(res.successfull))
+        .catch(e =>  setResOrders(res.error))
+        setModalOpen(true)
+    }else if(Object.keys(address).length === 0){
+        setResOrders(res.noAddress)
+        setModalOpen(true)
+    }else{
+        setResOrders(res.noBaskets)
+        setModalOpen(true)
+    }
+
+ 
   }
  
   return (
     <div className="modal-order">
         <button className="get-order" onClick={() => {
-          setModalOpen(true)
+     
           onSubmit()  
           }}>Оформить заказ</button>
       <Modal

@@ -1,0 +1,70 @@
+.main-search{
+    width: 100vw;
+    height: 100vh;
+}
+
+input{
+    width: 337px;
+    height: 52px;
+    margin: 26px 0 0 19px;
+    padding: 0 0 0 14px;
+    background: #3F4A58;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    align-items: center;
+    color: #9CA7B5;
+}
+input::placeholder{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    align-items: center;
+    color: #9CA7B5;
+}
+
+.search-result{
+    position: absolute;
+    top: 80px;
+    left: 180px;
+    list-style: none;
+    z-index: 2;
+    background-color: #262C34;
+    border-radius: 10px;
+    display: none;
+    li{
+        width: 500px;
+        height: 70px;
+        border-bottom: 1px solid white; 
+        padding: 5px;
+        display: flex;
+        img{
+            margin: 0;
+            width: 60px;
+            height: 60px;
+        }
+        h3{
+            margin-left: 5px;
+            font-family: "Ubuntu";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 23px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    }
+     
+}
+
+.active{
+    display: block;
+}
+
+ 

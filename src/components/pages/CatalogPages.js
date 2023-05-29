@@ -5,6 +5,7 @@ import Filter from '../filter/filter';
 import Footer from '../footer/footer';
 import useMarketService from '../../services/market-services';
 import { useEffect, useState } from 'react';
+import Feedback from '../feedback/feedback';
 
 const CatalogPages = ({props}) => {
       const {getProducts} = useMarketService();
@@ -29,10 +30,12 @@ const CatalogPages = ({props}) => {
                                 </div>
                                 <div className='col-right__main'>
                                     <ProductsList props={props} product={product}/>
+                                  
                                 </div>  
                             </div>
                         </div>
                     </main>
+                    <Feedback/>
                     <Footer/>
                 </>
             )

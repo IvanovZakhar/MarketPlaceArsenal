@@ -3,6 +3,7 @@ import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu';
 import Filter from '../filter/filter';
 import Footer from '../footer/footer';
+import Feedback from '../feedback/feedback';
 
 
 const ProductPageAntiTheft = () => {
@@ -25,6 +26,7 @@ const ProductPageAntiTheft = () => {
                     </div>
                 </div>
             </main>
+            <Feedback/>
             <Footer/>
         </div>
     )

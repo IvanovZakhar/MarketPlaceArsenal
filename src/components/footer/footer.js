@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../resources/img/ico/logo-footer.svg';
 import point from '../../resources/img/ico/point.svg';
 import phone from '../../resources/img/ico/phone.svg';
@@ -29,19 +30,26 @@ const Footer = () => {
                     <ul>
                         <h4>ПРОДУКЦИЯ</h4>
                         <li className='others__footer'>
-                            Решетки
+                            <Link to='/catalog/grids'>Решетки</Link>
                         </li>
                         <li className='others__footer'>
-                            Защита кондиционера
+                            <Link to='/catalog/conditioner-protection'> Защита кондиционера</Link>
+                           
                         </li>
                         <li className='others__footer'>
-                            Противоугонные устройства
+                            <Link to='/catalog/anti-theft'>Противоугонные устройства</Link>
                         </li>
                         <li className='others__footer'>
-                            Дровницы
+                            <Link to='/catalog/woodcutters'>Дровницы</Link>
                         </li>
                         <li className='others__footer'>
-                            Кормушки для птиц
+                            <Link to='/catalog/birdhouses'>Кормушки для птиц</Link>
+                        </li>
+                        <li className='others__footer'>
+                            <Link to='/catalog/pergolias'>Перголы</Link>
+                        </li>
+                        <li className='others__footer'>
+                            <Link to='/catalog/swings'>Качели</Link>
                         </li>
                     </ul>
                     <ul>
@@ -80,7 +88,7 @@ const Footer = () => {
                         <li>
                             <img src={email} alt='point'/>
                             <div className='address'>
-                                <a href='mailto6220095@mail.ru' className='up__address'>6220095@mail.ru</a>
+                                <a href='mailto:6220095@mail.ru' className='up__address'>6220095@mail.ru</a>
                                 <span className='down__address'>Мы на связи!</span>
                             </div>
                         </li>
