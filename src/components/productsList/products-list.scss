@@ -39,6 +39,22 @@
 .sort_catalog-pages-head{
     display: flex;
     margin-left: 4px;
+    select {
+        width: 200px;
+        border: none;
+        margin-top: 18px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #000000;
+        margin: 0;
+           
+     
+      }
+      
+    
     div{
         display: flex;
         margin-top: 18px;
@@ -48,15 +64,10 @@
         font-size: 16px;
         line-height: 18px;
         color: #000000;
+        position: relative;
     }
-    div:last-child{
-        margin-left: 18px;
-    }
-    img{
-        width: 13.86px;
-        height: 6.21px;
-        margin: 7px 0 0 7px;
-    }
+ 
+ 
 }
 
 .categories-name{
@@ -80,7 +91,7 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    padding-top: 49px;
+    padding-top: 9px;
     .product{
         width: 952px;
         height: 269px;

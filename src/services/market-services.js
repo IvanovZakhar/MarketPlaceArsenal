@@ -34,7 +34,9 @@ const useMarketService = () => {
             case 'pergolias': 
                 return res.map(transformPergolias);
             case 'swings': 
-                return res.map(transformSwings);    
+                return res.map(transformSwings);
+            case 'flags': 
+                return res.map(transformFlags);      
             default: 
                 return res
         }
@@ -286,6 +288,21 @@ const useMarketService = () => {
             {
                 name: 'Перголы',
                 link: '/swings'
+            }]
+        return swings
+        
+    }
+
+    const transformFlags = (swings) => {
+        swings.categories = [
+            {
+                name: 'Каталог',
+                link: '/',
+                nameList: 'Флагштоки'
+            },
+            {
+                name: 'Флагштоки',
+                link: '/flags'
             }]
         return swings
         

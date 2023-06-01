@@ -1,0 +1,190 @@
+.cart-products{
+        width: 922px;
+        padding-top: 42px;
+        .container{
+            width: 1280px;
+            margin: 0 auto;
+            position: relative;
+          }
+    .address-delivery{
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        border-radius: 10px;
+ 
+        margin-top: 13px;
+        h4{
+            margin: 0 auto;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 37px;
+            display: flex;
+            align-items: center;
+            color: #313131;
+            
+        }
+    }
+    li{
+        width: 922px;
+        height: 140px;
+        margin-top: 3px;
+        list-style-type: none;
+        display: flex;
+        background: #FFFFFF;
+        box-shadow: 0px 7px 29px rgba(138, 138, 138, 0.1);
+    }
+    li:last-child{
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+    .product-photo{
+        width: 133px;
+        height: 140px;
+        cursor: pointer;
+    }
+    .about-product{
+        margin: 37px 0 0 20px;
+        cursor: pointer;
+        h2{
+            width: 385px;
+            height: 36px;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 18px;
+            color:#000000;
+            cursor: pointer;
+        }
+        span{
+            margin-top: 12px;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #313131;
+        }
+    }
+    .count-product{
+        width: 154px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 17px;
+        margin-left: 37px;
+        button{
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .count{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #313131;
+        }
+        .minus-product, .plus-product{
+            width: 38px;
+            height: 38px;
+        }
+
+    }
+    .price-product{
+        margin: 40px 0 0 49px;
+        .after-price{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 37px;
+            display: flex;
+            align-items: center;
+            color: #313131;
+        }
+        .before-price{
+            margin-top: 24px;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 14px;
+            text-align: left;
+            text-decoration-line: line-through;
+            color: rgba(56, 50, 50, 0.74);
+        }
+    }
+
+    .total{
+        display: flex;
+        flex-direction: column;
+        width: 922px;
+        height: 133px;
+        margin-top: 13px;
+        background: #FFFFFF;
+        box-shadow: 0px 7px 29px rgba(100, 100, 111, 0.1);
+        border-radius: 10px;
+        padding: 15px 30px 20px 40px;
+        .total-price{
+            display: flex;
+            justify-content: space-between;
+            h3, span{
+                font-family: 'Ubuntu';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 37px;
+                display: flex;
+                align-items: center;
+                color: #313131;
+            }
+
+        }
+        span{
+            margin-top: 10px;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            color: #313131;
+        }
+    }
+
+}
+
+.get-order{
+    width: 244px;
+    height: 38px;
+    display: flex;
+    margin-top: 13px;
+    background: #FFB701;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding-left: 45px;
+}
+

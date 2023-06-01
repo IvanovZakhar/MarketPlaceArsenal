@@ -29,11 +29,11 @@ const Feedback = () => {
                 <h3>Требуется консультация?</h3>
                 <div className='input__feedback'>
                     <div className='number__feedback'>
-                        <label for="number">Телефон</label>
+                        <label htmlFor="number">Телефон</label>
                         <input type='phone' className='item_feedback' name='phone' placeholder='+7 (999) 999 99 99' {...register("number", {required: true,  minLength: 11, maxLength: 12 })}/>
                     </div>
                     <div className='name__feedback'>
-                        <label for="name">Имя</label>
+                        <label htmlFor="name">Имя</label>
                         <input type='text' className='item_feedback' name='name' placeholder='Иван Иванов' {...register("name", {required: true, maxLength: 20})}/>
                     </div>
                     <div className="checkbox-agree">

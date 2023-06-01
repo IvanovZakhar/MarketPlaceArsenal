@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-input{
+.search-input{
     width: 337px;
     height: 52px;
     margin: 26px 0 0 19px;
@@ -19,7 +19,7 @@ input{
     align-items: center;
     color: #9CA7B5;
 }
-input::placeholder{
+.search-input::placeholder{
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
@@ -34,7 +34,7 @@ input::placeholder{
     top: 80px;
     left: 180px;
     list-style: none;
-    z-index: 2;
+    z-index: 4;
     background-color: #262C34;
     border-radius: 10px;
     display: none;

@@ -2,6 +2,7 @@
 import MainPage from '../pages/MainPage';
 import CatalogPages from '../pages/CatalogPages';
 import Cart from '../pages/cart/Cart';
+import Favourites from '../pages/favourites/favourites';
 import ProductPageGrid from '../pages/ProductPageGrid';
 import ProductPageConditionerProtection from '../pages/ProductPageConditionerProtection';
 import ProductPageAntiTheft from '../pages/ProductPageAntiTheft';
@@ -9,9 +10,10 @@ import ProductPageWoodcutter from '../pages/ProductPageWoodcutter';
 import ProductPageBirdHouse from '../pages/ProductPageBirdhouse';
 import ProductPagePergola from '../pages/ProductPagePergola';
 import ProductPageSwing from '../pages/ProductPageSwing'; 
- 
+import ProductPageFlag from '../pages/ProductPageFlag';
 import './App.scss';
 import {createBrowserRouter} from "react-router-dom";
+
  
 
 
@@ -29,6 +31,10 @@ export const router = createBrowserRouter([
   {
     path: "cart",
     element: <Cart />,
+  },
+  {
+    path: "favourites",
+    element: <Favourites />,
   },
   {
     path: "catalog",
@@ -79,6 +85,10 @@ export const router = createBrowserRouter([
     element: <CatalogPages props={'swings'}/>,
   },
   {
+    path: "/catalog/flags",
+    element: <CatalogPages props={'flags'}/>,
+  },
+  {
     path: "/catalog/grids/:artGrid",
     element: <ProductPageGrid props={0}/>,
   },
@@ -112,11 +122,15 @@ export const router = createBrowserRouter([
   },
   {
     path: "/catalog/pergolias/:artPergola",
-    element: < ProductPagePergola />,
+    element: <ProductPagePergola />,
   },
   {
     path: "/catalog/swings/:artSwing",
-    element: < ProductPageSwing />,
+    element: <ProductPageSwing />,
+  },
+  {
+    path: "/catalog/flags/:artFlag",
+    element: <ProductPageFlag />,
   }
  
 

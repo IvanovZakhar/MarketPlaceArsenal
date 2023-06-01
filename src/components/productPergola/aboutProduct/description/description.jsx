@@ -1,14 +1,16 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import useCounter from "../../../../hooks/useCounter";
+import useFavourites from "../../../../hooks/useFavourites";
 import ProductCounter from "../../../productsList/productCounter";
 import likeCard from '../../../../resources/img/ico/like-card.svg';
+import likeCard__active from '../../../../resources/img/ico/like-card__active.svg';
 import './description.scss'
 
 
 const Description = ({productPergola}) => {
     const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
-    
+    const { favourites, toggleFavourite } = useFavourites();
     const elem = (productPergola) => {
         const {name_of_product, annotation, price_rubles, price_before_discount, 
             main_photo_link, additional_photo_links} = productPergola;
@@ -24,6 +26,12 @@ const Description = ({productPergola}) => {
         
             )
         })
+        const handleToggleFavourite = () => {
+            toggleFavourite(productPergola);
+          };
+          
+        const isFavourite = favourites.some((favourite) => favourite.article === productPergola.article);
+
         return(
             <div className="description">
                 <div className="carousel-slide">
@@ -33,13 +41,15 @@ const Description = ({productPergola}) => {
                         </div>
                         {imgs}
                     </Carousel>
+                 
                     <div className='added-panel'>
                         <button className="added-btn">
-                            <img src={likeCard} alt='like-product' className='like-product'/>
-                            <span>В избранное</span>
+                            <img src={isFavourite ? likeCard__active : likeCard} alt='like-product' className='like-product' onClick={handleToggleFavourite}/>
+                            <span>{isFavourite ? 'В избранном': 'В избранное'}</span>
                         </button>
-            
+          
                     </div>
+             
                 </div>
                 <div className="definition">
                     <div className='panel-product'>

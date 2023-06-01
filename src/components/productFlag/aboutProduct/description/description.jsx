@@ -8,29 +8,19 @@ import likeCard__active from '../../../../resources/img/ico/like-card__active.sv
 import './description.scss'
 
 
-const Description = ({productWoodcutter}) => {
+const Description = ({productFlag}) => {
     const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
     const { favourites, toggleFavourite } = useFavourites();
-    const elem = (productWoodcutter) => {
+
+    const elem = (productFlag) => {
         const {name_of_product, annotation, price_rubles, price_before_discount, 
-            main_photo_link, additional_photo_links} = productWoodcutter;
+            main_photo_link, additional_photo_links} = productFlag;
         
-        const regex = /(https:\/\/.*?\.jpg)/g;
-        const matches = [...additional_photo_links.matchAll(regex)].map((match) => ({ url: match[1] }));
- 
-        const imgs = matches.map((item,i) => {
-            return(
-                <div key={i}>
-                    <img src={item.url} alt={name_of_product}/>
-                </div>
-        
-            )
-        })
         const handleToggleFavourite = () => {
-            toggleFavourite(productWoodcutter);
+            toggleFavourite(productFlag);
           };
           
-        const isFavourite = favourites.some((favourite) => favourite.article === productWoodcutter.article);
+        const isFavourite = favourites.some((favourite) => favourite.article === productFlag.article);
         return(
             <div className="description">
                 <div className="carousel-slide">
@@ -38,7 +28,9 @@ const Description = ({productWoodcutter}) => {
                         <div>
                             <img src={main_photo_link} alt={name_of_product}/>
                         </div>
-                        {imgs}
+                        <div>
+                            <img src={additional_photo_links} alt={name_of_product}/>
+                        </div>
                     </Carousel>
                     <div className='added-panel'>
                         <button className="added-btn">
@@ -56,7 +48,7 @@ const Description = ({productWoodcutter}) => {
                                 </div>
         
                                 <ProductCounter
-                                    item={productWoodcutter}
+                                    item={productFlag}
                                     cartItems={cartItems}
                                     handleAddToCart={handleAddToCart}
                                     handleRemoveFromCart={handleRemoveFromCart}
@@ -71,7 +63,7 @@ const Description = ({productWoodcutter}) => {
         )
     }
    
-    const item = productWoodcutter ? elem(productWoodcutter[0]) : null
+    const item = productFlag ? elem(productFlag[0]) : null
     return (
        <>
          {item}

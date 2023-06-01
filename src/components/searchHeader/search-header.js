@@ -22,7 +22,7 @@ const SearchHeader = () => {
     
     return (
        <>
-            <input type='text'  placeholder='Поиск по сайту'   onChange={(e) => onGetProducts(e.target.value)}/>
+            <input type='text'  placeholder='Поиск по сайту' className='search-input'  onChange={(e) => onGetProducts(e.target.value)}/>
             <SearchResult result={result} searchInput={searchInput}/>
        </>
     )

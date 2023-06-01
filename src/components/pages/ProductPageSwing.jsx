@@ -1,7 +1,6 @@
 import ProductSwing from '../productSwing/product-swing';
 import AppHeader from '../appHeader/app-header';
-import CatalogMenu from '../catalogMenu/catalog-menu';
-import Filter from '../filter/filter';
+import CatalogMenu from '../catalogMenu/catalog-menu'; 
 import Footer from '../footer/footer';
 import Feedback from '../feedback/feedback';
 
@@ -14,8 +13,7 @@ const ProductPageSwing = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-left__main'>
-                            <CatalogMenu/>
-                            <Filter/>
+                            <CatalogMenu/> 
                         </div>
                         <div className='col-right__main'>
                             <ProductSwing/>

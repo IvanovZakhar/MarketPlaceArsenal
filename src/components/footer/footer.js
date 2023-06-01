@@ -51,6 +51,9 @@ const Footer = () => {
                         <li className='others__footer'>
                             <Link to='/catalog/swings'>Качели</Link>
                         </li>
+                        <li className='others__footer'>
+                            <Link to='/catalog/flags'>Флагштоки</Link>
+                        </li>
                     </ul>
                     <ul>
                         <h4>ПОКУПАТЕЛИ</h4>

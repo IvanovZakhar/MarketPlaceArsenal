@@ -38,7 +38,9 @@ const AppHeader = () => {
                             <p>Пн-Пт с 9:00 до 18:00</p>
                         </div>
                     </div>
-                    <img src={like} className='like' alt='like'/>
+                    <Link to='/favourites'>
+                        <img src={like} className='like' alt='like'/>
+                    </Link>
                     <Link to='/cart' className='cart'>
                         <img src={cart} alt='cart'/>
                         <div className='count__cart'><p>{cartItemCount}</p></div>

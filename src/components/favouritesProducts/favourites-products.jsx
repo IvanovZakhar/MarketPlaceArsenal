@@ -1,21 +1,18 @@
- 
-import React, { useState } from 'react';
-import useCounter from '../../hooks/useCounter';
-import useFavourites from '../../hooks/useFavourites';
-import openLink from './openLink'; 
-import likeCard from '../../resources/img/ico/like-card.svg';
-import likeCard__active from '../../resources/img/ico/like-card__active.svg';
-import CartCard from '../../resources/img/ico/cart-card.svg';
-import ProductCounter from './productCounter';
-import Categories from './categories';
-import './products-list.scss';
 
-const ProductsList = ({ product, originalProduct }) => {
+import { useState } from 'react';
+import openLink from '../productsList/openLink';
+import ProductCounter from '../productsList/productCounter'; 
+import useCounter from '../../hooks/useCounter';
+import likeCard__active from '../../resources/img/ico/like-card__active.svg';
+import likeCard from '../../resources/img/ico/like-card.svg';
+import CartCard from '../../resources/img/ico/cart-card.svg';
+import React from 'react';    
+import './favourites-products.scss';
+
+const FavouritesProducts = ({favourites, toggleFavourite}) => {
   const [visibleProducts, setVisibleProducts] = useState(9);
   const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
-  const [sortOption, setSortOption] = useState('');
-  const { favourites, toggleFavourite } = useFavourites();
- 
+  const [sortOption, setSortOption] = useState(''); 
   const showMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 9);
   };
@@ -26,7 +23,7 @@ const ProductsList = ({ product, originalProduct }) => {
   };
 
   const getSortedProducts = () => {
-    let sortedProducts = [...product];
+    let sortedProducts = [...favourites];
 
     if (sortOption === 'priceAsc') {
       sortedProducts.sort((a, b) => a.price_rubles - b.price_rubles);
@@ -53,6 +50,7 @@ const ProductsList = ({ product, originalProduct }) => {
           price_before_discount 
         } = item;
      
+
         const handleToggleFavourite = () => {
           toggleFavourite(item);
         };
@@ -75,7 +73,7 @@ const ProductsList = ({ product, originalProduct }) => {
                 <span className='after-price'>{price_rubles} ₽</span>
               </div>
               <div className='added-panel'>
-                <button onClick={handleToggleFavourite}>
+                <button onClick={handleToggleFavourite }>
                   <img src={ isFavourite ? likeCard__active :likeCard} alt='like-product' className='like-product' />
                 </button>
                 <button >
@@ -94,14 +92,13 @@ const ProductsList = ({ product, originalProduct }) => {
   });
 
   const showMoreButton =
-    product && visibleProducts < sortedProducts.length ? (
-      <button className="show-more__btn" onClick={showMoreProducts}>
-        Показать еще
-      </button>
-    ) : null; 
+  favourites && visibleProducts < sortedProducts.length ? (
+    <button className="show-more__btn" onClick={showMoreProducts}>
+      Показать еще
+    </button>
+  ) : null; 
   return (
-    <div className="products-list">
-      <Categories categories={originalProduct ? originalProduct[0].categories : null} />
+    <div className="products-list"> 
       <div className="sort_catalog-pages-head">
         <div>
          
@@ -111,16 +108,30 @@ const ProductsList = ({ product, originalProduct }) => {
             <option value="priceDesc">По убыванию</option>
             <option value="nameAsc">По наименованию</option> 
           </select> 
-        </div>
-        {/* <div>
-          По популярности
-          <img src={arrowSort} alt="arrow-sort" />
-        </div> */}
+        </div> 
       </div>
       <ul className="products">{elemProducts}</ul>
-      {showMoreButton}
+        {showMoreButton}
     </div>
   );
+  
 };
 
-export default ProductsList;
+export default FavouritesProducts;
+
+
+const getTotalWeght = (items) => {
+    let resTotal = items.reduce((sum, item) => sum + item.weight_in_packaging_g * item.quantity, 0);
+    resTotal =  Math.round(resTotal /= 1000)
+    return resTotal
+}
+
+const getTotalSum = (items) => {
+    return items.reduce((sum, item) => sum + item.price_rubles * item.quantity, 0);
+}
+
+const getTotalVolume = (items) => {
+    const res = items.reduce((sum, item) =>  sum + ((item.width_in_packaging_mm / 1000) * (item.height_in_packaging_mm / 1000) * (item.length_in_packaging_mm / 1000)) * item.quantity, 0);
+    
+    return String(res) 
+}

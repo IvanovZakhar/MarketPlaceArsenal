@@ -1,14 +1,11 @@
-import ProductGrid from "../productGrid/product-grid";
+import ProductFlag from '../productFlag/product-flag';
 import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu'; 
 import Footer from '../footer/footer';
-import Feedback from "../feedback/feedback";
+import Feedback from '../feedback/feedback';
 
 
-const ProductPage = () => {
-
-
- 
+const ProductPageFlag = () => {
     return(
         <div className="product-page">
             <AppHeader/>
@@ -19,7 +16,7 @@ const ProductPage = () => {
                             <CatalogMenu/> 
                         </div>
                         <div className='col-right__main'>
-                            <ProductGrid/>
+                            <ProductFlag/>
                         </div>  
                     </div>
                 </div>
@@ -30,4 +27,4 @@ const ProductPage = () => {
     )
 }
 
-export default ProductPage;
+export default ProductPageFlag ;
