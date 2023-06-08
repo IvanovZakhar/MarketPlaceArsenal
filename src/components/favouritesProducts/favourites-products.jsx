@@ -6,12 +6,14 @@ import useCounter from '../../hooks/useCounter';
 import likeCard__active from '../../resources/img/ico/like-card__active.svg';
 import likeCard from '../../resources/img/ico/like-card.svg';
 import CartCard from '../../resources/img/ico/cart-card.svg';
-import React from 'react';    
+import CartCard__active from '../../resources/img/ico/cart-card__active.svg';
+import React from 'react';
+import { Link } from 'react-router-dom';    
 import './favourites-products.scss';
 
 const FavouritesProducts = ({favourites, toggleFavourite}) => {
   const [visibleProducts, setVisibleProducts] = useState(9);
-  const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
+  const { cartItems, handleAddToCart, handleRemoveFromCart, handleToggleCart} = useCounter();
   const [sortOption, setSortOption] = useState(''); 
   const showMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 9);
@@ -53,9 +55,8 @@ const FavouritesProducts = ({favourites, toggleFavourite}) => {
 
         const handleToggleFavourite = () => {
           toggleFavourite(item);
-        };
-        const isFavourite = favourites.some((favourite) => favourite.article === item.article);
-
+        }; 
+        const isFavourite = (elem) => {return elem.some((favourite) => favourite.article === item.article)}
         return (
           <li key={article} className="product">
             <img src={main_photo_link} alt={name_of_product} onClick={() => openLink(item)} />
@@ -74,18 +75,22 @@ const FavouritesProducts = ({favourites, toggleFavourite}) => {
               </div>
               <div className='added-panel'>
                 <button onClick={handleToggleFavourite }>
-                  <img src={ isFavourite ? likeCard__active :likeCard} alt='like-product' className='like-product' />
+                  <img src={ isFavourite(favourites) ? likeCard__active :likeCard} alt='like-product' className='like-product' />
                 </button>
-                <button >
-                  <img src={CartCard} alt='cart-product' className='cart-product' />
+                <button onClick={() => handleToggleCart(item)}>
+                  <img src={isFavourite(cartItems) ? CartCard__active : CartCard} alt='cart-product' className='cart-product' />
                 </button>
               </div>
-              <ProductCounter
-                item={item}
-                cartItems={cartItems}
-                handleAddToCart={handleAddToCart}
-                handleRemoveFromCart={handleRemoveFromCart}
-              />
+              {isFavourite(cartItems) ?  
+                      <>
+                          <ProductCounter
+                          item={item}
+                          cartItems={cartItems}
+                          handleAddToCart={handleAddToCart}
+                          handleRemoveFromCart={handleRemoveFromCart}
+                          />
+                          <span className='check-cart'>Перейти в <Link to='/cart'>корзину</Link></span>
+                      </>: null}
             </div>
           </li>
         );
@@ -120,18 +125,4 @@ const FavouritesProducts = ({favourites, toggleFavourite}) => {
 export default FavouritesProducts;
 
 
-const getTotalWeght = (items) => {
-    let resTotal = items.reduce((sum, item) => sum + item.weight_in_packaging_g * item.quantity, 0);
-    resTotal =  Math.round(resTotal /= 1000)
-    return resTotal
-}
-
-const getTotalSum = (items) => {
-    return items.reduce((sum, item) => sum + item.price_rubles * item.quantity, 0);
-}
-
-const getTotalVolume = (items) => {
-    const res = items.reduce((sum, item) =>  sum + ((item.width_in_packaging_mm / 1000) * (item.height_in_packaging_mm / 1000) * (item.length_in_packaging_mm / 1000)) * item.quantity, 0);
-    
-    return String(res) 
-}
+ 

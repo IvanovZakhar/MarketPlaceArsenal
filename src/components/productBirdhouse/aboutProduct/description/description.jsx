@@ -14,8 +14,7 @@ const Description = ({productBirdhouse}) => {
     const { favourites, toggleFavourite } = useFavourites();
     const elem = (productBirdhouse) => {
         const {name_of_product, annotation, price_rubles, price_before_discount, 
-            main_photo_link, additional_photo_links, article} = productBirdhouse;
-        console.log(productBirdhouse)
+            main_photo_link, additional_photo_links, article} = productBirdhouse; 
         const regex = /(https:\/\/.*?\.jpg)/g;
         const matches = [...additional_photo_links.matchAll(regex)].map((match) => ({ url: match[1] }));
  

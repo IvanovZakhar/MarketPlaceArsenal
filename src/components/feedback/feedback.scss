@@ -27,6 +27,7 @@
     .input__feedback{
         display: flex;
         margin-top: 32px;
+ 
     }
     .number__feedback, .name__feedback{
         display: flex;
@@ -61,6 +62,7 @@
         background: #3F4A58;
         border-radius: 5px;
         border: none;
+        color: white;
     }
     .agree{
         width: 217px;

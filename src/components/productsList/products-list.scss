@@ -50,7 +50,7 @@
         line-height: 18px;
         color: #000000;
         margin: 0;
-           
+        background-color: #EEE;   
      
       }
       
@@ -189,8 +189,15 @@
                     line-height: 28px;
                     color: #313131;
                 }
+             
             }
-            
+            .check-cart{
+                display: block;
+                width: 185px;
+               text-align: center;
+             
+            }
+
             .added-panel, .count-product{
                 display: flex;
                 width: 170px;
@@ -256,4 +263,9 @@
 
 .products-list{
     z-index: 10;
+}
+
+.spinner-border{
+    width: 200px;
+    height: 200px;
 }

@@ -6,9 +6,9 @@ const useMarketService = () => {
 
      
     const getProducts = async (catalog) => {
-        console.log(catalog)
-        const res = await request(`http://10.0.0.4:3004/${catalog}`)
-        console.log(res)
+      
+        const res = await request(`https://server-market-arsenal.vercel.app/${catalog}`)
+  
             
         switch(catalog){
             case 'allproducts': 
@@ -44,9 +44,9 @@ const useMarketService = () => {
     }
 
     const getProductsForArticle = async (catalog, article) => {
-        console.log(catalog)
-        const res = await request(`http://10.0.0.4:3004/${catalog}${article}`)
-        console.log(res)
+     
+        const res = await request(`https://server-market-arsenal.vercel.app/${catalog}${article}`)
+      
              return res
         // switch(num){
         //     case 0: 
@@ -86,7 +86,7 @@ const useMarketService = () => {
     const newFeedback = async (feedback) => {
         
         const res = await request(
-                                    `http://10.0.0.4:3004/new-feedback`, 
+                                    `https://server-market-arsenal.vercel.app/new-feedback`, 
                                     'POST', 
                                     JSON.stringify(feedback), 
                                     {'Content-Type': 'application/json'}

@@ -8,7 +8,8 @@ import QuestionAnswer from '../questionAnswer/question-answer'
 import Feedback from '../feedback/feedback';
 import OfferDay from '../offerDay/offer-day';
 import Footer from '../footer/footer';
- 
+import { YMInitializer as YM } from 'react-yandex-metrika';
+
 
 const MainPage = () => {
 
@@ -35,7 +36,10 @@ const MainPage = () => {
             <div className='container'>
               <Advantage/>
               <QuestionAnswer/>
-              <Feedback/>
+              <YM accounts={[93888307]} options={{ clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }}>
+                <Feedback />
+              </YM>
+
             </div>
           </main>
           <Footer/>

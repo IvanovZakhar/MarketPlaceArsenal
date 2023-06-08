@@ -25,15 +25,25 @@
     }
     li{
         width: 1128px;
-        height: 21px;
-        display: flex;
-        justify-content: space-between;
+        min-height: 21px;
+
         margin-top: 40px;
         font-family: 'Ubuntu';
         font-style: normal;
-        font-weight: 400;
+
         font-size: 18px;
         line-height: 21px;
         color: #262C34;
+        div{
+            display: flex;
+            justify-content: space-between;
+        }
+        .answer{
+            display: block;
+            margin-top: 15px;
+            color: black;
+            font-weight: bold; 
+            
+        }
     }
 }

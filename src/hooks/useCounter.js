@@ -1,37 +1,36 @@
 import { useEffect, useState } from "react";
 
-
 const useCounter = () => {
+  const [cartItems, setCartItems] = useState([]);
 
-  
-    const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const cartItemsData = localStorage.cartItems;
+    if (cartItemsData) {
+      setCartItems(JSON.parse(cartItemsData));
+    }
+  }, []);
 
-    useEffect(() => {
-      const cartItemsData = localStorage.cartItems;
-      if (cartItemsData) {
-        setCartItems(JSON.parse(cartItemsData));
-      }
-    }, []);
-  
-    const handleStorageChange = (event) => {
-      if (event.key === "cartItems") {
-        setCartItems(JSON.parse(event.newValue));
-      }
+  const handleStorageChange = (event) => {
+    if (event.key === "cartItems") {
+      setCartItems(JSON.parse(event.newValue));
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
     };
-  
-    useEffect(() => {
-      window.addEventListener("storage", handleStorageChange);
-  
-      return () => {
-        window.removeEventListener("storage", handleStorageChange);
-      };
-    }, []);
+  }, []);
 
   const handleAddToCart = (item) => {
-    setCartItems(prevCartItems => {
+    setCartItems((prevCartItems) => {
       const updatedCartItems = [...prevCartItems];
-      const index = updatedCartItems.findIndex((cartItem) => cartItem.article === item.article);
-  
+      const index = updatedCartItems.findIndex(
+        (cartItem) => cartItem.article === item.article
+      );
+
       if (index !== -1) {
         // Увеличить количество товара на 1
         updatedCartItems[index].quantity += 1;
@@ -40,18 +39,20 @@ const useCounter = () => {
         const newItem = { ...item, quantity: 1 };
         updatedCartItems.push(newItem);
       }
-  
+
       localStorage.cartItems = JSON.stringify(updatedCartItems);
-  
+
       return updatedCartItems;
     });
   };
-  
+
   const handleRemoveFromCart = (item) => {
-    setCartItems(prevCartItems => {
+    setCartItems((prevCartItems) => {
       const updatedCartItems = [...prevCartItems];
-      const index = updatedCartItems.findIndex((cartItem) => cartItem.article === item.article);
-  
+      const index = updatedCartItems.findIndex(
+        (cartItem) => cartItem.article === item.article
+      );
+
       if (index !== -1) {
         if (updatedCartItems[index].quantity === 1) {
           // Если количество товара равно 1, удалить его из корзины
@@ -60,20 +61,42 @@ const useCounter = () => {
           // Уменьшить количество товара на 1
           updatedCartItems[index].quantity -= 1;
         }
-  
+
         localStorage.cartItems = JSON.stringify(updatedCartItems);
       }
-  
+
       return updatedCartItems;
     });
   };
-  
 
-  return{
+  const handleToggleCart = (item) => {
+    setCartItems((prevCartItems) => {
+      const existingIndex = prevCartItems.findIndex(
+        (cartItem) => cartItem.article === item.article
+      );
+
+      if (existingIndex !== -1) {
+        // Remove all selected items from cart
+        const updatedCartItems = [...prevCartItems];
+        updatedCartItems.splice(existingIndex, 1);
+        localStorage.cartItems = JSON.stringify(updatedCartItems);
+        return updatedCartItems;
+      } else {
+        // Add item to cart
+        const newItem = { ...item, quantity: 1 };
+        const updatedCartItems = [...prevCartItems, newItem];
+        localStorage.cartItems = JSON.stringify(updatedCartItems);
+        return updatedCartItems;
+      }
+    });
+  };
+
+  return {
     cartItems,
     handleAddToCart,
-    handleRemoveFromCart
-  }
-}
+    handleRemoveFromCart,
+    handleToggleCart,
+  };
+};
 
 export default useCounter;

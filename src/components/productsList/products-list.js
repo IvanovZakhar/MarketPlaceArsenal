@@ -6,15 +6,18 @@ import openLink from './openLink';
 import likeCard from '../../resources/img/ico/like-card.svg';
 import likeCard__active from '../../resources/img/ico/like-card__active.svg';
 import CartCard from '../../resources/img/ico/cart-card.svg';
+import CartCard__active from '../../resources/img/ico/cart-card__active.svg';
 import ProductCounter from './productCounter';
 import Categories from './categories';
+import { Link } from 'react-router-dom';
 import './products-list.scss';
 
 const ProductsList = ({ product, originalProduct }) => {
   const [visibleProducts, setVisibleProducts] = useState(9);
-  const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
+  const { cartItems, handleAddToCart, handleRemoveFromCart, handleToggleCart } = useCounter();
   const [sortOption, setSortOption] = useState('');
   const { favourites, toggleFavourite } = useFavourites();
+  
  
   const showMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 9);
@@ -56,7 +59,7 @@ const ProductsList = ({ product, originalProduct }) => {
         const handleToggleFavourite = () => {
           toggleFavourite(item);
         };
-        const isFavourite = favourites.some((favourite) => favourite.article === item.article);
+        const isFavourite = (elem) => {return elem.some((favourite) => favourite.article === item.article)}
 
         return (
           <li key={article} className="product">
@@ -76,18 +79,22 @@ const ProductsList = ({ product, originalProduct }) => {
               </div>
               <div className='added-panel'>
                 <button onClick={handleToggleFavourite}>
-                  <img src={ isFavourite ? likeCard__active :likeCard} alt='like-product' className='like-product' />
+                  <img src={ isFavourite(favourites) ? likeCard__active :likeCard} alt='like-product' className='like-product' />
                 </button>
-                <button >
-                  <img src={CartCard} alt='cart-product' className='cart-product' />
+                <button onClick={() => handleToggleCart(item)}>
+                  <img src={isFavourite(cartItems) ? CartCard__active : CartCard} alt='cart-product' className='cart-product' />
                 </button>
               </div>
-              <ProductCounter
-                item={item}
-                cartItems={cartItems}
-                handleAddToCart={handleAddToCart}
-                handleRemoveFromCart={handleRemoveFromCart}
-              />
+              {isFavourite(cartItems) ?  
+                      <>
+                          <ProductCounter
+                          item={item}
+                          cartItems={cartItems}
+                          handleAddToCart={handleAddToCart}
+                          handleRemoveFromCart={handleRemoveFromCart}
+                          />
+                          <span className='check-cart'>Перейти в <Link to='/cart'>корзину</Link></span>
+                      </>: null}
             </div>
           </li>
         );
@@ -101,7 +108,7 @@ const ProductsList = ({ product, originalProduct }) => {
     ) : null; 
   return (
     <div className="products-list">
-      <Categories categories={originalProduct ? originalProduct[0].categories : null} />
+      <Categories categories={product[0] ? product[0].categories : null} />
       <div className="sort_catalog-pages-head">
         <div>
          

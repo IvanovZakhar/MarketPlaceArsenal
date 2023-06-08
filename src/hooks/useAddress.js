@@ -15,10 +15,9 @@ const useAddress = () => {
   
  
   
-    useEffect(() => {
-        console.log(address)
+    useEffect(() => { 
         localStorage.address = JSON.stringify(address)
-        console.log(address)
+       
     }, [address]);
 
   const handleAddToAddress = (item) => {

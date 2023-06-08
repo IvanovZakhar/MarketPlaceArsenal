@@ -1,16 +1,15 @@
 
 import React from 'react';
 import openLink from '../productsList/openLink';
-import ProductCounter from '../productsList/productCounter';
-import useCounter from '../../hooks/useCounter';
+import ProductCounter from '../productsList/productCounter'; 
 import ModalAddress from '../modal/modalAddress';
 import ModalOrder from '../modal/modalOrder';
 import useAddress from '../../hooks/useAddress';
+import WidgetHandler from '../widget/widjetHandler';
 import './cart-products.scss';
 
-const CartProducts = () => {
+const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart }) => {
     const { address, handleAddToAddress} = useAddress();
-    const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
     const totalSum = getTotalSum(cartItems)
     const totalWeght = getTotalWeght(cartItems)
     const totalVolume =  getTotalVolume(cartItems).slice(0, 4)
@@ -67,8 +66,9 @@ const CartProducts = () => {
                 <li className='address-delivery'>
                         <h4>Адрес и номер телефона</h4>
                         <ModalAddress  address={address} handleAddToAddress={handleAddToAddress}/>
+                     
                 </li>
-        
+                {/* <WidgetHandler /> */}
                     <ModalOrder product={cartItems} address={address} handleAddToAddress={handleAddToAddress}/>
             
         </ul>

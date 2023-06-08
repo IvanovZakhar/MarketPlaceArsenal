@@ -9,7 +9,7 @@ import Feedback from '../../feedback/feedback';
 import './cart.scss'
 
 const Cart = () => {
-    const { cartItems } = useCounter();
+    const { cartItems, handleAddToCart, handleRemoveFromCart } = useCounter();
  
     return(
         <>
@@ -31,7 +31,7 @@ const Cart = () => {
                             <a href='/'>Корзина</a>
                         </li>
                     </ul>
-                    <CartProducts />
+                    <CartProducts cartItems={cartItems} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart}/>
                 </div> 
                
             </div>

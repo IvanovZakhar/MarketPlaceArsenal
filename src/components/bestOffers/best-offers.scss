@@ -37,13 +37,13 @@
     }
 
     .product-img__best-offers{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         margin-left: 15px;
     }
 
     .product-name__best-offers{
-        width: 180px;
+        width: 300px;
         height: 32px;
         margin: 0 0 0 13px;
         font-family: 'Ubuntu';
@@ -82,14 +82,14 @@
 
 .head__best-offers{
     display: flex;
-    margin-top: 20px;
-    
+    margin-top: 20px; 
     .text__best-offers{
-        margin-top: 3px;
+        margin-top: 20px;
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 22px;
+        font-weight: bold;
         line-height: 18px;
         color: #000000;
     }
@@ -103,4 +103,175 @@
     .right-btn{
         margin-left: 14px;
     }
+}
+
+
+///////////////////////////////////////
+.strip___best-offers{
+width: 690px;
+height: 1px;
+margin-left: 6px;
+margin-top: 13px; 
+}
+#app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide-prev{
+    
+    border-radius: 10px;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff; 
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    border-radius: 10px;
+ 
+    .product-name__best-offers{
+        width: 300px;
+        height: 32px;
+        margin: 0 0 0 13px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+    }
+     
+
+    button{
+        border: none;
+        background: none;
+        margin: 0;
+        margin-top: 3px;
+    }
+
+    .product__best-offers{
+        list-style-type: none;
+    }
+    .product__best-offers:first-child{
+        margin: 0;
+    }
+
+    .product__best-offers{
+        width: 300px;
+        height: 312px;
+        margin-left: 21px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+        border-radius: 10px;
+    }
+
+    .product-img__best-offers{
+        width: 300px;
+        height: 200px;  
+        margin-top: 10px; 
+        object-fit: contain;
+        cursor: pointer;
+    }
+
+    .product-name__best-offers{
+        width: 300px;
+        height: 32px;
+        margin: 0 0 0 13px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+        cursor: pointer;
+    }
+    .product-salary__best-offers{
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        color: #313131;
+        margin-left: 20px;
+    }
+    .bottom-col__best-offers{
+        display: flex; 
+        margin: 15px 0 13px 0px;
+    }
+    .product-like__best-offers{
+        width: 34px;
+        height: 34px; 
+        margin-left: 50px;
+    }
+    .product-cart__best-offers{
+        width: 34px;
+        height: 34px;
+        margin-left: 8px;
+    }
+   
+  }
+  .swiper-pagination{
+    display: none;
+}
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+  }
+  .append-buttons {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .append-buttons button {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #007aff;
+    color: #007aff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 0 10px;
+    font-size: 13px;
+  }
+  .swiper-button-prev, .swiper-button-next{
+    color: #FFB701;
+  }
+ 
+.swiper-wrapper{
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.swiper-slide-active{
+    border-radius: 10px;
 }

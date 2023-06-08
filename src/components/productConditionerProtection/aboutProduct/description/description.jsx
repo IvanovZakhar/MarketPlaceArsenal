@@ -15,7 +15,7 @@ const Description = ({productConditionerProtection}) => {
     const elem = (productConditionerProtection) => {
         const {name_of_product, annotation, price_rubles, price_before_discount, 
             main_photo_link, additional_photo_links, supported_brands, list_of_compatible_devices, purpose} = productConditionerProtection;
-        console.log(productConditionerProtection)
+ 
         const regex = /(https:\/\/.*?\.jpg)/g;
         const matches = [...additional_photo_links.matchAll(regex)].map((match) => ({ url: match[1] }));
  

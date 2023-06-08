@@ -11,6 +11,7 @@ const ProductPageAntiTheft = () => {
  
     return(
         <div className="product-page">
+            
             <AppHeader/>
             <main>
                 <div className='container'>

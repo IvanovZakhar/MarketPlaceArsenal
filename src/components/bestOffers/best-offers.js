@@ -1,82 +1,90 @@
-import strip from '../../resources/img/ico/strip.svg';
-import leftButton from '../../resources/img/ico/left-btn.svg';
-import rightButton from '../../resources/img/ico/right-btn.svg';
+ 
 import likeCard from '../../resources/img/ico/like-card.svg';
-import CartCard from '../../resources/img/ico/cart-card.svg';
-import grid from '../../resources/img/products/grid520.png';
-import d1 from '../../resources/img/products/d1.png';
-import './best-offers.scss'
+import CartCard from '../../resources/img/ico/cart-card.svg'; 
+import useMarketService from '../../services/market-services';
+import openLink from '../productsList/openLink';
+import useFavourites from '../../hooks/useFavourites'
+import useCounter from '../../hooks/useCounter';
+import likeCard__active from '../../resources/img/ico/like-card__active.svg'
+import CartCard__active from '../../resources/img/ico/cart-card__active.svg'; 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import "./best-offers.scss";
+
+// import required modules
+import { Pagination, Navigation } from "swiper";
+import { useEffect, useState } from 'react';
+
+export default function BestOffers() {
+    const {getProducts} = useMarketService()
+    const [product, setProduct] = useState([])
+    const [randomItems, setRandomItems] = useState([])
+    const { favourites, toggleFavourite } = useFavourites();
+    const { cartItems, handleToggleCart } = useCounter();
+    useEffect(()=> {
+        getProducts('allproducts').then(setProduct)  
+    }, [])
+
+    useEffect(() => {
+        const getRandomItems = (array, count) => {
+            const shuffledArray = array.sort(() => 0.5 - Math.random());
+            return shuffledArray.slice(0, count);
+          };
+        
+       setRandomItems( getRandomItems(product, 6))
+    }, [product])
+    const elemSlides = randomItems.map((item, i) => {
+        const { main_photo_link, name_of_product, price_rubles } = item
+        const handleToggleFavourite = () => {
+            toggleFavourite(item);
+          };
+          
+        const isFavourite = (elem) => {return elem.some((favourite) => favourite.article === item.article)}
+        return(
+            <SwiperSlide key={i}> 
+                <img src={main_photo_link} alt={name_of_product} className='product-img__best-offers' onClick={() => openLink(item)}/>
+                <h3 className='product-name__best-offers' onClick={() => openLink(item)}>{name_of_product}</h3>
+                <div className='bottom-col__best-offers'>
+                    <span className='product-salary__best-offers'>{price_rubles} руб.</span>
+                    <button onClick={handleToggleFavourite}>
+                            <img src={isFavourite(favourites) ? likeCard__active : likeCard} alt='like-card' className='product-like__best-offers'/>
+                    </button>
+                    <button onClick={() => handleToggleCart(item)}>
+                            <img src={isFavourite(cartItems) ? CartCard__active : CartCard} alt='cart-card' className='product-cart__best-offers'/>
+                    </button>
+                </div> 
+            </SwiperSlide>
+        )
+    })
 
 
-const BestOffers = () => {
-    return(
+  return (
     <>
-        <header className='head__best-offers'>
-            <h2 className='text__best-offers'>Лучшие предложения</h2>
-            <img src={strip} alt='strip' className='strip___best-offers'/>
-            <button className='left-btn'>
-                <img src={leftButton} alt='left-button'/>
-            </button>
-            <button className='right-btn'>
-                <img src={rightButton} alt='right-button'/>
-            </button>
+            <header className='head__best-offers'>
+            <h2 className='text__best-offers'>Лучшие предложения</h2> 
+ 
         </header>
-        <ul className='best-offers'>
-            <li className='product__best-offers'>
-                <img src={grid} alt='product__best-offers' className='product-img__best-offers'/>
-                <h3 className='product-name__best-offers'>Решетка раздвижная 520х770</h3>
-                <div className='bottom-col__best-offers'>
-                    <span className='product-salary__best-offers'>2200 руб.</span>
-                    <button>
-                         <img src={likeCard} alt='like-card' className='product-like__best-offers'/>
-                    </button>
-                    <button>
-                         <img src={CartCard} alt='cart-card' className='product-cart__best-offers'/>
-                    </button>
-                </div>
-            </li>
-            <li className='product__best-offers'>
-                <img src={d1} alt='product__best-offers' className='product-img__best-offers'/>
-                <h3 className='product-name__best-offers'>Противоугонное устройство для легкового прицепа УСИЛЕННОЕ</h3>
-                <div className='bottom-col__best-offers'>
-                    <span className='product-salary__best-offers'>2360 руб.</span>
-                    <button>
-                         <img src={likeCard} alt='like-card' className='product-like__best-offers'/>
-                    </button>
-                    <button>
-                         <img src={CartCard} alt='cart-card' className='product-cart__best-offers'/>
-                    </button>
-                </div>
-            </li>
-            <li className='product__best-offers'>
-                <img src={grid} alt='product__best-offers' className='product-img__best-offers'/>
-                <h3 className='product-name__best-offers'>Решетка раздвижная 520х770</h3>
-                <div className='bottom-col__best-offers'>
-                    <span className='product-salary__best-offers'>2200 руб.</span>
-                    <button>
-                         <img src={likeCard} alt='like-card' className='product-like__best-offers'/>
-                    </button>
-                    <button>
-                         <img src={CartCard} alt='cart-card' className='product-cart__best-offers'/>
-                    </button>
-                </div>
-            </li>
-            <li className='product__best-offers'>
-                <img src={d1} alt='product__best-offers' className='product-img__best-offers'/>
-                <h3 className='product-name__best-offers'>Противоугонное устройство для легкового прицепа УСИЛЕННОЕ</h3>
-                <div className='bottom-col__best-offers'>
-                    <span className='product-salary__best-offers'>2360 руб.</span>
-                    <button>
-                         <img src={likeCard} alt='like-card' className='product-like__best-offers'/>
-                    </button>
-                    <button>
-                         <img src={CartCard} alt='cart-card' className='product-cart__best-offers'/>
-                    </button>
-                </div>
-            </li>
-        </ul>
-    </>
-    )
-}
+      <Swiper 
+        slidesPerView={3}
+        centeredSlides={false}
+        spaceBetween={30}
+        pagination={{
+          type: "fraction",
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {elemSlides}
+      </Swiper>
 
-export default BestOffers;
+ 
+    </>
+  );
+}

@@ -11,12 +11,10 @@ import './app-header.scss';
 const AppHeader = () => {
     const { cartItems } = useCounter();
     const [cartItemCount, setCartItemCount] = useState(cartItems.length);
- 
- 
 
     useEffect(() => {
       setCartItemCount(cartItems.length);
-    }, [cartItems]);
+    }, [cartItems.length]);
 
     
     return(

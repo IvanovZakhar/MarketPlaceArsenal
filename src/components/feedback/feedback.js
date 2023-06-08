@@ -1,5 +1,7 @@
 import padlock from '../../resources/img/ico/padlock.svg';
 import { useForm, Controller} from "react-hook-form";
+
+import ym from 'react-yandex-metrika';
 import useMarketService from '../../services/market-services';
 import Spinner from 'react-bootstrap/Spinner';
 import './feedback.scss'
@@ -21,9 +23,10 @@ const Feedback = () => {
                   name: name,
                   number: +number 
                    
-                }; 
+                };  
                 if(Object.entries(errors).length === 0){
-                    newFeedback(data).then(() => setMessage(true)) 
+                    newFeedback(data).then(() => { setMessage(true)}) 
+                    
                 }
             })}>
                 <h3>Требуется консультация?</h3>
@@ -50,7 +53,7 @@ const Feedback = () => {
                         <label className="agree">Я даю согласие на обработку моих персональных данных</label>
           
                         </div>
-                    <button type='submit' className="call-me__btn">Перезвоните мне</button>
+                    <button type='submit' className="call-me__btn" onClick={() => {ym(93888307,'reachGoal','clickFeedback')}}>Перезвоните мне</button>
                 </div>
             </form>
         )
@@ -70,9 +73,10 @@ const Feedback = () => {
      
     </Spinner> : <Form/>
     return(
-      message ? <Successfull/> : <Form/> 
-        
- 
+        <> 
+        {message ? <Successfull/> : <Form/> }
+    
+        </>
     )
 }
 
