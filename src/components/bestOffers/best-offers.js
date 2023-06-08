@@ -10,6 +10,7 @@ import CartCard__active from '../../resources/img/ico/cart-card__active.svg';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { ClipLoader } from 'react-spinners';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,7 +23,7 @@ import { Pagination, Navigation } from "swiper";
 import { useEffect, useState } from 'react';
 
 export default function BestOffers() {
-    const {getProducts} = useMarketService()
+    const {getProducts, loading} = useMarketService()
     const [product, setProduct] = useState([])
     const [randomItems, setRandomItems] = useState([])
     const { favourites, toggleFavourite } = useFavourites();
@@ -70,19 +71,29 @@ export default function BestOffers() {
             <h2 className='text__best-offers'>Лучшие предложения</h2> 
  
         </header>
-      <Swiper 
-        slidesPerView={3}
-        centeredSlides={false}
-        spaceBetween={30}
-        pagination={{
-          type: "fraction",
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {elemSlides}
-      </Swiper>
+        {   loading ?    
+            <ClipLoader 
+                        color="#FFB701"   
+                        cssOverride={{
+                        width: '100px',
+                        height: '100px',
+                        marginLeft: '400px',
+                        marginTop: '50px' 
+                    }} /> :
+            <Swiper 
+                    slidesPerView={3}
+                    centeredSlides={false}
+                    spaceBetween={30}
+                    pagination={{
+                        type: "fraction",
+                    }}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
+                    className="mySwiper"
+                    >
+                { elemSlides}
+            </Swiper> 
+        }
 
  
     </>
