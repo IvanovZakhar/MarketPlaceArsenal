@@ -74,7 +74,7 @@ const useMarketService = () => {
     const newOrder = async (order) => {
         
         const res = await request(
-                                    `http://10.0.0.4:3004/new-order`, 
+                                    `https://server-market-arsenal.vercel.app/new-order`, 
                                     'POST', 
                                     JSON.stringify(order), 
                                     {'Content-Type': 'application/json'}
