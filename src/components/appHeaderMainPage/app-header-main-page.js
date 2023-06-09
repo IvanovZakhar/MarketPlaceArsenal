@@ -5,6 +5,16 @@ import email from '../../resources/img/ico/E-mail.svg'
 
 
 const AppHeaderMainPage = () => {
+    function scrollToBottom() {
+        // Получаем высоту страницы
+        const scrollHeight = document.documentElement.scrollHeight;
+        
+        // Выполняем плавный скролл до нижней границы страницы
+        window.scrollTo({
+          top: scrollHeight,
+          behavior: 'smooth'
+        });
+      }
     return (
         <div className="app-header__main-page">
             <div className='container'>
@@ -19,7 +29,7 @@ const AppHeaderMainPage = () => {
                             <p>Мы на связи!</p>
                         </div>
                     </div>
-                    <button className="call-me__btn">Перезвоните мне</button>
+                    <button onClick={scrollToBottom} className="call-me__btn">Перезвоните мне</button>
                 </header>
             </div>
         </div>

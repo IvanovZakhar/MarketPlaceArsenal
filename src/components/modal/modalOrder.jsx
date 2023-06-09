@@ -20,7 +20,7 @@ const customStyles = {
   },
 };
 
-function ModalOrder({product, address}) {
+function ModalOrder({product, address, removeAllCart}) {
   const [resOrders, setResOrders] = useState('')   
   const {newOrder} = useMarketService();
   const [modalOpen, setModalOpen] = useState(false);
@@ -60,7 +60,9 @@ function ModalOrder({product, address}) {
                     quantity: item.quantity
                 }
         })
-        newOrder(address).then(data => setResOrders(res.successfull))
+        newOrder(address).then(data => {
+          setResOrders(res.successfull)
+          removeAllCart()})
         .catch(e =>  setResOrders(res.error))
         setModalOpen(true)
     }else if(Object.keys(address).length === 0){

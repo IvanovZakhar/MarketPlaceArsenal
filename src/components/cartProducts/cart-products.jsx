@@ -8,7 +8,7 @@ import useAddress from '../../hooks/useAddress';
 import WidgetHandler from '../widget/widjetHandler';
 import './cart-products.scss';
 
-const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart }) => {
+const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, removeAllCart }) => {
     const { address, handleAddToAddress} = useAddress();
     const totalSum = getTotalSum(cartItems)
     const totalWeght = getTotalWeght(cartItems)
@@ -69,7 +69,7 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart }) => {
                      
                 </li>
                 {/* <WidgetHandler /> */}
-                    <ModalOrder product={cartItems} address={address} handleAddToAddress={handleAddToAddress}/>
+                    <ModalOrder product={cartItems} address={address} removeAllCart={removeAllCart}/>
             
         </ul>
         </>

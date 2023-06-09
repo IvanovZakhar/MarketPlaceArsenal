@@ -9,10 +9,27 @@ import Feedback from '../feedback/feedback';
 import OfferDay from '../offerDay/offer-day';
 import Footer from '../footer/footer';
 import { YMInitializer as YM } from 'react-yandex-metrika';
-
+import { useEffect, useState } from 'react';
+import useMarketService from '../../services/market-services';
 
 const MainPage = () => {
+  const [product, setProduct] = useState([])
+  const [randomItemsSix, setRandomItemsSix] = useState([])
+  const [randomItem, setRandomItem] = useState([])
+  const {getProducts, loading} = useMarketService()
+  useEffect(()=> {
+    getProducts('allproducts').then(setProduct)  
+  }, [])
 
+  useEffect(() => {
+    const getRandomItems = (array, count) => {
+        const shuffledArray = array.sort(() => 0.5 - Math.random());
+        return shuffledArray.slice(0, count);
+      };
+    
+   setRandomItemsSix( getRandomItems(product, 6))
+   setRandomItem(getRandomItems(product, 1))
+}, [product]) 
     return(
         <>
           <AppHeaderMainPage/>
@@ -23,10 +40,10 @@ const MainPage = () => {
                     <div className='col-left__main'>
           
                     <CatalogMenu/>
-                    <OfferDay/>
+                  <OfferDay randomItem={randomItem} loading={loading}/>
                   </div>
                   <div className='col-right__main'>
-                    <BestOffers/>
+                    <BestOffers randomItemsSix={randomItemsSix} loading={loading}/>
                     <About/>
                 
                   </div>

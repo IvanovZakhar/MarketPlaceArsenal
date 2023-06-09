@@ -1,10 +1,11 @@
 .advantage{
     width: 1280px;
-    height: 439px;
+    min-height: 439px;
     margin-top: 40px;
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(99, 99, 99, 0.2);
     border-radius: 10px;
+    padding: 30px 30px 70px 0px;
     h3{
         margin-top: 22px;
         text-align: center;
@@ -32,13 +33,13 @@
     ul{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        margin: 82px 0 0 28px;
+        margin: 52px 0 0 28px;
         list-style-type: none;
         
     }
     li{
         width: 400px;
-        height: 80px;
+        min-height: 80px;
         display: flex;
        
     }

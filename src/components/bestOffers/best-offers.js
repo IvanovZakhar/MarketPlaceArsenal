@@ -1,7 +1,6 @@
  
 import likeCard from '../../resources/img/ico/like-card.svg';
-import CartCard from '../../resources/img/ico/cart-card.svg'; 
-import useMarketService from '../../services/market-services';
+import CartCard from '../../resources/img/ico/cart-card.svg';  
 import openLink from '../productsList/openLink';
 import useFavourites from '../../hooks/useFavourites'
 import useCounter from '../../hooks/useCounter';
@@ -22,25 +21,13 @@ import "./best-offers.scss";
 import { Pagination, Navigation } from "swiper";
 import { useEffect, useState } from 'react';
 
-export default function BestOffers() {
-    const {getProducts, loading} = useMarketService()
-    const [product, setProduct] = useState([])
-    const [randomItems, setRandomItems] = useState([])
+export default function BestOffers({randomItemsSix, loading}) {  
     const { favourites, toggleFavourite } = useFavourites();
     const { cartItems, handleToggleCart } = useCounter();
-    useEffect(()=> {
-        getProducts('allproducts').then(setProduct)  
-    }, [])
 
-    useEffect(() => {
-        const getRandomItems = (array, count) => {
-            const shuffledArray = array.sort(() => 0.5 - Math.random());
-            return shuffledArray.slice(0, count);
-          };
-        
-       setRandomItems( getRandomItems(product, 6))
-    }, [product])
-    const elemSlides = randomItems.map((item, i) => {
+
+
+    const elemSlides = randomItemsSix.map((item, i) => {
         const { main_photo_link, name_of_product, price_rubles } = item
         const handleToggleFavourite = () => {
             toggleFavourite(item);

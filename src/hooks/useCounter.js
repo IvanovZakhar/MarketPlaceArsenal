@@ -91,11 +91,16 @@ const useCounter = () => {
     });
   };
 
+  const removeAllCart = () => {
+    localStorage.cartItems = []
+  }
+
   return {
     cartItems,
     handleAddToCart,
     handleRemoveFromCart,
-    handleToggleCart,
+    handleToggleCart, 
+    removeAllCart
   };
 };
 
