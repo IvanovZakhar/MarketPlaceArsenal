@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Feedback from '../feedback/feedback';   
 import { ClipLoader } from 'react-spinners';
+import AppHeaderMainPage from '../appHeaderMainPage/app-header-main-page';
+
 
 const CatalogPages = ({props}) => {
       const {getProducts, loading} = useMarketService();
@@ -26,6 +28,7 @@ const CatalogPages = ({props}) => {
                         <meta charSet="utf-8" />
                         <title>{ product[0] ? product[0].categories[0].nameList : 'Каталог'}</title> 
                     </Helmet>
+                    <AppHeaderMainPage/>
                     <AppHeader/>
          
                     <main>

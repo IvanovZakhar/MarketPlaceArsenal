@@ -47,7 +47,6 @@
     .product__offer-day{
         width: 200px;
         height: 312px;
- 
 
         box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
         border-radius: 10px;
@@ -56,9 +55,11 @@
     .product-img__offer-day{
         width: 200px;
         height: 200px;
+        cursor: pointer;
     }
 
     .product-name__offer-day{
+        display: block;
         width: 180px;
         height: 32px;
         margin: 10px 0 0 13px;
@@ -68,16 +69,18 @@
         font-size: 14px;
         line-height: 16px;
         color: #FFF;
+        cursor: pointer;
     }
     .salary{
         display: flex;
         flex-direction: column;
+ 
     }
     .product-salary__offer-day{
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 16px;
         line-height: 14px;
         text-align: right;
         text-decoration-line: line-through;
@@ -87,7 +90,7 @@
         font-family: 'Ubuntu';
         font-style: normal;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 18px;
         align-items: center;
         color: #FFFFFF;
@@ -95,7 +98,17 @@
     }
     .bottom-col__offer-day{
         display: flex;
-        margin: 25px 0 13px 13px;
+        justify-content: center;
+        margin-top: 50px ;
+        button{
+            display: block; 
+            width: 34px;
+            height: 34px;
+            margin-left: 10px;
+            img{
+                margin: 0;
+            }
+        } 
     }
     .product-like__offer-day{
         width: 34px;

@@ -3,6 +3,7 @@ import AppHeader from '../appHeader/app-header';
 import CatalogMenu from '../catalogMenu/catalog-menu'; 
 import Footer from '../footer/footer';
 import Feedback from "../feedback/feedback";
+import AppHeaderMainPage from "../appHeaderMainPage/app-header-main-page";
 
 
 const ProductPage = () => {
@@ -11,6 +12,7 @@ const ProductPage = () => {
  
     return(
         <div className="product-page">
+            <AppHeaderMainPage/>
             <AppHeader/>
             <main>
                 <div className='container'>

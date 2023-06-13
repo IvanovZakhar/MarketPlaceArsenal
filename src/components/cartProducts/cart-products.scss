@@ -50,9 +50,9 @@
     .about-product{
         margin: 37px 0 0 20px;
         cursor: pointer;
-        h2{
+        .name_product{
             width: 385px;
-            height: 36px;
+            min-height: 56px;
             font-family: 'Ubuntu';
             font-style: normal;
             font-weight: 600;
@@ -62,7 +62,7 @@
             cursor: pointer;
         }
         span{
-            margin-top: 12px;
+            margin-top: 22px;
             font-family: 'Ubuntu';
             font-style: normal;
             font-weight: 400;

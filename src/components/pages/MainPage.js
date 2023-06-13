@@ -15,7 +15,7 @@ import useMarketService from '../../services/market-services';
 const MainPage = () => {
   const [product, setProduct] = useState([])
   const [randomItemsSix, setRandomItemsSix] = useState([])
-  const [randomItem, setRandomItem] = useState([])
+  const [randomItem, setRandomItem] = useState()
   const {getProducts, loading} = useMarketService()
   useEffect(()=> {
     getProducts('allproducts').then(setProduct)  
@@ -29,7 +29,7 @@ const MainPage = () => {
     
    setRandomItemsSix( getRandomItems(product, 6))
    setRandomItem(getRandomItems(product, 1))
-}, [product]) 
+  }, [product])  
     return(
         <>
           <AppHeaderMainPage/>
@@ -40,7 +40,8 @@ const MainPage = () => {
                     <div className='col-left__main'>
           
                     <CatalogMenu/>
-                  <OfferDay randomItem={randomItem} loading={loading}/>
+                    <OfferDay randomItem={randomItem} loading={loading}/> 
+                    
                   </div>
                   <div className='col-right__main'>
                     <BestOffers randomItemsSix={randomItemsSix} loading={loading}/>

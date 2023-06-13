@@ -2,7 +2,7 @@ import React from 'react';
 import './app-header-main-page.scss'
 import logo from '../../resources/img/ico/logo.svg';
 import email from '../../resources/img/ico/E-mail.svg'
-
+import { Link } from 'react-router-dom';
 
 const AppHeaderMainPage = () => {
     function scrollToBottom() {
@@ -19,7 +19,9 @@ const AppHeaderMainPage = () => {
         <div className="app-header__main-page">
             <div className='container'>
                 <header>
-                    <img src={logo} className="logo" alt="logo"/>
+                <Link to='/'>
+                    <img src={logo} className="logo" alt="logo"></img>
+                </Link>
                     <div className='address'>
                         <div className='col-left__address'> 
                         <img src={email} className="email_ico" alt="email"/>

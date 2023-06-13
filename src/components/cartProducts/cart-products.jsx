@@ -20,7 +20,7 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, remove
       <li className='product' key={i}>
         <img src={main_photo_link} className='product-photo' alt={name_of_product} onClick={() => openLink(cart)}/>
         <div className='about-product' onClick={() => openLink(cart)}>
-          <h2 >{name_of_product}</h2>
+          <h2 className='name_product'>{name_of_product}</h2>
           <span>{weight_in_packaging_g} г.</span>
         </div>
 
