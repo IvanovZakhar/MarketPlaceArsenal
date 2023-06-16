@@ -36,10 +36,12 @@ footer{
         font-weight: 500;
         font-size: 12px;
         line-height: 133.5%;
-        display: flex;
-        margin-left: 60px; 
-        align-items: center;
+        display: flex; 
         color: #FFFFFF;
+        margin: 0;
+        margin: 7px 0 0 15px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
     }
     h5{
         margin-top: 45px;
@@ -111,6 +113,8 @@ footer{
         font-size: 16px;
         line-height: 18px;
         color: #F3F3F3;
+        text-transform: none;
+        letter-spacing: 0;
     }
     .down__address{
         font-family: 'Ubuntu';

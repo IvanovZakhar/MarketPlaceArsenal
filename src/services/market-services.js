@@ -7,7 +7,7 @@ const useMarketService = () => {
      
     const getProducts = async (catalog) => {
       
-        const res = await request(`http://localhost:3004/${catalog}`)
+        const res = await request(`http://f9fd09879062.vps.myjino.ru:49256/${catalog}`)
   
             
         switch(catalog){
@@ -45,7 +45,7 @@ const useMarketService = () => {
 
     const getProductsForArticle = async (catalog, article) => {
      
-        const res = await request(`http://localhost:3004/${catalog}${article}`)
+        const res = await request(`http://f9fd09879062.vps.myjino.ru:49256/${catalog}${article}`)
       
              return res
         // switch(num){
@@ -74,7 +74,7 @@ const useMarketService = () => {
     const newOrder = async (order) => {
         
         const res = await request(
-                                    `http://localhost:3004/new-order`, 
+                                    `http://f9fd09879062.vps.myjino.ru:49256/new-order`, 
                                     'POST', 
                                     JSON.stringify(order), 
                                     {'Content-Type': 'application/json'}
@@ -86,7 +86,7 @@ const useMarketService = () => {
     const newFeedback = async (feedback) => {
         
         const res = await request(
-                                    `http://localhost:3004/new-feedback`, 
+                                    `http://f9fd09879062.vps.myjino.ru:49256/new-feedback`, 
                                     'POST', 
                                     JSON.stringify(feedback), 
                                     {'Content-Type': 'application/json'}

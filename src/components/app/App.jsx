@@ -14,9 +14,6 @@ import ProductPageFlag from '../pages/ProductPageFlag';
 import './App.scss';
 import {createBrowserRouter} from "react-router-dom";
 
- 
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -29,108 +26,133 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "cart",
+    path: "/cart",
     element: <Cart />,
+    caseSensitive: false
   },
   {
-    path: "favourites",
+    path: "/favourites",
     element: <Favourites />,
+    caseSensitive: false
   },
   {
-    path: "catalog",
+    path: "/catalog",
     element: <CatalogPages props={'allproducts'}/>,
+    caseSensitive: false
   },
   {
-    path: "catalog/grids/grids-one",
+    path: "/catalog/grids/grids-one",
     element: <CatalogPages props={'grids-one'}/>,
+    caseSensitive: false
   },
   {
-    path: "catalog/conditioner-protection/visors",
+    path: "/catalog/conditioner-protection/visors",
     element: <CatalogPages props={'visors'}/>,
+    caseSensitive: false
   },
   {
-    path: "catalog/conditioner-protection/baskets",
+    path: "/catalog/conditioner-protection/baskets",
     element: <CatalogPages props={'baskets'}/>,
+    caseSensitive: false
   },
   {
-    path: "catalog/anti-theft",
+    path: "/catalog/anti-theft",
     element: <CatalogPages props={'anti-theft'}/>,
   },
   {
-    path: "catalog/grids/grids-two",
+    path: "/catalog/grids/grids-two",
     element: <CatalogPages props={'grids-two'}/>,
+    caseSensitive: false
   },
   {
-    path: "catalog/grids",
+    path: "/catalog/grids",
     element: <CatalogPages props={'grids'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/conditioner-protection",
     element: <CatalogPages props={'conditioner-protection'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/woodcutters",
     element: <CatalogPages props={'woodcutters'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/pergolias",
     element: <CatalogPages props={'pergolias'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/birdhouses",
     element: <CatalogPages props={'birdhouses'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/swings",
     element: <CatalogPages props={'swings'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/flags",
     element: <CatalogPages props={'flags'}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/grids/:artGrid",
     element: <ProductPageGrid props={0}/>,
+    caseSensitive: false
   },
   {
     path: "/catalog/grids/grids-one/:artGrid",
     element: <ProductPageGrid  />,
+    caseSensitive: false
   },
   {
     path: "/catalog/grids/grids-two/:artGrid",
     element: <ProductPageGrid />,
+    caseSensitive: false
   },
   {
     path: "/catalog/conditioner-protection/visors/:artConditionerProtection",
     element: <ProductPageConditionerProtection />,
+    caseSensitive: false
   },
   {
     path: "/catalog/conditioner-protection/baskets/:artConditionerProtection",
     element: <ProductPageConditionerProtection />,
+        caseSensitive: false
   },
   {
     path: "/catalog/anti-theft/:artAntiTheft",
     element: <ProductPageAntiTheft />,
+        caseSensitive: false
   },
   {
     path: "/catalog/woodcutters/:artWoodcutter",
     element: <ProductPageWoodcutter />,
+        caseSensitive: false
   },
   {
     path: "/catalog/burdhouses/:artBirdhouse",
     element: <ProductPageBirdHouse />,
+        caseSensitive: false
   },
   {
     path: "/catalog/pergolias/:artPergola",
     element: <ProductPagePergola />,
+        caseSensitive: false
   },
   {
     path: "/catalog/swings/:artSwing",
     element: <ProductPageSwing />,
+        caseSensitive: false
   },
   {
     path: "/catalog/flags/:artFlag",
     element: <ProductPageFlag />,
+        caseSensitive: false
   }
  
 

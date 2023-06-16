@@ -7,8 +7,6 @@ import AppHeaderMainPage from "../appHeaderMainPage/app-header-main-page";
 
 
 const ProductPage = () => {
-
-
  
     return(
         <div className="product-page">

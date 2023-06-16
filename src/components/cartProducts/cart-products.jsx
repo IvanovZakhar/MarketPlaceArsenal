@@ -13,7 +13,8 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, remove
     const totalSum = getTotalSum(cartItems)
     const totalWeght = getTotalWeght(cartItems)
     const totalVolume =  getTotalVolume(cartItems).slice(0, 4)
- 
+    
+     
   const productsCarts = cartItems.map((cart, i) => {
     const { main_photo_link, name_of_product, price_before_discount, price_rubles, weight_in_packaging_g } = cart;
     return (
@@ -37,7 +38,8 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, remove
       </li>
     );
   });
-
+   
+  const paramsProduct = getTotalParam(cartItems) 
   return (
    
         <>
@@ -65,10 +67,10 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, remove
         
                 <li className='address-delivery'>
                         <h4>Адрес и номер телефона</h4>
-                        <ModalAddress  address={address} handleAddToAddress={handleAddToAddress}/>
+                        <ModalAddress  address={address} handleAddToAddress={handleAddToAddress} params={paramsProduct}/>
                      
                 </li>
-                {/* <WidgetHandler /> */}
+                    {paramsProduct[0].width !== 0 ? <WidgetHandler params={paramsProduct}/> : null}
                     <ModalOrder product={cartItems} address={address} removeAllCart={removeAllCart}/>
             
         </ul>
@@ -94,4 +96,19 @@ const getTotalVolume = (items) => {
     const res = items.reduce((sum, item) =>  sum + ((item.width_in_packaging_mm / 1000) * (item.height_in_packaging_mm / 1000) * (item.length_in_packaging_mm / 1000)) * item.quantity, 0);
     
     return String(res) 
+}
+
+const getTotalParam = (items) => {
+  const totalWidth = items.reduce((sum, item) => sum + item.width_in_packaging_mm, 0 )
+  const totalHeight = items.reduce((sum, item) => sum + item.height_in_packaging_mm, 0 )
+  const totalLength = items.reduce((sum, item) => sum + item.length_in_packaging_mm, 0 ) 
+  const totalWeght = getTotalWeght(items)
+  return [
+    {
+      width: totalWidth,
+      height: totalHeight,
+      length: totalLength,
+      weight: totalWeght
+    }
+  ]
 }

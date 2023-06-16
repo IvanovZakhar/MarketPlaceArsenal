@@ -3,7 +3,6 @@ import './specifications.scss'
 const Specifications = ({productBirdhouse}) => {
     const {
             width_cm, height_cm, length_cm, feeder_placement, color_name, 
-            quantity_in_packaging, warranty_period, 
             type, material, country_of_manufacture
           } = productBirdhouse[0]
  

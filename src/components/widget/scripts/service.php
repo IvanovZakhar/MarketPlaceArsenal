@@ -11,13 +11,13 @@ namespace {
             array(233, 137, 139, 16, 18, 11, 1, 3, 61, 60, 59, 58, 57, 83),
             /** Настройте приоритет тарифов доставки до пунктов выдачи */
             /** Set the priority of delivery tariffs to pick-up points */
-            array(234, 136, 138, 15, 17, 10, 12, 5, 62, 63),
+            array(234, 136, 138, 15, 17, 10, 12, 5, 62, 63), 
             /** Вставьте свой аккаунт\идентификатор для интеграции */
             /** Put your account for integration here */
-            '',
+            'Jez6wddBWeKsthwRwX6ZxgX5wkoUHPVo',
             /** Вставьте свой пароль для интеграции */
             /** Put your password for integration here */
-            ''
+            'q5b0iCLWVlvT9xaZjIQoh8mELNIdfYU2'
         )
     );
 }

@@ -6,6 +6,7 @@ import Footer from '../../footer/footer';
 import FavouritesProducts from '../../favouritesProducts/favourites-products';
 import arrowCategories from '../../../resources/img/ico/arrow__catalog-menu.svg';
 import Feedback from '../../feedback/feedback';
+import { Helmet } from 'react-helmet';
 import './favourites.scss'
 
 
@@ -14,6 +15,10 @@ const Favourites = () => {
     const { favourites, toggleFavourite } = useFavourites();
     return(
         <>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Избранное</title> 
+        </Helmet>
         <AppHeader/>
         <main>
         <div className='container'>

@@ -11,6 +11,7 @@ import Footer from '../footer/footer';
 import { YMInitializer as YM } from 'react-yandex-metrika';
 import { useEffect, useState } from 'react';
 import useMarketService from '../../services/market-services';
+import { Helmet } from 'react-helmet';
 
 const MainPage = () => {
   const [product, setProduct] = useState([])
@@ -32,6 +33,10 @@ const MainPage = () => {
   }, [product])  
     return(
         <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>АрсеналЪ - Интернет магазин</title> 
+          </Helmet>
           <AppHeaderMainPage/>
           <AppHeader/>
           <main>

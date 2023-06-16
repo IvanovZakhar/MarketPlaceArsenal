@@ -5,7 +5,7 @@ import Footer from '../../footer/footer';
 import CartProducts from '../../cartProducts/cart-products';
 import arrowCategories from '../../../resources/img/ico/arrow__catalog-menu.svg';
 import Feedback from '../../feedback/feedback';
- 
+import { Helmet } from 'react-helmet';
 import './cart.scss'
 
 const Cart = () => {
@@ -13,6 +13,10 @@ const Cart = () => {
  
     return(
         <>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Корзина</title> 
+          </Helmet>
         <AppHeader/>
         <main>
         <div className='container'>
