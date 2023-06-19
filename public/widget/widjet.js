@@ -419,7 +419,8 @@ function ipolWidjetController(setups) {
 
 	states.check('_start');
 }
- function ISDEKWidjet(params) {
+
+function ISDEKWidjet(params) {
 
 	if (!params.path) {
 		var scriptPath = document.getElementById('ISDEKscript').src;
@@ -2642,3 +2643,4 @@ function ipolWidjetController(setups) {
 
 	return widjet;
 }
+export default ISDEKWidjet;

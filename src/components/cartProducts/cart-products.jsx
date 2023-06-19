@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useState } from 'react';
 import openLink from '../productsList/openLink';
 import ProductCounter from '../productsList/productCounter'; 
 import ModalAddress from '../modal/modalAddress';
@@ -14,7 +15,8 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, remove
     const totalWeght = getTotalWeght(cartItems)
     const totalVolume =  getTotalVolume(cartItems).slice(0, 4)
     
-     
+   
+
   const productsCarts = cartItems.map((cart, i) => {
     const { main_photo_link, name_of_product, price_before_discount, price_rubles, weight_in_packaging_g } = cart;
     return (
@@ -66,11 +68,12 @@ const CartProducts = ({ cartItems, handleAddToCart, handleRemoveFromCart, remove
             </li>
         
                 <li className='address-delivery'>
-                        <h4>Адрес и номер телефона</h4>
-                        <ModalAddress  address={address} handleAddToAddress={handleAddToAddress} params={paramsProduct}/>
-                     
-                </li>
-                    {paramsProduct[0].width !== 0 ? <WidgetHandler params={paramsProduct}/> : null}
+                        <h4>Данные получателя</h4>
+                        <ModalAddress  address={address} handleAddToAddress={handleAddToAddress} params={paramsProduct} cartItems={cartItems}/>
+                        
+                </li> 
+                {cartItems.length !== 0 ? <WidgetHandler params={cartItems}  address={address} handleAddToAddress={handleAddToAddress}/> : null}    
+                 
                     <ModalOrder product={cartItems} address={address} removeAllCart={removeAllCart}/>
             
         </ul>

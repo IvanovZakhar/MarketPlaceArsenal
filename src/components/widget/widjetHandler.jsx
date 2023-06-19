@@ -1,60 +1,77 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'; 
+import './widjetHandler.scss';
 
-const WidgetOrder = ({params}) => { 
+const WidgetHandler = ({ params, address, handleAddToAddress }) => {
+  const [chosenPost, setChosenPost] = useState('');
+  const [addressPost, setAddressPost] = useState('');
+  const [pricePost, setPricePost] = useState('');
+  const [timePost, setTimePost] = useState(''); 
+
+  useEffect(()=> {
+    handleAddToAddress({...address,chosenPost, addressPost, pricePost, timePost})
+  }, [addressPost])
+
+  console.log(address)
   useEffect(() => {
-    if (window.ISDEKWidjet ) {
-       
-      const orderWidget = new window.ISDEKWidjet({
-        popup: true,
-        defaultCity: 'Казань',
-        cityFrom: 'Казань',
-        goods: [
-          { length: 1000, width: 200, height: 20, weight: 51 }  // информация о товаре в корзине
-        ],
-        onReady: function () {
-          document.getElementById('linkForWidget').style.display = 'inline';
-        },
+    if (window.ISDEKWidjet) { 
+      const products = params.map(item => {
+        if(item.quantity === 1){
+          return {
+            length: item.length_in_packaging_mm / 1000,
+            width: item.width_in_packaging_mm / 1000,
+            height: item.height_in_packaging_mm / 1000,
+            weight: item.weight_in_packaging_g / 1000
+          } 
+        }
+        if(item.quantity > 1){
+          return {
+            length: item.length_in_packaging_mm / 1000,
+            width: item.width_in_packaging_mm / 1000,
+            height: item.height_in_packaging_mm / 1000,
+            weight: (item.weight_in_packaging_g / 1000) * item.quantity
+          } 
+        }
+      }) 
+  
+      const orderWidget = new window.ISDEKWidjet({ 
+        link: "forpvz",
+        defaultCity: 'Москва',
+        cityFrom: 'Санкт-Петербург',
+        goods: products, 
+        apikey: 'dc1ad195-bfc7-45eb-b833-c719b7440854',
         onChoose: function (info) {
-          document.querySelector('[name="chosenPost"]').value = info.id;
-          document.querySelector('[name="addressPost"]').value = info.PVZ.Address;
-
-          // Расчет стоимости доставки
+          // document.getElementsByName('chosenPost')[0].value = info.id;
+          setChosenPost(info.id)
+          // document.getElementsByName('addresPost')[0].value = info.PVZ.Address;
+          setAddressPost(info.PVZ.Address)
           const price = info.price < 500 ? 500 : Math.ceil(info.price / 100) * 100;
-          document.querySelector('[name="pricePost"]').value = price;
-          document.querySelector('[name="timePost"]').value = info.term;
-
-          orderWidget.close();
+          setPricePost(price)
+          // document.getElementsByName('pricePost')[0].value = price;
+          // document.getElementsByName('timePost')[0].value = info.term;
+          setTimePost(info.term) 
         }
       });
 
-      // Добавляем объект orderWidget в глобальную область видимости
       window.orderWidget = orderWidget;
     }
-  }, []);
+  }, [params]);
 
-  return (
-    <div>
-      <p>
-        <a href="javascript:void(0)" onClick={() => window.orderWidget?.open()}>
-          Выбрать ПВЗ
-        </a>
-      </p>
-      <div id="linkForWidget" style={{ display: 'none' }}>
-        <p>
-          Pick-up point chosen: <input type="text" name="chosenPost" defaultValue="" />
-        </p>
-        <p>
-          Pick-up point's address: <input type="text" name="addressPost" defaultValue="" />
-        </p>
-        <p>
-          Delivery price: <input type="text" name="pricePost" defaultValue="" />
-        </p>
-        <p>
-          Approximate delivery time: <input type="text" name="timePost" defaultValue="" />
-        </p>
-      </div>
-    </div>
+  
+ 
+  return (<div className='widget-hundler'>
+              <h4>Выберите пункт выдачи</h4>
+              <div id="forpvz" style={{height: "500px"}}></div>
+              {address.addressPost !== "" ? 
+              <>
+                <h4>Ваш пункт выдачи</h4>
+        
+                <span className='address_widjet'>{address.chosenPost}</span> 
+                <span className='address_widjet'>{address.addressPost}</span>
+            
+              </>
+              : null}
+          </div>
   );
 };
 
-export default WidgetOrder;
+export default WidgetHandler;

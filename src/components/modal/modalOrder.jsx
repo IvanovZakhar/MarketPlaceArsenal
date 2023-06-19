@@ -38,8 +38,12 @@ function ModalOrder({product, address, removeAllCart}) {
             span: "Свяжитесь с нами по номеру +7921-933-72-14"
         },
         noAddress: {
-            h4: "Вы не указали ваш адрес!",
-            span: "Что бы оформить заказ, вам нужно указать ваш адрес и номер телефона."
+            h4: "Вы не указали пункт выдачи!",
+            span: "Укажите пункт выдачи."
+        }, 
+        noNumber: {
+            h4: "Вы не указали данные получателя!",
+            span: "Укажите данные получателя."
         },
         noBaskets: {
             h4: "Корзина пуста!",
@@ -50,8 +54,8 @@ function ModalOrder({product, address, removeAllCart}) {
  
     
   const onSubmit = () =>{
- 
-    if (product.length > 0 && Object.keys(address).length > 0){
+    console.log(!address.addressPost)
+    if (product.length > 0 && address.addressPost && address.number){
         address.product = product.map(item => {
             return {
                     article: item.article,
@@ -65,9 +69,12 @@ function ModalOrder({product, address, removeAllCart}) {
           removeAllCart()})
         .catch(e =>  setResOrders(res.error))
         setModalOpen(true)
-    }else if(Object.keys(address).length === 0){
-        setResOrders(res.noAddress)
+    }else if(!address.number){
+        setResOrders(res.noNumber)
         setModalOpen(true)
+    }else if(!address.addressPost){
+      setResOrders(res.noAddress)
+      setModalOpen(true)
     }else{
         setResOrders(res.noBaskets)
         setModalOpen(true)
